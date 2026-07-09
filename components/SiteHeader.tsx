@@ -11,7 +11,7 @@ export function SiteHeader({ active }: { active?: NavKey }) {
     <header className="sticky top-0 z-50 border-b border-line-faint bg-paper/90 backdrop-blur-sm">
       <div className="mx-auto flex h-[57px] max-w-content items-center justify-between px-6 sm:px-14">
         <Link
-          href="/about"
+          href="/"
           className="font-display text-[13px] tracking-[0.07em] text-ink"
         >
           {SITE.name}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Figure } from "@/components/Figure";
 import { SITE } from "@/lib/content";
 
 export default function Home() {
@@ -16,12 +15,18 @@ export default function Home() {
         </header>
 
         <div className="flex flex-col items-center gap-10 sm:flex-row sm:gap-20">
-          <Figure
-            imageKey="home-reel"
-            label="Design & wireframe reel"
-            className="aspect-[771/459] w-full sm:flex-1"
-            rounded="rounded-[2px]"
-          />
+          <div className="relative aspect-[771/459] w-full overflow-hidden rounded-[2px] bg-card sm:flex-1">
+            <video
+              src="/videos/intro-hero.mp4"
+              poster="/images/home-reel.png"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Design & wireframe reel"
+              className="h-full w-full object-cover"
+            />
+          </div>
           <Link
             href="/about"
             className="inline-flex h-14 shrink-0 items-center justify-center rounded-full border-2 border-stroke bg-paper px-7 font-mono text-[18px] text-stroke transition-colors hover:bg-ink hover:text-paper"
