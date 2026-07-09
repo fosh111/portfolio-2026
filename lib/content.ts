@@ -2,8 +2,7 @@ export const SITE = {
   name: "Jose R. Parra",
   role: "Snr. Product/Industrial/VR Designer",
   linkedin: "https://www.linkedin.com/in/fozsh",
-  // TODO: replace with your real contact email
-  email: "hello@joseparra.design",
+  email: "josephparra.design@gmail.com",
   year: 2026,
 };
 
