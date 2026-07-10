@@ -30,8 +30,21 @@ export function TellMeMore({ children }: { children: React.ReactNode }) {
         aria-expanded={open}
         className="group flex w-full items-center justify-center gap-1.5 py-4"
       >
-        <span className="font-serif text-[24px] text-ink">
-          {open ? "less" : "tell me more"}
+        <span className="whitespace-nowrap font-serif text-[24px]">
+          {open ? (
+            <span className="text-ink transition-colors duration-200 group-hover:text-muted">
+              less
+            </span>
+          ) : (
+            <>
+              <span className="text-ink transition-colors duration-200 group-hover:text-muted">
+                tell me
+              </span>{" "}
+              <span className="text-muted transition-colors duration-200 group-hover:text-ink">
+                more
+              </span>
+            </>
+          )}
         </span>
         <svg
           width="16"
