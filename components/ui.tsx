@@ -23,14 +23,16 @@ export function AccentTitle({
   lead,
   accent,
   className = "",
+  leadClassName = "text-ink",
 }: {
   lead: string;
   accent: string;
   className?: string;
+  leadClassName?: string;
 }) {
   return (
     <span className={`font-serif ${className}`}>
-      <span className="text-ink">{lead} </span>
+      <span className={leadClassName}>{lead} </span>
       <span className="italic text-muted">{accent}</span>
     </span>
   );

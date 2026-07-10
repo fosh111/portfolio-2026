@@ -6,6 +6,27 @@ import { CASE_STUDIES } from "@/lib/content";
 import { Figure } from "./Figure";
 import { AccentTitle, Dot } from "./ui";
 
+function ArrowIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M3 10H17M17 10L12 5M17 10L12 15"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function CaseStudyMenu() {
   const [active, setActive] = useState(CASE_STUDIES[0].slug);
   const activeStudy =
@@ -19,7 +40,9 @@ export function CaseStudyMenu() {
           const isActive = c.slug === active;
           const inner = (
             <div
-              className="group flex items-center justify-between gap-4 px-1 py-8"
+              className={`group flex items-center justify-between gap-4 px-6 py-8 transition-colors duration-200 ${
+                isActive ? "bg-panel" : ""
+              }`}
               onMouseEnter={() => setActive(c.slug)}
               onFocus={() => setActive(c.slug)}
             >
@@ -37,6 +60,9 @@ export function CaseStudyMenu() {
                   lead={c.titleLead}
                   accent={c.titleAccent}
                   className="text-[24px] leading-tight"
+                  leadClassName={`transition-colors duration-200 ${
+                    isActive ? "text-white" : "text-ink"
+                  }`}
                 />
                 <div className="mt-1 flex flex-wrap items-center gap-4">
                   {c.tags.map((t) => (
@@ -49,14 +75,22 @@ export function CaseStudyMenu() {
                   ))}
                 </div>
               </div>
-              <span
-                className={`font-mono text-lg transition-transform ${
-                  isActive ? "text-ink" : "text-muted-light"
-                } ${c.available ? "group-hover:-translate-y-0.5" : ""}`}
-                aria-hidden
-              >
-                {c.available ? "↗" : "•"}
-              </span>
+              {c.available ? (
+                <ArrowIcon
+                  className={`shrink-0 transition-all duration-200 ease-out group-hover:translate-x-0.5 ${
+                    isActive ? "text-white" : "text-ink"
+                  }`}
+                />
+              ) : (
+                <span
+                  className={`shrink-0 font-mono text-lg transition-colors duration-200 ${
+                    isActive ? "text-white" : "text-muted-light"
+                  }`}
+                  aria-hidden
+                >
+                  •
+                </span>
+              )}
             </div>
           );
 
