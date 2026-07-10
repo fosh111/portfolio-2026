@@ -28,9 +28,8 @@ function ArrowIcon({ className = "" }: { className?: string }) {
 }
 
 export function CaseStudyMenu() {
-  const [active, setActive] = useState(CASE_STUDIES[0].slug);
-  const activeStudy =
-    CASE_STUDIES.find((c) => c.slug === active) ?? CASE_STUDIES[0];
+  const [active, setActive] = useState<string | null>(null);
+  const activeStudy = CASE_STUDIES.find((c) => c.slug === active) ?? null;
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,512px)_minmax(0,1fr)] md:items-stretch">
@@ -45,6 +44,8 @@ export function CaseStudyMenu() {
               }`}
               onMouseEnter={() => setActive(c.slug)}
               onFocus={() => setActive(c.slug)}
+              onMouseLeave={() => setActive(null)}
+              onBlur={() => setActive(null)}
             >
               <div className="flex flex-col gap-[6px]">
                 <div className="flex items-center gap-2">
@@ -123,8 +124,12 @@ export function CaseStudyMenu() {
       <div className="hidden md:block">
         <div className="sticky top-24">
           <Figure
-            imageKey={`thumb-${activeStudy.slug}`}
-            label={`${activeStudy.company} — ${activeStudy.titleLead} ${activeStudy.titleAccent}${activeStudy.available ? "" : " · coming soon"}`}
+            imageKey={activeStudy ? `thumb-${activeStudy.slug}` : "menu-default"}
+            label={
+              activeStudy
+                ? `${activeStudy.company} — ${activeStudy.titleLead} ${activeStudy.titleAccent}${activeStudy.available ? "" : " · coming soon"}`
+                : "Selected case studies"
+            }
             className="aspect-square w-full"
             rounded="rounded-[2px]"
           />

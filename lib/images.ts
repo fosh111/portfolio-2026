@@ -25,6 +25,7 @@ export const IMAGES: Record<string, string> = {
   "thumb-convokelab-hover": "/images/thumb-convokelab-hover.png",
   "thumb-forage-hover": "/images/thumb-forage-hover.png",
   "home-reel": "/images/home-reel.png",
+  "menu-default": "/images/menu-default.png",
 };
 
 export function img(key: string): string {
