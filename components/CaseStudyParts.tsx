@@ -28,19 +28,29 @@ export function TellMeMore({ children }: { children: React.ReactNode }) {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-center justify-center gap-1.5 py-4"
+        className="group flex w-full items-center justify-center gap-1.5 py-4"
       >
         <span className="font-serif text-[24px] text-ink">
           {open ? "less" : "tell me more"}
         </span>
-        <span
-          className={`font-mono text-sm text-ink transition-transform ${
-            open ? "rotate-90" : ""
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+          className={`shrink-0 text-muted transition-all duration-200 ease-out group-hover:text-ink ${
+            open ? "rotate-180" : ""
           }`}
-          aria-hidden
         >
-          ›
-        </span>
+          <path
+            d="M4 6L8 10L12 6"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
       {open && (
         <div className="pb-8 text-[15px] leading-relaxed text-ink">
