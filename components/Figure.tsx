@@ -2,18 +2,21 @@ import { img } from "@/lib/images";
 
 export function Figure({
   imageKey,
+  hoverImageKey,
   label,
   className = "",
   rounded = "rounded-none",
   labelClassName = "",
 }: {
   imageKey: string;
+  hoverImageKey?: string;
   label?: string;
   className?: string;
   rounded?: string;
   labelClassName?: string;
 }) {
   const src = img(imageKey);
+  const hoverSrc = hoverImageKey ? img(hoverImageKey) : "";
 
   if (src) {
     return (
@@ -22,8 +25,19 @@ export function Figure({
         <img
           src={src}
           alt={label ?? ""}
-          className="h-full w-full object-cover"
+          className={`h-full w-full object-cover ${
+            hoverSrc ? "transition-opacity duration-300 ease-out group-hover:opacity-0" : ""
+          }`}
         />
+        {hoverSrc && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={hoverSrc}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+          />
+        )}
       </div>
     );
   }

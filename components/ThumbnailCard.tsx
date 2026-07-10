@@ -7,6 +7,7 @@ export function ThumbnailCard({ study }: { study: CaseStudySummary }) {
     <div className="group relative aspect-square w-full overflow-hidden rounded-[2px] bg-card">
       <Figure
         imageKey={`thumb-${study.slug}`}
+        hoverImageKey={`thumb-${study.slug}-hover`}
         label={`${study.titleLead} ${study.titleAccent}`}
         className="absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-[1.02]"
       />

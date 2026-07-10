@@ -20,6 +20,10 @@ export const IMAGES: Record<string, string> = {
   "thumb-cba": "/images/thumb-cba.png",
   "thumb-convokelab": "/images/thumb-convokelab.png",
   "thumb-forage": "/images/thumb-forage.png",
+  "thumb-qantas-hover": "/images/thumb-qantas-hover.png",
+  "thumb-cba-hover": "/images/thumb-cba-hover.png",
+  "thumb-convokelab-hover": "/images/thumb-convokelab-hover.png",
+  "thumb-forage-hover": "/images/thumb-forage-hover.png",
   "home-reel": "/images/home-reel.png",
 };
 
