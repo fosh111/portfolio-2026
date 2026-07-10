@@ -2,6 +2,7 @@ import { PageChrome } from "@/components/PageChrome";
 import { Container } from "@/components/Container";
 import { ExperienceList } from "@/components/ExperienceList";
 import { SITE, EXPERIENCE_INTRO } from "@/lib/content";
+import { LinkOutButton } from "@/components/LinkOutButton";
 
 export const metadata = {
   title: "Experience — Jose R. Parra",
@@ -25,14 +26,7 @@ export default function ExperiencePage() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <a
-            href={SITE.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="font-serif text-[24px] text-ink underline decoration-from-font underline-offset-2"
-          >
-            more on <span className="italic text-muted">linkedin</span>
-          </a>
+          <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
         </div>
       </Container>
     </PageChrome>

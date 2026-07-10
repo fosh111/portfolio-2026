@@ -4,6 +4,7 @@ import { Figure } from "@/components/Figure";
 import { CaseStudyMenu } from "@/components/CaseStudyMenu";
 import { ExperienceList } from "@/components/ExperienceList";
 import { SectionLabel } from "@/components/ui";
+import { LinkOutButton } from "@/components/LinkOutButton";
 import { ABOUT, SITE } from "@/lib/content";
 
 export default function AboutPage() {
@@ -51,14 +52,7 @@ export default function AboutPage() {
       {/* LinkedIn CTA */}
       <Container width="inner" className="mt-16">
         <div className="flex justify-center">
-          <a
-            href={SITE.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="font-serif text-[24px] text-ink underline decoration-from-font underline-offset-2"
-          >
-            more on <span className="italic text-muted">linkedin</span>
-          </a>
+          <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
         </div>
       </Container>
     </PageChrome>
