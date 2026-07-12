@@ -899,7 +899,7 @@ export function CBACarousel() {
   return (
     <div className="flex flex-col items-center gap-4">
       <div
-        className="relative aspect-[1170/893] w-full overflow-hidden rounded-[2px] bg-card"
+        className="relative aspect-[1170/577] w-full overflow-hidden rounded-[2px] bg-card"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
