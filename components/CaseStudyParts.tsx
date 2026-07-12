@@ -648,37 +648,68 @@ export function QantasCarousel() {
         onTouchEnd={onTouchEnd}
       >
         {slide.kind === "video" ? (
-          <>
+          slide.layout === "split" ? (
+            // "new-ui": text on the left, media on the right, both vertically
+            // centered with breathing room top/bottom/sides — matches Figma's
+            // slide-preview-container padding (113px/46px on a 1170x893 frame)
+            <div className="absolute inset-0 flex items-center bg-card px-[9.66%] py-[5.15%]">
+              <div className="flex w-full items-center gap-x-[6%] sm:gap-x-[10%] md:gap-x-[21.2%]">
+                <div className="flex w-[38%] shrink-0 flex-col items-start gap-1 text-left sm:w-[30%] md:w-[27.86%]">
+                  <p className="font-mono text-[11px] font-medium leading-snug tracking-[0.03em] text-ink sm:text-[14px] md:text-[16px]">
+                    {slide.captionTitle}
+                  </p>
+                  <p className="font-mono text-[9px] leading-snug tracking-[0.03em] text-muted sm:text-[11px] md:text-[13px]">
+                    {slide.captionSubtitle}
+                  </p>
+                </div>
+                <div className="relative h-full flex-1 overflow-hidden rounded-[16px] sm:rounded-[24px]">
+                  {slide.videoSrc ? (
+                    <video
+                      src={slide.videoSrc}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      aria-hidden="true"
+                      className="h-full w-full object-contain blur-[5px]"
+                    />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={img(slide.posterKey)}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-contain blur-[5px]"
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : (
+            // "sneak-peak": full-bleed background image with the caption
+            // positioned lower-left on top of it, matching Figma's
+            // slide-preview-overlay (left 57px / top 583px on 1170x893)
             <div className="absolute inset-0">
-              {slide.videoSrc ? (
-                <video
-                  src={slide.videoSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-hidden="true"
-                  className="h-full w-full object-contain blur-[5px]"
-                />
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={img(slide.posterKey)}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full scale-105 object-cover blur-[5px]"
-                />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={img(slide.posterKey)}
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full scale-105 object-cover blur-[5px]"
+              />
+              <div
+                className="absolute flex w-[45%] flex-col items-start gap-1 text-left sm:w-[34%] md:w-[27.86%]"
+                style={{ left: "4.87%", top: "65.29%" }}
+              >
+                <p className="font-mono text-[11px] font-medium leading-snug tracking-[0.03em] text-ink sm:text-[14px] md:text-[16px]">
+                  {slide.captionTitle}
+                </p>
+                <p className="font-mono text-[9px] leading-snug tracking-[0.03em] text-muted sm:text-[11px] md:text-[13px]">
+                  {slide.captionSubtitle}
+                </p>
+              </div>
             </div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
-              <p className="font-mono text-[13px] uppercase tracking-[0.05em] text-ink sm:text-[14px]">
-                {slide.captionTitle}
-              </p>
-              <p className="font-mono text-[13px] uppercase tracking-[0.05em] text-muted sm:text-[14px]">
-                {slide.captionSubtitle}
-              </p>
-            </div>
-          </>
+          )
         ) : (
           <>
             {/* Background image(s) — either a single cover image, or a pixel-accurate
@@ -741,14 +772,14 @@ export function QantasCarousel() {
                     {slide.tabLabel}
                   </p>
                 </div>
-                <div className="mt-auto max-h-[55%] overflow-y-auto px-6 pb-14 pt-6 text-left font-mono text-[13px] font-normal leading-relaxed text-white/90 sm:text-[14px]">
+                <div className="mt-auto max-h-[82%] overflow-y-auto px-6 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:text-[13px]">
                   {slide.intro.map((p, i) => (
-                    <p key={`intro-${i}`} className="mb-3">
+                    <p key={`intro-${i}`} className="mb-2">
                       {p}
                     </p>
                   ))}
                   {slide.bullets && (
-                    <ul className="mb-3 space-y-2">
+                    <ul className="mb-2 space-y-1.5">
                       {slide.bullets.map((b, i) => (
                         <li key={`bullet-${i}`}>
                           <span className="font-bold text-white">{b.label}</span>{" "}
@@ -758,7 +789,7 @@ export function QantasCarousel() {
                     </ul>
                   )}
                   {slide.outro?.map((p, i) => (
-                    <p key={`outro-${i}`} className="mb-3">
+                    <p key={`outro-${i}`} className="mb-2">
                       {p}
                     </p>
                   ))}
@@ -776,28 +807,24 @@ export function QantasCarousel() {
           </>
         )}
 
-        {/* Prev/next controls — present on the collapsed state for every slide,
-            and always for video slides (which have no collapsed/expanded states) */}
-        {state !== "expanded" && (
-          <>
-            <button
-              type="button"
-              onClick={goPrev}
-              aria-label="Previous slide"
-              className="absolute left-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:left-6"
-            >
-              <ChevronIcon direction="left" />
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              aria-label="Next slide"
-              className="absolute right-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:right-6"
-            >
-              <ChevronIcon direction="right" />
-            </button>
-          </>
-        )}
+        {/* Prev/next controls — always present, on every slide and every state
+            (including expanded), so the user can browse without closing first */}
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label="Previous slide"
+          className="absolute left-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:left-6"
+        >
+          <ChevronIcon direction="left" />
+        </button>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Next slide"
+          className="absolute right-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:right-6"
+        >
+          <ChevronIcon direction="right" />
+        </button>
       </div>
 
       {/* Below-media nav row: short description + left/right arrows, always jumps to the collapsed state */}

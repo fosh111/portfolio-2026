@@ -706,6 +706,10 @@ export type QantasCarouselVideoSlide = {
   videoSrc?: string;
   captionTitle: string;
   captionSubtitle: string;
+  /** "split" = text left / media right, both vertically centered (new-ui).
+   *  "overlay" = full-bleed background image with the caption positioned
+   *  lower-left on top of it (sneak-peak). */
+  layout: "split" | "overlay";
 };
 
 export type QantasCarouselSlide =
@@ -721,6 +725,7 @@ export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
     videoSrc: "/videos/qantas-new-ui.mp4",
     captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
     captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+    layout: "split",
   },
   {
     kind: "detail",
@@ -869,5 +874,6 @@ export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
     posterKey: "carousel-qantas-sneak-peak",
     captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
     captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+    layout: "overlay",
   },
 ];
