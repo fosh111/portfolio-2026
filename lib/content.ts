@@ -205,6 +205,28 @@ export type CbaExpandedCaseStudy = {
   closingBody: string;
 };
 
+export type ConvokelabPivotColumn = { label: string; body: string; bold?: boolean };
+export type ConvokelabPhase = { title: string; body: string };
+export type ConvokelabIntervention = { title: string; body: string };
+export type ConvokelabMilestone = { label: string; body: string };
+
+export type ConvokelabExpandedCaseStudy = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  stats: ExpandedStat[];
+  pivotTitle: string;
+  pivotColumns: ConvokelabPivotColumn[];
+  methodologyTitle: string;
+  phases: ConvokelabPhase[];
+  interventionsTitle: string;
+  interventions: ConvokelabIntervention[];
+  milestonesTitle: string;
+  milestones: ConvokelabMilestone[];
+  closingTitle: string;
+  closingBody: string;
+};
+
 export type CaseStudyDetail = {
   slug: string;
   company: string;
@@ -219,6 +241,7 @@ export type CaseStudyDetail = {
   processNote: string;
   expanded?: ExpandedCaseStudy;
   cbaExpanded?: CbaExpandedCaseStudy;
+  convokelabExpanded?: ConvokelabExpandedCaseStudy;
 };
 
 export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
@@ -563,6 +586,91 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     ],
     processNote:
       "Coming soon — a teaser of the AI-native workflows and design system is on the way.",
+    convokelabExpanded: {
+      eyebrow: "Intro — The Big Picture",
+      headline:
+        "Designing the intelligent operational co-pilot for frontline hospitality",
+      intro:
+        "As the founding product designer, I led end-to-end UX strategy to strip heavy administration out of workforce management, replacing fragmented spreadsheets and WhatsApp threads with an AI-native, intuitive platform purpose-built for fast-paced venue operators.",
+      stats: [
+        { value: "Pre-Seed", label: "Funding secured" },
+        { value: "Live Pilots", label: "Hotel deployments" },
+        { value: "AI native", label: "Platform" },
+        { value: "DS", label: "Master design system" },
+      ],
+      pivotTitle: "The Strategic Pivot",
+      pivotColumns: [
+        {
+          label: "The Problem",
+          body: "Legacy spreadsheets and disconnected WhatsApp threads could not scale. Onboarding, compliance, performance, and training updates lived across a fragmented mess, pulling managers away from the floor and costing money.",
+        },
+        {
+          label: "My Reframing",
+          body: "Strip administrative debt entirely. Build a lightweight, intelligent co-pilot rather than a heavy HR database, one that works at the speed of a frontline venue.",
+        },
+        {
+          label: "The Design Brief",
+          body: "How might we move a venue manager from reactive fire-fighting to proactive, AI-guided people operations?",
+          bold: true,
+        },
+      ],
+      methodologyTitle: "Executive Leadership & Methodology",
+      phases: [
+        {
+          title: "Discovery & Framing",
+          body: "Active user research and testing with real venue operators to identify the highest-leverage pain points and validate the problem space before any design commitment.",
+        },
+        {
+          title: "AI-Centered UX",
+          body: "Moved away from static data-entry fields toward dynamic, assistive interfaces, predictive workflows, intelligent defaults, and automated smart formatting.",
+        },
+        {
+          title: "Lean Execution",
+          body: "Weekly synchronous alignments to lock feature scopes, balanced with continuous asynchronous documentation in Figma to allow engineering to build with precision.",
+        },
+        {
+          title: "Validation & Iteration",
+          body: "Iteratively shipped low- to high-fidelity clickable prototypes to rapidly de-risk features before committing engineering capital.",
+        },
+      ],
+      interventionsTitle: "High-Impact Design Interventions",
+      interventions: [
+        {
+          title: "Predictive Workflow Surfaces",
+          body: "Surfaced critical training gaps, performance reports, and onboarding bottlenecks before a manager actively had to query the system, transforming the tool from reactive database to proactive advisor.",
+        },
+        {
+          title: "Cognitive Load Reduction System",
+          body: "Introduced intelligent defaults and automated smart formatting that allow a user to complete complex people-management tasks in seconds while on the move. Designed for thumbs, noise, and zero desk time.",
+        },
+        {
+          title: "Human-Centered AI Transparency",
+          body: "Designed clear system feedback states so non-technical venue operators implicitly understand and trust the automated logic running in the background, removing the black-box anxiety common in AI tools.",
+        },
+        {
+          title: "Investor-Grade Pitch Materials",
+          body: "Authored comprehensive design narratives and interaction systems used in pitch materials for successful early-stage venture conversations, including ongoing positioning for Y Combinator pipelines.",
+        },
+      ],
+      milestonesTitle: "Key Strategic Milestones Delivered",
+      milestones: [
+        {
+          label: "Investor Mobilization",
+          body: "Comprehensive design narratives and interaction systems for successful pre-seed funding round and YC pipeline positioning.",
+        },
+        {
+          label: "Systemic Foundation",
+          body: "Built the company's inaugural master design system, typographic hierarchies, colour frameworks, and layout grids that scale from MVP to multi-venue enterprise deployment.",
+        },
+        {
+          label: "Rapid Validation",
+          body: "Discovery frameworks, active user testing with venue operators, and iterative low- to high-fidelity prototypes to de-risk features before engineering commitment.",
+        },
+      ],
+      closingTitle: "The Outcome",
+      closingBody:
+        "Convoke Lab successfully evolved from an abstract operational concept into a highly polished, investor-backed SaaS architecture currently deployed across live pilot in selected hotels, proving that intelligent, AI-native design can fundamentally modernise how people are managed in fast-paced environments.",
+    },
   },
 };
 

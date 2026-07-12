@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import type { Metric, ExpandedCaseStudy, CbaExpandedCaseStudy } from "@/lib/content";
+import type {
+  Metric,
+  ExpandedCaseStudy,
+  CbaExpandedCaseStudy,
+  ConvokelabExpandedCaseStudy,
+} from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -310,6 +315,162 @@ export function CbaExpandedContent({
           </p>
         </div>
         <p className="text-[18px] leading-[1.45] text-ink sm:text-[20px]">
+          {detail.closingBody}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function ConvokelabExpandedContent({
+  detail,
+}: {
+  detail: ConvokelabExpandedCaseStudy;
+}) {
+  return (
+    <div className="mx-auto flex w-full max-w-[1010px] flex-col gap-16 px-0 pb-16 pt-2 text-left sm:gap-[88px] sm:px-10">
+      {/* Intro */}
+      <div className="flex flex-col gap-6 sm:gap-8">
+        <div className="flex flex-col gap-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-[#b5541a]">
+            {detail.eyebrow}
+          </p>
+          <h3 className="font-display text-[36px] leading-[1.1] text-[#1a0f0a] sm:text-[56px]">
+            {detail.headline}
+          </h3>
+          <p className="max-w-[800px] text-[16px] leading-[1.45] text-[#6d6860] sm:text-[18px]">
+            {detail.intro}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-6 sm:flex sm:items-start sm:gap-6">
+          {detail.stats.map((s) => (
+            <div key={s.label} className="flex flex-col gap-2 sm:flex-1">
+              <p className="font-display text-[32px] leading-none text-[#1a0f0a] sm:text-[48px]">
+                {s.value}
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-muted">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Strategic pivot */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-[#6d6860] sm:text-[32px]">
+            {detail.pivotTitle}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
+          {detail.pivotColumns.map((col) => (
+            <div key={col.label} className="flex flex-col gap-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-muted">
+                {col.label}
+              </p>
+              <p
+                className={`text-[14px] leading-[1.45] text-[#6d6860] ${
+                  col.bold ? "font-bold text-[#1a0f0a]" : ""
+                }`}
+              >
+                {col.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Methodology */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-[#6d6860] sm:text-[32px]">
+            {detail.methodologyTitle}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {detail.phases.map((p, i) => (
+            <div
+              key={p.title}
+              className="flex flex-col gap-3 rounded-lg bg-metric p-6"
+            >
+              <p className="font-mono text-[24px] tracking-[0.06em] text-muted-light">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <div className="flex flex-col gap-2">
+                <p className="text-[16px] font-bold text-[#1a0f0a]">
+                  {p.title}
+                </p>
+                <p className="text-[14px] leading-[1.45] text-[#6d6860]">
+                  {p.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Interventions */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-[#6d6860] sm:text-[32px]">
+            {detail.interventionsTitle}
+          </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          {detail.interventions.map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col gap-2 rounded-lg bg-metric p-6 sm:p-8"
+            >
+              <p className="text-[17px] font-bold text-[#1a0f0a] sm:text-[18px]">
+                {item.title}
+              </p>
+              <p className="text-[15px] leading-[1.45] text-[#6d6860] sm:text-[16px]">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Milestones */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-[#6d6860] sm:text-[32px]">
+            {detail.milestonesTitle}
+          </p>
+        </div>
+        <div className="flex flex-col">
+          {detail.milestones.map((m) => (
+            <div
+              key={m.label}
+              className="flex flex-col gap-2 border-b border-line py-4 sm:flex-row sm:items-center sm:gap-6"
+            >
+              <p className="w-[220px] shrink-0 font-mono text-[12px] uppercase tracking-[0.05em] text-muted sm:text-[13px]">
+                {m.label}
+              </p>
+              <p className="flex-1 text-[13px] leading-[1.45] text-[#1a0f0a] sm:text-[14px]">
+                {m.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Closing */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-[#6d6860] sm:text-[32px]">
+            {detail.closingTitle}
+          </p>
+        </div>
+        <p className="text-[18px] leading-[1.45] text-[#1a0f0a] sm:text-[20px]">
           {detail.closingBody}
         </p>
       </div>

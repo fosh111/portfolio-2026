@@ -6,6 +6,7 @@ import {
   TellMeMore,
   ExpandedCaseStudyContent,
   CbaExpandedContent,
+  ConvokelabExpandedContent,
 } from "./CaseStudyParts";
 import { SectionLabel, Divider, Dot, PillLink } from "./ui";
 import { CASE_STUDIES, type CaseStudyDetail } from "@/lib/content";
@@ -118,6 +119,8 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
           <TellMeMore>
             {study.cbaExpanded ? (
               <CbaExpandedContent detail={study.cbaExpanded} />
+            ) : study.convokelabExpanded ? (
+              <ConvokelabExpandedContent detail={study.convokelabExpanded} />
             ) : study.expanded ? (
               <ExpandedCaseStudyContent detail={study.expanded} />
             ) : (
