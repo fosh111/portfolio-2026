@@ -889,6 +889,15 @@ export type CbaCarouselImageLayer = {
   rounded?: boolean;
 };
 
+export type CbaCarouselCaption = {
+  top: number;
+  left: number;
+  width: number;
+  label: string;
+  body: string;
+  muted?: boolean;
+};
+
 export type CbaCarouselSlide = {
   id: string;
   tabLabel: string;
@@ -897,6 +906,12 @@ export type CbaCarouselSlide = {
   intro: string[];
   bullets?: CbaCarouselBullet[];
   outro?: string[];
+  /** When true, this slide has no "tell me more" toggle at all — it only
+   *  ever renders its default/static view (no tint, no expand/collapse). */
+  noToggle?: boolean;
+  /** Always-visible inline captions composited directly over the media,
+   *  used by static (noToggle) slides like "ut-insights". */
+  captions?: CbaCarouselCaption[];
 };
 
 export const CBA_CAROUSEL: CbaCarouselSlide[] = [
@@ -904,10 +919,8 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
     id: "intro",
     tabLabel: "WEB STILLS FLOW VIDEO",
     imageKey: "carousel-cba-intro",
-    intro: [
-      "This flow captures the reimagined CBA credit card web application end-to-end \u2014 from the very first screen through real-time identity verification, live underwriting, and final approval.",
-      "A rigid, document-style form became a dynamic, conversational interface that walks applicants through each step in context, replacing static disclosures with in-line guidance and instant validation.",
-    ],
+    noToggle: true,
+    intro: [],
   },
   {
     id: "mobile-design",
@@ -1017,11 +1030,31 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
       { imageKey: "carousel-cba-ut-insights-2", top: 0.173, left: 60.171, width: 39.829, height: 99.827 },
       { imageKey: "carousel-cba-ut-insights-3", top: 0, left: 45.556, width: 12.821, height: 87.868 },
     ],
+    noToggle: true,
     intro: [],
-    bullets: [
-      { label: "Checkbox \u2013 data control and consent:", body: "Through research collaboration and usability testing, we identified that users valued having control over how their data was being used. Even when faster approval was an option, transparency and consent were more important. Introducing a checkbox allowed users to feel empowered in the process, balancing speed with trust." },
-      { label: "Product Downgrade \u2014 transforming rejection into choice:", body: "Rather than defaulting to an outright decline, we engineered a dynamic path offering eligible users lower-tier card alternatives aligned with their financial profiles. Validated through intense user testing, this cross-functional intervention championed responsible lending, preserved customer trust, and saved conversions at the very end of the funnel." },
-      { label: "Express approval \u2013 clarifying expectations:", body: "Working closely with Legal and Compliance and drawing from user testing insights, we discovered that users were often unfamiliar with the concept of on-the-spot approvals. To address this, we introduced a tooltip and a supporting sentence that clarified the feature. This not only reduced confusion but also acted as a subtle nudge to align user expectations with the process." },
+    captions: [
+      {
+        top: 46.443,
+        left: 5.214,
+        width: 13.248,
+        label: "Checkbox \u2013 data control and consent:",
+        body: "Through research collaboration and usability testing, we identified that users valued having control over how their data was being used. Even when faster approval was an option, transparency and consent were more important. Introducing a checkbox allowed users to feel empowered in the process, balancing speed with trust.",
+      },
+      {
+        top: 20.624,
+        left: 62.650,
+        width: 10.598,
+        label: "Product Downgrade \u2014 transforming rejection into choice:",
+        body: "Rather than defaulting to an outright decline, we engineered a dynamic path offering eligible users lower-tier card alternatives aligned with their financial profiles. Validated through intense user testing, this cross-functional intervention championed responsible lending, preserved customer trust, and saved conversions at the very end of the funnel.",
+        muted: true,
+      },
+      {
+        top: 28.249,
+        left: 34.701,
+        width: 9.658,
+        label: "Express approval \u2013 clarifying expectations:",
+        body: "Working closely with Legal and Compliance and drawing from user testing insights, we discovered that users were often unfamiliar with the concept of on-the-spot approvals. To address this, we introduced a tooltip and a supporting sentence that clarified the feature. This not only reduced confusion but also acted as a subtle nudge to align user expectations with the process.",
+      },
     ],
   },
   {
@@ -1062,23 +1095,6 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
     ],
     outro: [
       "By bridging the gap between approval and fulfillment, we slashed speed-to-transact from 15 days down to just 60 seconds post-approval, driving immediate digital adoption with over 70% of users activating their cards instantly. This strategic intervention transformed a high-friction legacy operational delay into a seamless, high-converting customer win that completely bypassed physical mail dependencies and directly lifted early-stage NPS.",
-    ],
-  },
-  {
-    id: "results",
-    tabLabel: "RESULTS",
-    intro: [],
-    bullets: [
-      { body: "Average time to complete the application dropped from 15 minutes to just 2.5 minutes." },
-      { body: "Submission rates exceeded 80%, showing strong engagement with the new flow." },
-      { body: "Instant approvals increased by over 10%, with overall instant approval rates reaching around 40% \u2014 demonstrating a clear uplift in both speed and conversion." },
-      { body: "Overall approval volumes also rose significantly, reflecting a more streamlined and accessible experience for a broader range of customers." },
-      { body: "Speed to transact dropped from up to 15 days to as little as 60 seconds after instant approval." },
-      { body: "From start of application to first purchase, the entire journey could now take as little as 3.5 minutes." },
-      { body: "Over 70% of approved users instantly activated their card digitally \u2014 without waiting for their physical card to arrive." },
-      { body: "Digital wallet adoption increased significantly, helping reduce reliance on physical cards." },
-      { body: "These improvements contributed to a measurable uplift in NPS, reinforcing the impact of a smoother, more user-friendly application journey." },
-      { body: "The work was recognised internally, winning a Customer Excellence Award within the bank." },
     ],
   },
 ];

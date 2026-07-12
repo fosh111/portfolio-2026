@@ -906,7 +906,7 @@ export function CBACarousel() {
         <div key={slide.id} className="absolute inset-0 qantas-dissolve">
           {/* Background image(s) — either a single cover image, a pixel-accurate
               multi-layer composite matching the exact Figma layout for this slide,
-              or (for text-only slides like "results") a plain neutral canvas */}
+              or (as a fallback) a plain neutral canvas */}
           <div className="absolute inset-0">
             {slide.layers ? (
               <div className="relative h-full w-full bg-[#e3e3e3]">
@@ -940,8 +940,31 @@ export function CBACarousel() {
             )}
           </div>
 
+          {/* Always-visible inline captions for static (noToggle) slides like
+              "ut-insights" — composited directly over the media, no tint, no toggle */}
+          {slide.captions && (
+            <div className="qantas-dissolve absolute inset-0">
+              {slide.captions.map((c, i) => (
+                <div
+                  key={i}
+                  className={`absolute text-right font-mono text-[9px] leading-snug tracking-[0.02em] sm:text-[11px] ${
+                    c.muted ? "text-[#555]" : "text-ink"
+                  }`}
+                  style={{
+                    top: `${c.top}%`,
+                    left: `${c.left}%`,
+                    width: `${c.width}%`,
+                  }}
+                >
+                  <p className="font-bold">{c.label}</p>
+                  <p>{c.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Expanded-state overlay tint, sits above the image and below the copy/controls */}
-          {state === "expanded" && (
+          {!slide.noToggle && state === "expanded" && (
             <div
               className="absolute inset-0 qantas-fade-in bg-[#2C2C2C]/90"
               aria-hidden="true"
@@ -949,8 +972,10 @@ export function CBACarousel() {
           )}
 
           {/* Collapsed state (the neutral/landing view): no overlays at all, just the
-              clean image plus the labeled '?' button to expand */}
-          {state === "collapsed" && (
+              clean image plus the labeled '?' button to expand. Slides marked
+              noToggle (e.g. "intro", "ut-insights") never show this button — they
+              only ever render their static default view. */}
+          {!slide.noToggle && state === "collapsed" && (
             <button
               type="button"
               onClick={() => setState("expanded")}
@@ -963,7 +988,7 @@ export function CBACarousel() {
           )}
 
           {/* Expanded state: full copy, closed via the 'x' button */}
-          {state === "expanded" && (
+          {!slide.noToggle && state === "expanded" && (
             <div className="qantas-rise-in absolute inset-0 flex flex-col">
               <div className="flex items-start px-12 pt-6 sm:px-14">
                 <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
