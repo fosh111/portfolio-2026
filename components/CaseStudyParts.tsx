@@ -683,11 +683,7 @@ export function QantasCarousel() {
           <>
             {/* Background image(s) — either a single cover image, or a pixel-accurate
                 multi-layer composite matching the exact Figma layout for this slide */}
-            <div
-              className={`absolute inset-0 transition-[filter] duration-300 ${
-                state === "expanded" ? "brightness-[0.55]" : ""
-              }`}
-            >
+            <div className="absolute inset-0">
               {slide.layers ? (
                 <div className="relative h-full w-full bg-card">
                   {slide.layers.map((layer, i) => (
@@ -718,16 +714,22 @@ export function QantasCarousel() {
               )}
             </div>
 
+            {/* Expanded-state overlay tint, sits above the image and below the copy/controls */}
+            {state === "expanded" && (
+              <div className="absolute inset-0 bg-[#2C2C2C]/90" aria-hidden="true" />
+            )}
+
             {/* Collapsed state (the default/neutral view): no overlays at all, just the
-                clean image plus the '?' button to expand */}
+                clean image plus the labeled '?' button to expand */}
             {state === "collapsed" && (
               <button
                 type="button"
                 onClick={() => setState("expanded")}
                 aria-label="Expand details"
-                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-colors hover:bg-white"
               >
                 <QuestionMarkIcon />
+                <span className="font-mono text-[12px] tracking-[0.05em]">tell me more</span>
               </button>
             )}
 
