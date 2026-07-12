@@ -603,44 +603,22 @@ function CloseIcon() {
   );
 }
 
-function ChevronUpDownIcon({ direction }: { direction: "up" | "down" }) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      className={direction === "up" ? "" : "rotate-180"}
-    >
-      <path
-        d="M4 10L8 6L12 10"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-type QantasSlideState = "default" | "collapsed" | "expanded";
+type QantasSlideState = "collapsed" | "expanded";
 
 export function QantasCarousel() {
   const slides: QantasCarouselSlide[] = QANTAS_CAROUSEL;
   const startIndex = slides.findIndex((s) => s.id === "new-ui");
   const [index, setIndex] = useState(startIndex === -1 ? 0 : startIndex);
-  const [state, setState] = useState<QantasSlideState>("default");
+  const [state, setState] = useState<QantasSlideState>("collapsed");
   const touchStartX = useState({ x: 0 })[0];
 
   const slide = slides[index];
-  const hasStates = slide.kind === "detail";
 
   function goTo(nextIndex: number) {
     const len = slides.length;
     const wrapped = ((nextIndex % len) + len) % len;
     setIndex(wrapped);
-    setState("default");
+    setState("collapsed");
   }
 
   function goNext() {
@@ -707,7 +685,7 @@ export function QantasCarousel() {
                 multi-layer composite matching the exact Figma layout for this slide */}
             <div
               className={`absolute inset-0 transition-[filter] duration-300 ${
-                state === "collapsed" ? "brightness-[0.4]" : "brightness-[0.55]"
+                state === "expanded" ? "brightness-[0.55]" : ""
               }`}
             >
               {slide.layers ? (
@@ -740,61 +718,28 @@ export function QantasCarousel() {
               )}
             </div>
 
-            {/* Collapsed state: just the tab label + '?' button */}
+            {/* Collapsed state (the default/neutral view): no overlays at all, just the
+                clean image plus the '?' button to expand */}
             {state === "collapsed" && (
-              <>
-                <div className="absolute left-6 top-6 right-16">
-                  <p className="font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
-                    {slide.tabLabel}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setState("expanded")}
-                  aria-label="Expand details"
-                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
-                >
-                  <QuestionMarkIcon />
-                </button>
-              </>
+              <button
+                type="button"
+                onClick={() => setState("expanded")}
+                aria-label="Expand details"
+                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+              >
+                <QuestionMarkIcon />
+              </button>
             )}
 
-            {/* Default state: tab label + chevron up to expand */}
-            {state === "default" && (
-              <>
-                <div className="absolute left-6 top-6 right-16">
-                  <p className="font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
-                    {slide.tabLabel}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setState("expanded")}
-                  aria-label="Expand details"
-                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
-                >
-                  <ChevronUpDownIcon direction="up" />
-                </button>
-              </>
-            )}
-
-            {/* Expanded state: scrollable full copy + chevron down to collapse to default + close to collapsed */}
+            {/* Expanded state: scrollable full copy, closed via the 'x' button */}
             {state === "expanded" && (
               <div className="absolute inset-0 flex flex-col">
-                <div className="flex items-start justify-between px-6 pt-6">
+                <div className="flex items-start px-6 pt-6">
                   <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
                     {slide.tabLabel}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => setState("default")}
-                    aria-label="Collapse to default"
-                    className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
-                  >
-                    <ChevronUpDownIcon direction="down" />
-                  </button>
                 </div>
-                <div className="mt-3 flex-1 overflow-y-auto px-6 pb-14 text-[13px] leading-relaxed text-white/90 sm:text-[14px]">
+                <div className="mt-3 flex-1 overflow-y-auto px-6 pb-14 font-mono text-[13px] font-normal leading-relaxed text-white/90 sm:text-[14px]">
                   {slide.intro.map((p, i) => (
                     <p key={`intro-${i}`} className="mb-3">
                       {p}
@@ -804,7 +749,7 @@ export function QantasCarousel() {
                     <ul className="mb-3 space-y-2">
                       {slide.bullets.map((b, i) => (
                         <li key={`bullet-${i}`}>
-                          <span className="font-semibold text-white">{b.label}</span>{" "}
+                          <span className="font-bold text-white">{b.label}</span>{" "}
                           {b.body}
                         </li>
                       ))}
@@ -829,8 +774,8 @@ export function QantasCarousel() {
           </>
         )}
 
-        {/* Prev/next controls — present on default and collapsed states for every slide,
-            and on video slides (which only have a default state) */}
+        {/* Prev/next controls — present on the collapsed state for every slide,
+            and always for video slides (which have no collapsed/expanded states) */}
         {state !== "expanded" && (
           <>
             <button
@@ -853,7 +798,7 @@ export function QantasCarousel() {
         )}
       </div>
 
-      {/* Below-media nav row: short description + left/right arrows, always jumps to default state */}
+      {/* Below-media nav row: short description + left/right arrows, always jumps to the collapsed state */}
       <div className="flex items-center gap-4">
         <button
           type="button"
