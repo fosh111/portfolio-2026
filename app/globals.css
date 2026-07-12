@@ -113,6 +113,10 @@ button:focus-visible {
 .qantas-fade-in {
   animation: qantas-fade-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+/* Dissolve used specifically for slide-to-slide navigation (prev/next) */
+.qantas-dissolve {
+  animation: qantas-fade-in 300ms ease-out both;
+}
 .qantas-rise-in {
   animation: qantas-rise-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }

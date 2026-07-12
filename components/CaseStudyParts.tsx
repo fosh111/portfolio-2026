@@ -647,7 +647,7 @@ export function QantasCarousel() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div key={slide.id} className="absolute inset-0 qantas-fade-in">
+        <div key={slide.id} className="absolute inset-0 qantas-dissolve">
         {slide.kind === "video" ? (
           slide.layout === "split" ? (
             // "new-ui": text on the left, media on the right, both vertically
@@ -842,7 +842,7 @@ export function QantasCarousel() {
         >
           ←
         </button>
-        <span key={slide.id} className="qantas-fade-in font-mono text-[14px] tracking-[0.05em] text-ink">
+        <span key={slide.id} className="qantas-dissolve max-w-[220px] text-center font-mono text-[14px] tracking-[0.05em] text-ink sm:max-w-[420px]">
           {slide.tabLabel}
         </span>
         <button
