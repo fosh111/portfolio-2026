@@ -877,3 +877,208 @@ export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
     layout: "overlay",
   },
 ];
+
+export type CbaCarouselBullet = { label?: string; body: string };
+
+export type CbaCarouselImageLayer = {
+  imageKey: string;
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+  rounded?: boolean;
+};
+
+export type CbaCarouselSlide = {
+  id: string;
+  tabLabel: string;
+  imageKey?: string;
+  layers?: CbaCarouselImageLayer[];
+  intro: string[];
+  bullets?: CbaCarouselBullet[];
+  outro?: string[];
+};
+
+export const CBA_CAROUSEL: CbaCarouselSlide[] = [
+  {
+    id: "intro",
+    tabLabel: "WEB STILLS FLOW VIDEO",
+    imageKey: "carousel-cba-intro",
+    intro: [
+      "This flow captures the reimagined CBA credit card web application end-to-end \u2014 from the very first screen through real-time identity verification, live underwriting, and final approval.",
+      "A rigid, document-style form became a dynamic, conversational interface that walks applicants through each step in context, replacing static disclosures with in-line guidance and instant validation.",
+    ],
+  },
+  {
+    id: "mobile-design",
+    tabLabel: "MOBILE DESIGNS",
+    layers: [
+      { imageKey: "carousel-cba-mobile-design-1", top: 3.466, left: 7.179, width: 12.821, height: 96.529 },
+      { imageKey: "carousel-cba-mobile-design-2", top: 3.466, left: 36.923, width: 12.222, height: 94.627 },
+      { imageKey: "carousel-cba-mobile-design-3", top: 3.466, left: 22.393, width: 12.137, height: 87.175 },
+      { imageKey: "carousel-cba-mobile-design-4", top: 3.466, left: 51.453, width: 12.222, height: 96.529 },
+      { imageKey: "carousel-cba-mobile-design-5", top: 3.466, left: 65.983, width: 12.222, height: 96.529 },
+      { imageKey: "carousel-cba-mobile-design-6", top: 3.466, left: 80.513, width: 12.222, height: 79.723 },
+    ],
+    intro: [
+      "These final screens represent a complete architectural overhaul of the application funnel. By integrating real-time government identity APIs and changing the design from a rigid document into a dynamic, conversational UI, we achieved record-breaking conversion metrics:",
+    ],
+    bullets: [
+      { label: "Zero Post-Approval Friction:", body: "The entire journey\u2014from starting the application to tapping at a terminal\u2014now takes as little as 3.5 minutes total." },
+      { label: "Time-to-Transact:", body: "From 15 days down to 60 seconds." },
+      { label: "Completion Rate:", body: "Accelerated past 80%." },
+      { label: "Digital Adoption:", body: "70%+ of users instantly provisioned to Apple/Android Wallets without waiting for plastic." },
+      { label: "Completion Velocity:", body: "Form completion time dropped from 15 minutes to 2.5 minutes." },
+      { label: "Impact:", body: "Awarded CBA's internal Customer Excellence Award." },
+    ],
+  },
+  {
+    id: "flow",
+    tabLabel: "FLOW BLUEPRINTS",
+    layers: [
+      { imageKey: "carousel-cba-flow-1", top: 0, left: 0, width: 99.658, height: 81.284 },
+      { imageKey: "carousel-cba-flow-2", top: 44.542, left: 4.615, width: 95.043, height: 55.460 },
+    ],
+    intro: [
+      "I didn't just reskin a form, we rearchitected the core onboarding engine using a modular, highly scalable design system approach. These blueprints demonstrate how we aligned Design components, technical data architecture, and legal compliance into a future-proof model.",
+    ],
+    bullets: [
+      { label: "The Flow Maps:", body: "Consolidate hundreds of possible scenario steps into core thematic phases (Identity, Employment, Income, Liabilities, Outcome...)." },
+      { label: "Scalable Architecture:", body: "Built a component-driven framework compatible with both old and new backend systems, allowing the bank to safely split traffic between platforms during the transition." },
+      { label: "Future-Proof Orchestration:", body: "Replaced slow, manual back-office tasks with instantaneous API lookups\u2014structured so the UI adapts seamlessly as legacy systems are progressively decommissioned." },
+    ],
+  },
+  {
+    id: "ab",
+    tabLabel: "EARLY A/B TEST VALIDATION",
+    layers: [
+      { imageKey: "carousel-cba-ab-1", top: 0, left: 0, width: 100, height: 100 },
+    ],
+    intro: [
+      "The UX Debate: \"One question per screen\" (conversational UX) vs. \"Thematic grouping\" (progressive disclosure).",
+      "To de-risk the crucial financial collection step, we ran a live-traffic A/B test against the legacy baseline to see which mental model converted better.",
+    ],
+    bullets: [
+      { label: "Variant A (Hyper-Fragmented):", body: "1 question per screen. (Employment Status \u2192 Next \u2192 Profession \u2192 Next \u2192 Income...)" },
+      { label: "Variant B (The Employment Blade):", body: "All related financial fields grouped into a single, progressive disclosure and dynamic UI. Sub-fields revealed themselves instantly via conditional logic based on the initial selection." },
+    ],
+    outro: [
+      "For high-stakes banking funnels, extreme fragmentation causes click-fatigue. Users want context. Grouping related inputs into a single progressive blade reduced anxiety, built trust, and set a new UX design standard across the bank.",
+    ],
+  },
+  {
+    id: "design-critique",
+    tabLabel: "DESIGN CRITIQUES AND EXPERIENCE ALIGNMENT",
+    layers: [
+      { imageKey: "carousel-cba-design-critique-1", top: 0, left: 0, width: 52.308, height: 71.578 },
+      { imageKey: "carousel-cba-design-critique-2", top: 71.578, left: 0, width: 51.197, height: 28.423 },
+      { imageKey: "carousel-cba-design-critique-3", top: 0, left: 51.966, width: 48.034, height: 96.882 },
+    ],
+    intro: [
+      "A credit card application shouldn't feel like a completely different app from a home loan or a transactional account opening. In a bank as massive as CBA, isolated product squads easily create fragmented customer journeys.",
+      "To scale consistency, I led a rigorous, collaborative design critique cadence bridging multiple product teams and the core design systems squad.",
+    ],
+    bullets: [
+      { label: "Cross-Product Alignment:", body: "Hosted regular critiques with Consumer Finance, Home Buying, Everyday Banking, and Wealth squads to align interaction behaviours and shared data steps across the entire retail bank ecosystem." },
+      { label: "Design System Partnership and Co-Creation:", body: "Partnered directly with the core Design System team, providing strategic input to shape, co-create, and build entirely new components tailored for high-density data capture. We stress-tested these new assets against intense regulatory demands, expanding the global bank library with highly reusable, production-ready patterns." },
+      { label: "Unified Experience Standards:", body: "Worked alongside accessibility specialists and copywriters to ensure error validations, tooltips, and legal consent models looked, sounded, and functioned identically across all digital entry points." },
+    ],
+    outro: [
+      "We didn't just ship a credit card flow\u2014we built a unified, WCAG 2.1 AA-compliant onboarding framework that adjacent teams across the bank used to accelerate their own platform migrations.",
+    ],
+  },
+  {
+    id: "stakeholder",
+    tabLabel: "STAKEHOLDER ALIGNMENT",
+    layers: [
+      { imageKey: "carousel-cba-stakeholder-1", top: 10.052, left: 2.906, width: 30.427, height: 73.831, rounded: true },
+      { imageKey: "carousel-cba-stakeholder-2", top: 2.946, left: 33.333, width: 59.231, height: 87.868, rounded: true },
+      { imageKey: "carousel-cba-stakeholder-3", top: 0, left: 64.957, width: 35.043, height: 93.762, rounded: true },
+    ],
+    intro: [
+      "Inside the \"Occupation Type\" selector, the legacy Credit Risk API strictly required \"Student\" to be listed as an option. The technical teams refused to modify this backend endpoint, demanding that the interface simply conform to their existing data schema.",
+      "We ran usability testing on the live flow and exposed a massive disconnect between backend architecture and human behavior:",
+    ],
+    bullets: [
+      { label: "System Gaming:", body: "Working students completely ignored the \"Student\" option. They selected \"Employed\" instead because they knew the bank only cares about income." },
+      { label: "Corrupted Data:", body: "The rigid API setup was actively forcing users to submit inaccurate occupation profiles just to progress through the application." },
+      { label: "Wasted Logic:", body: "The bank was collecting flawed risk data while adding unnecessary cognitive load to the user." },
+    ],
+    outro: [
+      "Armed with raw video clips of users bypassing the option, I led the cross-functional pushback. By proving that the rigid API logic directly caused corrupted data and funnel friction, I shifted the conversation from a subjective visual debate to a critical data-integrity priority.",
+      "The result? We successfully forced the Credit Risk team to completely refactor their backend infrastructure\u2014a change they initially claimed was impossible.",
+    ],
+  },
+  {
+    id: "ut-insights",
+    tabLabel: "USER TESTING INSIGHTS",
+    layers: [
+      { imageKey: "carousel-cba-ut-insights-1", top: 0, left: 19.658, width: 12.821, height: 71.404 },
+      { imageKey: "carousel-cba-ut-insights-2", top: 0.173, left: 60.171, width: 39.829, height: 99.827 },
+      { imageKey: "carousel-cba-ut-insights-3", top: 0, left: 45.556, width: 12.821, height: 87.868 },
+    ],
+    intro: [],
+    bullets: [
+      { label: "Checkbox \u2013 data control and consent:", body: "Through research collaboration and usability testing, we identified that users valued having control over how their data was being used. Even when faster approval was an option, transparency and consent were more important. Introducing a checkbox allowed users to feel empowered in the process, balancing speed with trust." },
+      { label: "Product Downgrade \u2014 transforming rejection into choice:", body: "Rather than defaulting to an outright decline, we engineered a dynamic path offering eligible users lower-tier card alternatives aligned with their financial profiles. Validated through intense user testing, this cross-functional intervention championed responsible lending, preserved customer trust, and saved conversions at the very end of the funnel." },
+      { label: "Express approval \u2013 clarifying expectations:", body: "Working closely with Legal and Compliance and drawing from user testing insights, we discovered that users were often unfamiliar with the concept of on-the-spot approvals. To address this, we introduced a tooltip and a supporting sentence that clarified the feature. This not only reduced confusion but also acted as a subtle nudge to align user expectations with the process." },
+    ],
+  },
+  {
+    id: "delivery",
+    tabLabel: "DELIVERY",
+    layers: [
+      { imageKey: "carousel-cba-delivery-1", top: 2.253, left: 2.991, width: 12.821, height: 85.269 },
+      { imageKey: "carousel-cba-delivery-2", top: 2.253, left: 48.889, width: 51.111, height: 80.590 },
+      { imageKey: "carousel-cba-delivery-3", top: 2.253, left: 17.778, width: 12.821, height: 90.121 },
+      { imageKey: "carousel-cba-delivery-4", top: 2.253, left: 32.564, width: 12.821, height: 97.747 },
+    ],
+    intro: [
+      "Design doesn't end when the Figma file is approved. I embedded across multiple delivery squads to protect the design strategy and bridge the gap between vision, compliance, and production code.",
+    ],
+    bullets: [
+      { label: "Cross-Squad Execution:", body: "Partnered daily with front-end and back-end developers to ensure high-fidelity implementation of our new design system components." },
+      { label: "Edge Case Triage:", body: "Caught and resolved unmapped UX gaps during the build\u2014rapidly refining micro-copy, tweaking UI behaviors, and adapting to late-stage engineering constraints." },
+      { label: "Pragmatic Problem Solving:", body: "Acted as the primary user advocate, collaborating with Risk and Tech teams to make smart, fast design compromises without sacrificing the customer experience." },
+    ],
+    outro: [
+      "By maintaining a constant presence during the engineering cycle, we eliminated production line drift and ensured the final shipped application looked and functioned exactly as validated in user testing.",
+    ],
+  },
+  {
+    id: "stitching",
+    tabLabel: "STITCHING WITH INSTANT ACTIVATION",
+    layers: [
+      { imageKey: "carousel-cba-stitching-1", top: 0, left: 0, width: 100, height: 100 },
+    ],
+    intro: [
+      "Fast approval means nothing if the customer still has to wait a week for a plastic card to arrive in the mail.",
+      "I led the end-to-end strategy to stitch the credit card application directly to instant digital activation. We transformed a fragmented two-step process into one continuous journey, allowing users to safely provision their new card to Apple or Android Wallets the exact second they hit the \"Approved\" screen.",
+    ],
+    bullets: [
+      { label: "One-Tap Tokenization:", body: "Designed a seamless, frictionless transition that pushes active card credentials straight into digital wallets immediately post-approval." },
+      { label: "Ecosystem Alignment:", body: "Partnered across Product, Tech, Risk, and Compliance to navigate complex payment protocols without breaking the user's momentum." },
+      { label: "Continuous Optimization:", body: "Managed the entire lifecycle from discovery through post-launch, using real transaction data to fine-tune the transition edge cases." },
+    ],
+    outro: [
+      "By bridging the gap between approval and fulfillment, we slashed speed-to-transact from 15 days down to just 60 seconds post-approval, driving immediate digital adoption with over 70% of users activating their cards instantly. This strategic intervention transformed a high-friction legacy operational delay into a seamless, high-converting customer win that completely bypassed physical mail dependencies and directly lifted early-stage NPS.",
+    ],
+  },
+  {
+    id: "results",
+    tabLabel: "RESULTS",
+    intro: [],
+    bullets: [
+      { body: "Average time to complete the application dropped from 15 minutes to just 2.5 minutes." },
+      { body: "Submission rates exceeded 80%, showing strong engagement with the new flow." },
+      { body: "Instant approvals increased by over 10%, with overall instant approval rates reaching around 40% \u2014 demonstrating a clear uplift in both speed and conversion." },
+      { body: "Overall approval volumes also rose significantly, reflecting a more streamlined and accessible experience for a broader range of customers." },
+      { body: "Speed to transact dropped from up to 15 days to as little as 60 seconds after instant approval." },
+      { body: "From start of application to first purchase, the entire journey could now take as little as 3.5 minutes." },
+      { body: "Over 70% of approved users instantly activated their card digitally \u2014 without waiting for their physical card to arrive." },
+      { body: "Digital wallet adoption increased significantly, helping reduce reliance on physical cards." },
+      { body: "These improvements contributed to a measurable uplift in NPS, reinforcing the impact of a smoother, more user-friendly application journey." },
+      { body: "The work was recognised internally, winning a Customer Excellence Award within the bank." },
+    ],
+  },
+];

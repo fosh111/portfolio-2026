@@ -9,6 +9,7 @@ import {
   ConvokelabExpandedContent,
   ConvokelabProcessCarousel,
   QantasCarousel,
+  CBACarousel,
 } from "./CaseStudyParts";
 import { SectionLabel, Divider, Dot, PillLink } from "./ui";
 import { CASE_STUDIES, type CaseStudyDetail } from "@/lib/content";
@@ -19,6 +20,9 @@ function ProcessCanvas({ study }: { study: CaseStudyDetail }) {
   }
   if (study.slug === "qantas") {
     return <QantasCarousel />;
+  }
+  if (study.slug === "cba") {
+    return <CBACarousel />;
   }
   return (
     <div className="relative w-full overflow-hidden rounded-[2px] bg-card">

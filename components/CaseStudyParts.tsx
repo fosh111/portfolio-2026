@@ -8,8 +8,9 @@ import type {
   CbaExpandedCaseStudy,
   ConvokelabExpandedCaseStudy,
   QantasCarouselSlide,
+  CbaCarouselSlide,
 } from "@/lib/content";
-import { QANTAS_CAROUSEL } from "@/lib/content";
+import { QANTAS_CAROUSEL, CBA_CAROUSEL } from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -810,6 +811,197 @@ export function QantasCarousel() {
             )}
           </>
         )}
+        </div>
+
+        {/* Prev/next controls — always present, on every slide and every state
+            (including expanded), so the user can browse without closing first */}
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label="Previous slide"
+          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
+        >
+          <ChevronIcon direction="left" />
+        </button>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Next slide"
+          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
+        >
+          <ChevronIcon direction="right" />
+        </button>
+      </div>
+
+      {/* Below-media nav row: short description + left/right arrows, always jumps to the collapsed state */}
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label="Previous slide (description nav)"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-all duration-150 hover:text-ink active:scale-90"
+        >
+          ←
+        </button>
+        <span key={slide.id} className="qantas-dissolve max-w-[220px] text-center font-mono text-[14px] tracking-[0.05em] text-ink sm:max-w-[420px]">
+          {slide.tabLabel}
+        </span>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Next slide (description nav)"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-all duration-150 hover:text-ink active:scale-90"
+        >
+          →
+        </button>
+      </div>
+    </div>
+  );
+}
+
+type CbaSlideState = "collapsed" | "expanded";
+
+export function CBACarousel() {
+  const slides: CbaCarouselSlide[] = CBA_CAROUSEL;
+  const startIndex = slides.findIndex((s) => s.id === "intro");
+  const [index, setIndex] = useState(startIndex === -1 ? 0 : startIndex);
+  const [state, setState] = useState<CbaSlideState>("collapsed");
+  const touchStartX = useState({ x: 0 })[0];
+
+  const slide = slides[index];
+
+  function goTo(nextIndex: number) {
+    const len = slides.length;
+    const wrapped = ((nextIndex % len) + len) % len;
+    setIndex(wrapped);
+    setState("collapsed");
+  }
+
+  function goNext() {
+    goTo(index + 1);
+  }
+
+  function goPrev() {
+    goTo(index - 1);
+  }
+
+  function onTouchStart(e: React.TouchEvent) {
+    touchStartX.x = e.touches[0].clientX;
+  }
+
+  function onTouchEnd(e: React.TouchEvent) {
+    const delta = e.changedTouches[0].clientX - touchStartX.x;
+    if (Math.abs(delta) < 40) return;
+    if (delta < 0) goNext();
+    else goPrev();
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div
+        className="relative aspect-[1170/893] w-full overflow-hidden rounded-[2px] bg-card"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <div key={slide.id} className="absolute inset-0 qantas-dissolve">
+          {/* Background image(s) — either a single cover image, a pixel-accurate
+              multi-layer composite matching the exact Figma layout for this slide,
+              or (for text-only slides like "results") a plain neutral canvas */}
+          <div className="absolute inset-0">
+            {slide.layers ? (
+              <div className="relative h-full w-full bg-[#e3e3e3]">
+                {slide.layers.map((layer, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={i}
+                    src={img(layer.imageKey)}
+                    alt=""
+                    aria-hidden="true"
+                    className={`absolute object-cover ${layer.rounded ? "rounded-[10px]" : ""}`}
+                    style={{
+                      top: `${layer.top}%`,
+                      left: `${layer.left}%`,
+                      width: `${layer.width}%`,
+                      height: `${layer.height}%`,
+                    }}
+                  />
+                ))}
+              </div>
+            ) : slide.imageKey ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={img(slide.imageKey)}
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="h-full w-full bg-[#e3e3e3]" />
+            )}
+          </div>
+
+          {/* Expanded-state overlay tint, sits above the image and below the copy/controls */}
+          {state === "expanded" && (
+            <div
+              className="absolute inset-0 qantas-fade-in bg-[#2C2C2C]/90"
+              aria-hidden="true"
+            />
+          )}
+
+          {/* Collapsed state (the neutral/landing view): no overlays at all, just the
+              clean image plus the labeled '?' button to expand */}
+          {state === "collapsed" && (
+            <button
+              type="button"
+              onClick={() => setState("expanded")}
+              aria-label="Expand details"
+              className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
+            >
+              <QuestionMarkIcon />
+              <span className="font-mono text-[12px] uppercase tracking-[0.05em]">tell me more</span>
+            </button>
+          )}
+
+          {/* Expanded state: full copy, closed via the 'x' button */}
+          {state === "expanded" && (
+            <div className="qantas-rise-in absolute inset-0 flex flex-col">
+              <div className="flex items-start px-12 pt-6 sm:px-14">
+                <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
+                  {slide.tabLabel}
+                </p>
+              </div>
+              <div className="mt-auto max-h-[82%] overflow-y-auto px-12 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-14 sm:text-[13px]">
+                {slide.intro.map((p, i) => (
+                  <p key={`intro-${i}`} className="mb-2">
+                    {p}
+                  </p>
+                ))}
+                {slide.bullets && (
+                  <ul className="mb-2 space-y-1.5">
+                    {slide.bullets.map((b, i) => (
+                      <li key={`bullet-${i}`}>
+                        {b.label && <span className="font-bold text-white">{b.label}</span>}{" "}
+                        {b.body}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {slide.outro?.map((p, i) => (
+                  <p key={`outro-${i}`} className="mb-2">
+                    {p}
+                  </p>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setState("collapsed")}
+                aria-label="Close"
+                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
+              >
+                <CloseIcon />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Prev/next controls — always present, on every slide and every state
