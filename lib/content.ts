@@ -676,3 +676,198 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
 
 export const CONTACT_INTRO =
   "Let's collaborate on the next high-stakes challenge. Whether you need to modernise a complex enterprise platform, scale an AI-native startup from 0-to-1, or just want to chat about future-proof design workflows, I'm always open to the right project.";
+
+export type QantasCarouselBullet = { label: string; body: string };
+
+export type QantasCarouselImageLayer = {
+  imageKey: string;
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+};
+
+export type QantasCarouselDetailSlide = {
+  kind: "detail";
+  id: string;
+  tabLabel: string;
+  imageKey: string;
+  layers?: QantasCarouselImageLayer[];
+  intro: string[];
+  bullets?: QantasCarouselBullet[];
+  outro?: string[];
+};
+
+export type QantasCarouselVideoSlide = {
+  kind: "video";
+  id: string;
+  tabLabel: string;
+  posterKey: string;
+  videoSrc?: string;
+  captionTitle: string;
+  captionSubtitle: string;
+};
+
+export type QantasCarouselSlide =
+  | QantasCarouselDetailSlide
+  | QantasCarouselVideoSlide;
+
+export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
+  {
+    kind: "video",
+    id: "new-ui",
+    tabLabel: "NEW UI TEASER VIDEO",
+    posterKey: "carousel-qantas-new-ui",
+    videoSrc: "/videos/qantas-new-ui.mp4",
+    captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
+    captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+  },
+  {
+    kind: "detail",
+    id: "service-design",
+    tabLabel: "SERVICE DESIGN",
+    imageKey: "carousel-qantas-service-design",
+    intro: [
+      `To scale seat ancillaries effectively, the experience couldn't live in an isolated screen silo. We looked beyond the standard UI to construct a comprehensive Service Design blueprint tracking how passengers interact with seating across three distinct phases of the travel lifecycle. By analyzing user behavior at each touchpoint, we systematically isolated and optimized the "Moments that Matter" to protect passenger peace of mind while maximizing ancillary growth.`,
+    ],
+    bullets: [
+      {
+        label: "Booking (The Commercial Core):",
+        body: "Injecting high-transparency seat value, category inclusions, and pricing early in the primary conversion funnel. The focus here is turning standard checkout steps into an intuitive, high-incentive consideration moment before purchase finality.",
+      },
+      {
+        label: "Manage Your Booking (The Planning Window):",
+        body: "Optimizing the post-purchase itinerary space for deliberate, low-stress modifications. This touchpoint handles complex, mid-trip user needs—such as post-booking upgrades, tail-number equipment changes, and family group seat realignments.",
+      },
+      {
+        label: "Check-In (The High-Stress Execution):",
+        body: "Streamlining high-velocity, day-of-travel interactions across web, native app, and physical airport kiosks. Designed to handle rapid, last-minute seat availability, premium upgrades, and tight operational windows with zero room for system lag.",
+      },
+    ],
+    outro: [
+      "Rather than deploying blanket monetization prompts across the ecosystem, we mapped behavioral friction points against real-world customer anxiety metrics to uncover the specific interactions that dictate travel satisfaction:",
+      "The Emotional Sweet Spots: We isolated high-leverage service opportunities—such as the high-anxiety moment a parent needs to confirm adjacent seating for young children, or the high-value opportunity of securing extra legroom for an international long-haul leg.",
+    ],
+  },
+  {
+    kind: "detail",
+    id: "research",
+    tabLabel: "RESEARCH",
+    imageKey: "carousel-qantas-research",
+    intro: [
+      "Our synthesis of quantitative data and qualitative user testing condensed thousands of passenger profiles into three distinct behavioral archetypes. Instead of designing a one-size-fits-all map, we reverse-engineered the UX and UI to serve these precise transactional drivers:",
+    ],
+    bullets: [
+      {
+        label: "The Price-Conscious Traveler (Budget & Value):",
+        body: "Driven strictly by the bottom line. They optimize for cost-efficiency, require complete visibility over baseline inclusions, and reject aggressive upselling. Success means proving absolute value for money without hidden fees.",
+      },
+      {
+        label: "The Comfort Seeker (Long-Haul & Ergonomics):",
+        body: "Prioritizes physical well-being, particularly on long-haul sectors. Their primary conversion trigger is the spatial quality of the seat. They actively seek out Extra Legroom (ELR), exit rows, and quiet zones to systematically eliminate travel fatigue.",
+      },
+      {
+        label: "The Convenience Optimiser (The Corporate Turnaround):",
+        body: "High-velocity business travelers executing strict, same-day schedules (e.g., fly in for a meeting, fly back on a return flight). They don't care about extra space—they care about time. They optimize for forward-cabin placement to ensure rapid embarkation and lightning-fast disembarkation.",
+      },
+    ],
+    outro: [
+      "Loyalty is our highest-leverage retention engine. We shifted the UI from a generic, transaction-first grid to a personalized recognition framework. The interface dynamically intercepts known frequent flyer profiles to explicitly surface status perks directly on the interactive map, proving value at the exact point of selection.",
+    ],
+  },
+  {
+    kind: "detail",
+    id: "legacy",
+    tabLabel: "PHASE 1 | LEGACY OPTIMIZATION: DOUBLING REVENUE IN RECORD TIME",
+    imageKey: "carousel-qantas-legacy-preview",
+    layers: [
+      { imageKey: "carousel-qantas-legacy-preview", top: 0, left: 0, width: 100, height: 81.97 },
+      { imageKey: "carousel-qantas-legacy-detail", top: 53.64, left: 0, width: 100, height: 46.36 },
+    ],
+    intro: [
+      "The existing legacy platform architecture was incredibly rigid and brittle. Simple UI modifications—such as swapping a baseline icon—carried a restrictive six-month engineering lead time. Realizing a complete interface overhaul was structurally impossible for the immediate release, we shifted to an ultra-lean, high-velocity tactical strategy.",
+      "I fast-tracked alignment workshops with Legal, Marketing, and Business stakeholders to map out high-impact, zero-dev-friction levers. We targeted micro-optimizations that could clear regulatory, brand, and commercial hurdles instantly without requiring deep backend engineering support.",
+      "We ruthlessly restricted the Phase 1 implementation layer to two non-disruptive, purely cosmetic variables:",
+    ],
+    bullets: [
+      {
+        label: "Targeted Colour Schemes:",
+        body: "Refining visual hierarchy and interactive states to make selection paths intuitively clear.",
+      },
+      {
+        label: "Descriptive Price & Seat Copy:",
+        body: "Integrating high-transparency micro-copy to explicitly define distinct seat categories, physical attributes, and cost structures.",
+      },
+    ],
+    outro: [
+      "Delivered in record time while simultaneously architecting the robust structural foundations for Phase 2, this ultra-lean tactical release doubled ancillary seating revenue by simply eliminating cognitive friction and pricing ambiguity at the point of purchase.",
+    ],
+  },
+  {
+    kind: "detail",
+    id: "final",
+    tabLabel: "PHASE 1 | FINAL DESIGNS",
+    imageKey: "carousel-qantas-final-mask",
+    layers: [
+      { imageKey: "carousel-qantas-final-mask", top: 21.84, left: 2.56, width: 68.38, height: 53.31 },
+      { imageKey: "carousel-qantas-final-preview", top: 20.61, left: 68.97, width: 22.05, height: 55.77 },
+    ],
+    intro: [
+      "These final Phase 1 deliverables separate the interface into two distinct commercial models. The system optimizes for high-transparency conversion where seats are monetized (Web Booking & MYB), and shifts to a rapid, zero-friction selection utility where remaining inventory is entirely complimentary (Native Check-In).",
+      "I fast-tracked alignment workshops with Legal, Marketing, and Business stakeholders to map out high-impact, zero-dev-friction levers. We targeted micro-optimizations that could clear regulatory, brand, and commercial hurdles instantly without requiring deep backend engineering support.",
+      "We ruthlessly restricted the Phase 1 implementation layer to two non-disruptive, purely cosmetic variables:",
+    ],
+    bullets: [
+      {
+        label: "Targeted Colour Schemes:",
+        body: "Refining visual hierarchy and interactive states to make selection paths intuitively clear.",
+      },
+      {
+        label: "Descriptive Price & Seat Copy:",
+        body: "Integrating high-transparency micro-copy to explicitly define distinct seat categories, physical attributes, and cost structures.",
+      },
+    ],
+    outro: [
+      "Delivered in record time while simultaneously architecting the robust structural foundations for Phase 2, this ultra-lean tactical release doubled ancillary seating revenue by simply eliminating cognitive friction and pricing ambiguity at the point of purchase.",
+    ],
+  },
+  {
+    kind: "detail",
+    id: "user-testing",
+    tabLabel: "USER TESTING",
+    imageKey: "carousel-qantas-user-testing-image",
+    layers: [
+      { imageKey: "carousel-qantas-user-testing-image", top: 0, left: 0, width: 100, height: 100 },
+      { imageKey: "carousel-qantas-user-testing-secondary", top: 0, left: 35.56, width: 64.44, height: 50.84 },
+    ],
+    intro: [
+      "Our second round of user testing was designed to pressure-test the core interaction models and establish a UX baseline for the Phase 2 architectural rollout. By gathering direct behavioral data early, we mapped out the exact information passengers needed to see, while isolating and solving heavy cognitive friction points within the multi-passenger checkout flow.",
+    ],
+    bullets: [
+      {
+        label: "Phase 2 Foundational Ease of Use:",
+        body: "Validated baseline navigation, zoom controls, and map interactions to ensure the fundamental layout logic was intuitive enough to support complex feature layers in future iterations.",
+      },
+      {
+        label: "Multi-Passenger Tracking (Pax-to-Seat Mapping):",
+        body: "Ensured immediate clarity for group bookings. Testing verified that users could instantly see exactly which passenger was allocated to which specific seat at any point in the interaction, eliminating accidental re-assignments.",
+      },
+      {
+        label: "Frictionless Price Comprehension:",
+        body: "Tested price-transparency models to confirm that dynamic upcharges, tiered discounts, and total cost accumulation were transparent and instantly understood before the user proceeded to payment.",
+      },
+      {
+        label: "Defensive Safety & Hardware Disclosures:",
+        body: "Successfully validated frameworks for surfacing high-stakes seat attributes and hard operational boundaries. The UI effectively flagged physical layout realities and legal restrictions before final selection.",
+      },
+    ],
+  },
+  {
+    kind: "video",
+    id: "sneak-peak",
+    tabLabel: "PHASE 2 | UI SNEAK PEAK",
+    posterKey: "carousel-qantas-sneak-peak",
+    captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
+    captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+  },
+];

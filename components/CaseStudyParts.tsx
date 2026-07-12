@@ -7,7 +7,9 @@ import type {
   ExpandedCaseStudy,
   CbaExpandedCaseStudy,
   ConvokelabExpandedCaseStudy,
+  QantasCarouselSlide,
 } from "@/lib/content";
+import { QANTAS_CAROUSEL } from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -567,6 +569,311 @@ export function ConvokelabProcessCarousel({
         <span className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf]" aria-hidden>
           →
         </span>
+      </div>
+    </div>
+  );
+}
+
+function QuestionMarkIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />
+      <path
+        d="M6.1 6.2c.15-.95.9-1.6 1.95-1.6 1.1 0 1.9.65 1.9 1.6 0 .75-.4 1.15-1.05 1.6-.55.4-.75.7-.75 1.25v.2"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="8" cy="11.3" r="0.15" fill="currentColor" stroke="currentColor" strokeWidth="0.8" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M4 4L12 12M12 4L4 12"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ChevronUpDownIcon({ direction }: { direction: "up" | "down" }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className={direction === "up" ? "" : "rotate-180"}
+    >
+      <path
+        d="M4 10L8 6L12 10"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+type QantasSlideState = "default" | "collapsed" | "expanded";
+
+export function QantasCarousel() {
+  const slides: QantasCarouselSlide[] = QANTAS_CAROUSEL;
+  const startIndex = slides.findIndex((s) => s.id === "new-ui");
+  const [index, setIndex] = useState(startIndex === -1 ? 0 : startIndex);
+  const [state, setState] = useState<QantasSlideState>("default");
+  const touchStartX = useState({ x: 0 })[0];
+
+  const slide = slides[index];
+  const hasStates = slide.kind === "detail";
+
+  function goTo(nextIndex: number) {
+    const len = slides.length;
+    const wrapped = ((nextIndex % len) + len) % len;
+    setIndex(wrapped);
+    setState("default");
+  }
+
+  function goNext() {
+    goTo(index + 1);
+  }
+
+  function goPrev() {
+    goTo(index - 1);
+  }
+
+  function onTouchStart(e: React.TouchEvent) {
+    touchStartX.x = e.touches[0].clientX;
+  }
+
+  function onTouchEnd(e: React.TouchEvent) {
+    const delta = e.changedTouches[0].clientX - touchStartX.x;
+    if (Math.abs(delta) < 40) return;
+    if (delta < 0) goNext();
+    else goPrev();
+  }
+
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div
+        className="relative aspect-[1170/893] w-full overflow-hidden rounded-[2px] bg-card"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        {slide.kind === "video" ? (
+          <>
+            <div className="absolute inset-0">
+              {slide.videoSrc ? (
+                <video
+                  src={slide.videoSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-hidden="true"
+                  className="h-full w-full scale-105 object-cover blur-[5px]"
+                />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={img(slide.posterKey)}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full scale-105 object-cover blur-[5px]"
+                />
+              )}
+            </div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center">
+              <p className="font-mono text-[13px] uppercase tracking-[0.05em] text-ink sm:text-[14px]">
+                {slide.captionTitle}
+              </p>
+              <p className="font-mono text-[13px] uppercase tracking-[0.05em] text-muted sm:text-[14px]">
+                {slide.captionSubtitle}
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Background image(s) — either a single cover image, or a pixel-accurate
+                multi-layer composite matching the exact Figma layout for this slide */}
+            <div
+              className={`absolute inset-0 transition-[filter] duration-300 ${
+                state === "collapsed" ? "brightness-[0.4]" : "brightness-[0.55]"
+              }`}
+            >
+              {slide.layers ? (
+                <div className="relative h-full w-full bg-card">
+                  {slide.layers.map((layer, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={i}
+                      src={img(layer.imageKey)}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute object-cover"
+                      style={{
+                        top: `${layer.top}%`,
+                        left: `${layer.left}%`,
+                        width: `${layer.width}%`,
+                        height: `${layer.height}%`,
+                      }}
+                    />
+                  ))}
+                </div>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={img(slide.imageKey)}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
+
+            {/* Collapsed state: just the tab label + '?' button */}
+            {state === "collapsed" && (
+              <>
+                <div className="absolute left-6 top-6 right-16">
+                  <p className="font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
+                    {slide.tabLabel}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setState("expanded")}
+                  aria-label="Expand details"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                >
+                  <QuestionMarkIcon />
+                </button>
+              </>
+            )}
+
+            {/* Default state: tab label + chevron up to expand */}
+            {state === "default" && (
+              <>
+                <div className="absolute left-6 top-6 right-16">
+                  <p className="font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
+                    {slide.tabLabel}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setState("expanded")}
+                  aria-label="Expand details"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                >
+                  <ChevronUpDownIcon direction="up" />
+                </button>
+              </>
+            )}
+
+            {/* Expanded state: scrollable full copy + chevron down to collapse to default + close to collapsed */}
+            {state === "expanded" && (
+              <div className="absolute inset-0 flex flex-col">
+                <div className="flex items-start justify-between px-6 pt-6">
+                  <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
+                    {slide.tabLabel}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setState("default")}
+                    aria-label="Collapse to default"
+                    className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                  >
+                    <ChevronUpDownIcon direction="down" />
+                  </button>
+                </div>
+                <div className="mt-3 flex-1 overflow-y-auto px-6 pb-14 text-[13px] leading-relaxed text-white/90 sm:text-[14px]">
+                  {slide.intro.map((p, i) => (
+                    <p key={`intro-${i}`} className="mb-3">
+                      {p}
+                    </p>
+                  ))}
+                  {slide.bullets && (
+                    <ul className="mb-3 space-y-2">
+                      {slide.bullets.map((b, i) => (
+                        <li key={`bullet-${i}`}>
+                          <span className="font-semibold text-white">{b.label}</span>{" "}
+                          {b.body}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {slide.outro?.map((p, i) => (
+                    <p key={`outro-${i}`} className="mb-3">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setState("collapsed")}
+                  aria-label="Close"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                >
+                  <CloseIcon />
+                </button>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Prev/next controls — present on default and collapsed states for every slide,
+            and on video slides (which only have a default state) */}
+        {state !== "expanded" && (
+          <>
+            <button
+              type="button"
+              onClick={goPrev}
+              aria-label="Previous slide"
+              className="absolute left-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:left-6"
+            >
+              <ChevronIcon direction="left" />
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              aria-label="Next slide"
+              className="absolute right-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:right-6"
+            >
+              <ChevronIcon direction="right" />
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Below-media nav row: short description + left/right arrows, always jumps to default state */}
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={goPrev}
+          aria-label="Previous slide (description nav)"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-colors hover:text-ink"
+        >
+          ←
+        </button>
+        <span className="font-mono text-[14px] tracking-[0.05em] text-ink">
+          {slide.kind === "video" ? slide.tabLabel : slide.tabLabel}
+        </span>
+        <button
+          type="button"
+          onClick={goNext}
+          aria-label="Next slide (description nav)"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-colors hover:text-ink"
+        >
+          →
+        </button>
       </div>
     </div>
   );

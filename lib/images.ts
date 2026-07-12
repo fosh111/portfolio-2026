@@ -26,6 +26,16 @@ export const IMAGES: Record<string, string> = {
   "thumb-forage-hover": "/images/thumb-forage-hover.png",
   "home-reel": "/images/home-reel.png",
   "menu-default": "/images/menu-default.png",
+  "carousel-qantas-new-ui": "/images/carousel-qantas/new-ui-poster.png",
+  "carousel-qantas-service-design": "/images/carousel-qantas/service-design.png",
+  "carousel-qantas-research": "/images/carousel-qantas/research.png",
+  "carousel-qantas-legacy-preview": "/images/carousel-qantas/legacy-preview.png",
+  "carousel-qantas-legacy-detail": "/images/carousel-qantas/legacy-detail.png",
+  "carousel-qantas-final-mask": "/images/carousel-qantas/final-mask.png",
+  "carousel-qantas-final-preview": "/images/carousel-qantas/final-preview.png",
+  "carousel-qantas-user-testing-image": "/images/carousel-qantas/user-testing-image.png",
+  "carousel-qantas-user-testing-secondary": "/images/carousel-qantas/user-testing-secondary.png",
+  "carousel-qantas-sneak-peak": "/images/carousel-qantas/sneak-peak-poster.png",
 };
 
 export function img(key: string): string {
