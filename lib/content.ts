@@ -898,11 +898,24 @@ export type CbaCarouselCaption = {
   muted?: boolean;
 };
 
+export type CbaCarouselVideoMockup = {
+  /** Laptop bezel/mockup image — pre-clipped to the visible 1170x577 frame,
+   *  sits behind the address-bar + video content. */
+  maskImageKey: string;
+  /** Browser chrome / address-bar strip composited above the video. */
+  addressBarImageKey: string;
+  /** Autoplaying, looping, muted screen-recording video shown inside the mockup. */
+  videoSrc: string;
+};
+
 export type CbaCarouselSlide = {
   id: string;
   tabLabel: string;
   imageKey?: string;
   layers?: CbaCarouselImageLayer[];
+  /** Special-cased media for the "intro" slide: a looping screen-recording
+   *  composited inside a laptop mockup with a browser chrome strip above it. */
+  video?: CbaCarouselVideoMockup;
   intro: string[];
   bullets?: CbaCarouselBullet[];
   outro?: string[];
@@ -918,7 +931,11 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
   {
     id: "intro",
     tabLabel: "WEB STILLS FLOW VIDEO",
-    imageKey: "carousel-cba-intro",
+    video: {
+      maskImageKey: "carousel-cba-intro-mask",
+      addressBarImageKey: "carousel-cba-intro-addressbar",
+      videoSrc: "/videos/cba-intro.mp4",
+    },
     noToggle: true,
     intro: [],
   },

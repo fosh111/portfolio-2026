@@ -908,7 +908,48 @@ export function CBACarousel() {
               multi-layer composite matching the exact Figma layout for this slide,
               or (as a fallback) a plain neutral canvas */}
           <div className="absolute inset-0">
-            {slide.layers ? (
+            {slide.video ? (
+              <div className="relative h-full w-full bg-[#e3e3e3]">
+                {/* Laptop mockup shell — pre-clipped to the visible frame, sits behind
+                    the address-bar + video content it was designed to frame */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img(slide.video.maskImageKey)}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute object-cover"
+                  style={{ top: 0, left: "5.726%", width: "88.547%", height: "100%" }}
+                />
+                {/* Screen content — sits exactly inside the mockup's screen cutout,
+                    address-bar strip on top, looping screen-recording video below it.
+                    Keep the mockup's own top/bottom bezel padding: don't stretch this
+                    to fill the frame. */}
+                <div
+                  className="absolute overflow-hidden rounded-[4px]"
+                  style={{ top: "7.279%", left: "18.205%", width: "63.419%", height: "75.217%" }}
+                >
+                  <div className="absolute inset-x-0 top-0 overflow-hidden" style={{ height: "8.065%" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img(slide.video.addressBarImageKey)}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute object-cover"
+                      style={{ top: "-3.17%", left: "-0.54%", width: "102.88%", height: "106.34%" }}
+                    />
+                  </div>
+                  <video
+                    src={slide.video.videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-[91.935%] w-full object-cover"
+                  />
+                </div>
+              </div>
+            ) : slide.layers ? (
               <div className="relative h-full w-full bg-[#e3e3e3]">
                 {slide.layers.map((layer, i) => (
                   // eslint-disable-next-line @next/next/no-img-element
