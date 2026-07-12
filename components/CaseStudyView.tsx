@@ -7,22 +7,14 @@ import {
   ExpandedCaseStudyContent,
   CbaExpandedContent,
   ConvokelabExpandedContent,
+  ConvokelabProcessCarousel,
 } from "./CaseStudyParts";
 import { SectionLabel, Divider, Dot, PillLink } from "./ui";
 import { CASE_STUDIES, type CaseStudyDetail } from "@/lib/content";
 
 function ProcessCanvas({ study }: { study: CaseStudyDetail }) {
   if (study.slug === "convokelab") {
-    return (
-      <div className="flex aspect-[1170/560] w-full items-center justify-center rounded-[2px] bg-card">
-        <div className="text-center">
-          <p className="font-display text-[40px] text-ink">Coming soon</p>
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
-            Teaser video →
-          </p>
-        </div>
-      </div>
-    );
+    return <ConvokelabProcessCarousel videoSrc="/videos/convokelab-process.mp4" />;
   }
   return (
     <div className="relative w-full overflow-hidden rounded-[2px] bg-card">

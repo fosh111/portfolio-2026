@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { img } from "@/lib/images";
 import type {
   Metric,
   ExpandedCaseStudy,
@@ -473,6 +474,99 @@ export function ConvokelabExpandedContent({
         <p className="text-[18px] leading-[1.45] text-[#1a0f0a] sm:text-[20px]">
           {detail.closingBody}
         </p>
+      </div>
+    </div>
+  );
+}
+
+function ChevronIcon({ direction = "left" }: { direction?: "left" | "right" }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d={direction === "left" ? "M10 3L5 8L10 13" : "M6 3L11 8L6 13"}
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function ConvokelabProcessCarousel({
+  videoSrc,
+}: {
+  videoSrc?: string;
+}) {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <div className="relative aspect-[1170/658] w-full overflow-hidden rounded-[2px] bg-card">
+        {/* Background media */}
+        <div className="absolute inset-0">
+          {videoSrc ? (
+            <video
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+              className="h-full w-full scale-105 object-cover blur-[5px]"
+            />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={img("convokelab-process-bg")}
+              alt=""
+              aria-hidden="true"
+              className="h-full w-full scale-105 object-cover blur-[5px]"
+            />
+          )}
+        </div>
+
+        {/* Coming soon overlay */}
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <p className="font-display text-[44px] leading-none text-ink sm:text-[72px]">
+            Coming <span className="italic text-muted">soon</span>
+          </p>
+        </div>
+
+        {/* Disabled prev/next controls */}
+        <button
+          type="button"
+          disabled
+          aria-label="Previous slide"
+          className="absolute left-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#afafaf] text-white sm:left-6"
+        >
+          <ChevronIcon direction="left" />
+        </button>
+        <button
+          type="button"
+          disabled
+          aria-label="Next slide"
+          className="absolute right-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-[#afafaf] text-white sm:right-6"
+        >
+          <ChevronIcon direction="right" />
+        </button>
+      </div>
+
+      {/* Below-media nav row */}
+      <div className="flex items-center gap-4">
+        <span className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf]" aria-hidden>
+          ←
+        </span>
+        <span className="font-mono text-[14px] tracking-[0.05em] text-ink">
+          TEASER VIDEO
+        </span>
+        <span className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf]" aria-hidden>
+          →
+        </span>
       </div>
     </div>
   );
