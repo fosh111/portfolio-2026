@@ -161,6 +161,27 @@ export type Metric = {
   detail: string;
 };
 
+export type ExpandedStat = { value: string; label: string };
+export type ExpandedConstraint = { title: string; body: string };
+export type ExpandedFramework = { label: string; title: string; body: string };
+
+export type ExpandedCaseStudy = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  stats: ExpandedStat[];
+  challengeTitle: string;
+  challengeBody: string;
+  touchpointsLabel: string;
+  touchpoints: string[];
+  constraintsTitle: string;
+  constraints: ExpandedConstraint[];
+  frameworksTitle: string;
+  frameworks: ExpandedFramework[];
+  takeawaysTitle: string;
+  takeaways: string[];
+};
+
 export type CaseStudyDetail = {
   slug: string;
   company: string;
@@ -173,6 +194,7 @@ export type CaseStudyDetail = {
   outcomesTitle: string;
   metrics: Metric[];
   processNote: string;
+  expanded?: ExpandedCaseStudy;
 };
 
 export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
@@ -226,6 +248,74 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     ],
     processNote:
       "Service design, research, legacy audit and new-UI exploration across the omnichannel seat-selection journey.",
+    expanded: {
+      eyebrow: "Case Study — Qantas Airlines",
+      headline: "Omnichannel Seat Selection & Monetisation",
+      intro:
+        "A fast-tracked platform modernisation with paid seat selection and complex transaction logic across Qantas' iOS, Android, web, tablet, and kiosk touchpoints. Driven by strong stakeholder alignment and UX advocacy, this high-stakes pivot seamlessly scaled across Booking, MYB, and time-sensitive check-in windows instantly doubling ancillary revenue ahead of a next-gen UI launch this November.",
+      stats: [
+        { value: "Phase 1", label: "Released" },
+        { value: "Doubled", label: "Ancillary revenue with phase 1" },
+        { value: "Omnichannel", label: "Multiple platforms" },
+        { value: "Nov Target", label: "Phase 2" },
+      ],
+      challengeTitle: "The Challenge & Core Objectives",
+      challengeBody:
+        "Historically, seat selection on the digital check-in platform was purely operational. To unlock a massive untapped ancillary revenue stream, the digital stream initiated a high-stakes, fast-tracked pivot: introducing paid seat selection and complex transaction logic across the entire ecosystem.",
+      touchpointsLabel: "Customer journey touchpoints",
+      touchpoints: [
+        "Booking / Origination",
+        "Manage Your Booking (MYB)",
+        "Check-In",
+        "Kiosk",
+      ],
+      constraintsTitle: "The Constraints",
+      constraints: [
+        {
+          title: "MVP Baseline Validation",
+          body: "Executed a targeted round of usability testing on the legacy UI to isolate immediate user pain points under an aggressive go-to-market timeline. Used these baseline insights to systematically de-risk early MVP feature prioritization.",
+        },
+        {
+          title: "Complex Transactional Logic",
+          body: "Actively driving cross-functional workshops with product and engineering to resolve architectural constraints around real-time payment processing. Designing the logic for high-friction touchpoints across both online Check-In and Manage Your Booking (MYB) paths.",
+        },
+        {
+          title: "Omnichannel Scaling",
+          body: "Designing structural UI continuity to scale seamlessly across modern responsive web, native mobile apps, and physical airport kiosks while ensuring backward compatibility for millions of passengers on legacy system variants.",
+        },
+      ],
+      frameworksTitle: "Core UX/UI Frameworks & Solutions",
+      frameworks: [
+        {
+          label: "Framework A",
+          title: "Omnichannel Seat Map Architecture",
+          body: 'A unified, scalable UI seat map framework engineered to deploy seamlessly across responsive web, native mobile apps, and physical airport kiosks. Incorporates a conditional, static "View-Only" matrix for legacy app versions to eliminate cross-platform security and delivery risks.',
+        },
+        {
+          label: "Framework B",
+          title: "Contextual Seat Feature Transparency",
+          body: "An informative, high-transparency UI that details distinct seat-category inclusions, dynamic real-time pricing, and instantaneous selection confirmations. Directly surfaces physical aircraft constraints, such as non-reclining rows or in-armrest stowed screens, directly within the interactive map view.",
+        },
+        {
+          label: "Framework C",
+          title: "Spatial Layout & Segment Interaction",
+          body: "Dynamic canvas anchoring logic that automatically centers the viewport on the user's assigned seats when clear, while prioritizing global system alert banners.",
+        },
+        {
+          label: "Framework D",
+          title: "Federated Lead-to-Lead Governance",
+          body: "A structured cross-functional engagement model built to align directly with Lead Engineers, Lead Product Managers, and adjacent UX Leads across the broader ecosystem. Spearheaded peer-level triages to systematically unblock technical constraints, align roadmap dependencies, and maintain pattern consistency across the platform.",
+        },
+      ],
+      takeawaysTitle: "Key Takeaways & Strategic Design Impact",
+      takeaways: [
+        "Proven Commercial Viability: MVP Release 1 resulted in a doubling of ancillary seat revenue.",
+        "Strategic Roadmap Acceleration: Optimized next-gen UI is on track for targeted cross-platform release in November.",
+        "Defensive UX Trumps Aesthetic Fluff: Preserving baseline user experience under unconfirmed technical bias.",
+        "Technical Alignment is Essential: Legacy view-only states were a direct outcome of alignment with Engineering Tech Leads.",
+        "True Omnichannel Scalability: Rules-based spatial layouts allow logic to scale uniformly across app, web, or kiosk.",
+      ],
+    },
   },
   cba: {
     slug: "cba",
