@@ -1,7 +1,12 @@
 import { Container } from "./Container";
 import { Figure } from "./Figure";
 import { ThumbnailCard } from "./ThumbnailCard";
-import { MetricCard, TellMeMore, ExpandedCaseStudyContent } from "./CaseStudyParts";
+import {
+  MetricCard,
+  TellMeMore,
+  ExpandedCaseStudyContent,
+  CbaExpandedContent,
+} from "./CaseStudyParts";
 import { SectionLabel, Divider, Dot, PillLink } from "./ui";
 import { CASE_STUDIES, type CaseStudyDetail } from "@/lib/content";
 
@@ -111,7 +116,9 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
 
         <div className="mt-12">
           <TellMeMore>
-            {study.expanded ? (
+            {study.cbaExpanded ? (
+              <CbaExpandedContent detail={study.cbaExpanded} />
+            ) : study.expanded ? (
               <ExpandedCaseStudyContent detail={study.expanded} />
             ) : (
               <p className="mx-auto max-w-[900px] px-2">{study.processNote}</p>

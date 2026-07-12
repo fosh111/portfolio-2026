@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Metric, ExpandedCaseStudy } from "@/lib/content";
+import type { Metric, ExpandedCaseStudy, CbaExpandedCaseStudy } from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -144,6 +144,174 @@ export function ExpandedCaseStudyContent({
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function CbaExpandedContent({
+  detail,
+}: {
+  detail: CbaExpandedCaseStudy;
+}) {
+  return (
+    <div className="flex w-full flex-col gap-16 pb-16 pt-2 text-left sm:gap-[88px]">
+      {/* Intro */}
+      <div className="flex flex-col gap-6 sm:gap-8">
+        <div className="flex flex-col gap-6">
+          <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-muted">
+            {detail.eyebrow}
+          </p>
+          <h3 className="font-display text-[36px] leading-[1.1] text-ink sm:text-[56px]">
+            {detail.headline}
+          </h3>
+          <p className="max-w-[800px] text-[16px] leading-[1.45] text-ink sm:text-[18px]">
+            {detail.intro}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-6 sm:flex sm:items-start sm:gap-6">
+          {detail.stats.map((s) => (
+            <div key={s.label} className="flex flex-col gap-2 sm:flex-1">
+              <p className="font-display text-[32px] leading-none text-ink sm:text-[48px]">
+                {s.value}
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-muted">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Strategic pivot */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-muted sm:text-[32px]">
+            {detail.pivotTitle}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
+          {detail.pivotColumns.map((col) => (
+            <div key={col.label} className="flex flex-col gap-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-muted">
+                {col.label}
+              </p>
+              <p
+                className={`text-[14px] leading-[1.45] text-ink ${
+                  col.bold ? "font-bold" : ""
+                }`}
+              >
+                {col.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Methodology */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-muted sm:text-[32px]">
+            {detail.methodologyTitle}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {detail.phases.map((p, i) => (
+            <div
+              key={p.title}
+              className="flex flex-col gap-3 rounded-lg bg-metric p-6"
+            >
+              <p className="font-mono text-[24px] tracking-[0.06em] text-muted-light">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <div className="flex flex-col gap-2">
+                <p className="text-[16px] font-bold text-ink">{p.title}</p>
+                <p className="text-[14px] leading-[1.45] text-ink">
+                  {p.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Interventions */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-muted sm:text-[32px]">
+            {detail.interventionsTitle}
+          </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          {detail.interventions.map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col gap-2 rounded-lg bg-metric p-6 sm:p-8"
+            >
+              <p className="text-[17px] font-bold text-ink sm:text-[18px]">
+                {item.title}
+              </p>
+              <p className="text-[15px] leading-[1.45] text-ink sm:text-[16px]">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Metrics table */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-muted sm:text-[32px]">
+            {detail.metricsTitle}
+          </p>
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-4 border-b border-line px-1 py-4 sm:gap-6">
+            <p className="flex-1 text-[14px] font-bold text-ink">
+              {detail.metricsHeader.indicator}
+            </p>
+            <p className="w-[110px] shrink-0 text-right font-mono text-[12px] uppercase tracking-[0.05em] text-muted sm:w-[160px] sm:text-[13px]">
+              {detail.metricsHeader.legacy}
+            </p>
+            <p className="w-[110px] shrink-0 text-right font-mono text-[12px] font-bold uppercase tracking-[0.05em] text-ink sm:w-[160px] sm:text-[13px]">
+              {detail.metricsHeader.modernised}
+            </p>
+          </div>
+          {detail.metricsRows.map((row) => (
+            <div
+              key={row.label}
+              className="flex items-center gap-4 border-b border-line px-1 py-4 sm:gap-6"
+            >
+              <p className="flex-1 text-[13px] leading-[1.45] text-ink sm:text-[14px]">
+                {row.label}
+              </p>
+              <p className="w-[110px] shrink-0 text-right font-mono text-[12px] text-muted sm:w-[160px] sm:text-[13px]">
+                {row.legacy}
+              </p>
+              <p className="w-[110px] shrink-0 text-right font-mono text-[12px] font-medium text-[#00a36c] sm:w-[160px] sm:text-[13px]">
+                {row.modernised}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Closing */}
+      <div className="flex flex-col gap-6 sm:gap-10">
+        <div className="flex flex-col gap-4">
+          <div className="h-px w-full bg-line" />
+          <p className="font-serif text-[24px] text-muted sm:text-[32px]">
+            {detail.closingTitle}
+          </p>
+        </div>
+        <p className="text-[18px] leading-[1.45] text-ink sm:text-[20px]">
+          {detail.closingBody}
+        </p>
       </div>
     </div>
   );

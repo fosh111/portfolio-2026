@@ -182,6 +182,29 @@ export type ExpandedCaseStudy = {
   takeaways: string[];
 };
 
+export type CbaPivotColumn = { label: string; body: string; bold?: boolean };
+export type CbaPhase = { title: string; body: string };
+export type CbaIntervention = { title: string; body: string };
+export type CbaMetricRow = { label: string; legacy: string; modernised: string };
+
+export type CbaExpandedCaseStudy = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  stats: ExpandedStat[];
+  pivotTitle: string;
+  pivotColumns: CbaPivotColumn[];
+  methodologyTitle: string;
+  phases: CbaPhase[];
+  interventionsTitle: string;
+  interventions: CbaIntervention[];
+  metricsTitle: string;
+  metricsHeader: { indicator: string; legacy: string; modernised: string };
+  metricsRows: CbaMetricRow[];
+  closingTitle: string;
+  closingBody: string;
+};
+
 export type CaseStudyDetail = {
   slug: string;
   company: string;
@@ -195,6 +218,7 @@ export type CaseStudyDetail = {
   metrics: Metric[];
   processNote: string;
   expanded?: ExpandedCaseStudy;
+  cbaExpanded?: CbaExpandedCaseStudy;
 };
 
 export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
@@ -378,6 +402,110 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     ],
     processNote:
       "A complete architectural overhaul of the application funnel — integrating real-time government identity APIs and turning a rigid document into a dynamic, conversational UI.",
+    cbaExpanded: {
+      eyebrow: "Intro — The Big Picture",
+      headline:
+        "Re-engineering credit card origination for a digital-first generation",
+      intro:
+        "As the Senior Product Designer and Acting Principal, I led the end-to-end UX strategy to re-engineer credit card origination and later the overall credit card journey transforming a fragmented, 15-day legacy paper process into a seamless, modern digital ecosystem.",
+      stats: [
+        { value: "~3.5mins", label: "Speed-to-Transact" },
+        { value: "~2.5mins", label: "To complete application" },
+        { value: "~80%+", label: "Submission rate" },
+        { value: "Award", label: "Customer excellence" },
+      ],
+      pivotTitle: "The Strategic Pivot",
+      pivotColumns: [
+        {
+          label: "The Bottlenecks",
+          body: "Manual underwriting loops, two-week physical mail wait, and massive mid-funnel abandonment.",
+        },
+        {
+          label: "My Reframing",
+          body: "Real-time government API identity verification and instant digital wallet provisioning.",
+        },
+        {
+          label: "The Design Brief",
+          body: "How might we move customers from application to first purchase in minutes instead of weeks?",
+          bold: true,
+        },
+      ],
+      methodologyTitle: "Executive Leadership & Methodology",
+      phases: [
+        {
+          title: "Stakeholder Orchestration",
+          body: "Orchestrated alignment across Risk, Compliance, Legal, and Engineering to dismantle legacy siloes. Transformed rigid operational habits into streamlined, compliance-first user flows without sacrificing conversion.",
+        },
+        {
+          title: "De-Risking Platform Migration",
+          body: "Helped engineered a modular component strategy to run in parallel with legacy mainframe systems. Enabled safe, incremental traffic migration, eliminating downtime and allowing for high-stakes feature testing without compromising core banking stability.",
+        },
+        {
+          title: "Governance & Mentorship",
+          body: "Acted as a force multiplier for the Credit Card squad. Led the integration of WCAG 2.1 AA standards into the design system while mentoring junior designers to increase technical fluency, ensuring high-fidelity outputs were delivered faster and with greater consistency.",
+        },
+        {
+          title: "Evidence-Led Strategy",
+          body: 'Directed end-to-end A/B testing programs to validate design decisions. Shifted the team\'s culture from "opinion-based" to "evidence-based," ensuring every line of engineering code was backed by verified user behavior and measurable conversion outcomes.',
+        },
+      ],
+      interventionsTitle: "High-Impact UX Interventions",
+      interventions: [
+        {
+          title:
+            "Dynamic Identity Orchestration & Government Registry Verification",
+          body: "Integrated internal customer data (spending, liabilities, etc.) with live government registries (licenses, visas, etc.) to authenticate users in real time. This secure pre-fill loop eliminated manual form friction, radically accelerating verification velocity while aggressively mitigating fraud risk",
+        },
+        {
+          title: "Overturning Legacy API",
+          body: 'Usability testing proved working students bypassed the \'Student\' field to select \'Employed\' for income priority. Forced a full backend refactor to move student validation into smart conditional logic.',
+        },
+        {
+          title: "Balancing Trust with Speed",
+          body: "APIs working too fast made users feel out of control and skeptical. Added an explicit data-control consent checkbox to balance operational speed with psychological trust.",
+        },
+        {
+          title: "Turning Rejection into Choice",
+          body: "Replaced outright declines with a dynamic underwriting pivot — offering a lower-tier card alternative. Preserved customer dignity and saved high-intent conversions.",
+        },
+      ],
+      metricsTitle: "Hard Metrics & Business Impact",
+      metricsHeader: {
+        indicator: "Performance Indicator",
+        legacy: "Legacy",
+        modernised: "Modernised",
+      },
+      metricsRows: [
+        {
+          label: "Time to Complete Application",
+          legacy: "15 minutes",
+          modernised: "2.5 minutes",
+        },
+        {
+          label: "Application Submission Rate",
+          legacy: "Variable",
+          modernised: "Exceeded 80%",
+        },
+        {
+          label: "Instant Approval Rate",
+          legacy: "~30%",
+          modernised: "~40% (+10% lift)",
+        },
+        {
+          label: "Speed to Transact (First Purchase)",
+          legacy: "Up to 15 days",
+          modernised: "~3.5 minutes total",
+        },
+        {
+          label: "Instant Digital Wallet Activation",
+          legacy: "~40%",
+          modernised: "Over 70%",
+        },
+      ],
+      closingTitle: "Stitching Application to Instant Activation",
+      closingBody:
+        "I spearheaded end-to-end instant digital card provisioning, a secure one-tap tokenization workflow stitching the application directly to Apple/Android Wallet. Approved users could push active credentials to their wallet the exact second they hit the success screen. This unlocked a 60-second speed-to-transact window and drove a measurable lift in early-stage NPS.",
+    },
   },
   convokelab: {
     slug: "convokelab",
