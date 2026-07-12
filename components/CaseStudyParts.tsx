@@ -772,12 +772,12 @@ export function QantasCarousel() {
             {/* Expanded state: scrollable full copy, closed via the 'x' button */}
             {state === "expanded" && (
               <div className="qantas-rise-in absolute inset-0 flex flex-col">
-                <div className="flex items-start px-12 pt-6 sm:px-14">
+                <div className="flex items-start px-[52px] pt-6 sm:px-[60px]">
                   <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
                     {slide.tabLabel}
                   </p>
                 </div>
-                <div className="mt-auto max-h-[82%] overflow-y-auto px-12 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-14 sm:text-[13px]">
+                <div className="mt-auto max-h-[82%] overflow-y-auto px-[52px] pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-[60px] sm:text-[13px]">
                   {slide.intro.map((p, i) => (
                     <p key={`intro-${i}`} className="mb-2">
                       {p}
@@ -1031,12 +1031,12 @@ export function CBACarousel() {
           {/* Expanded state: full copy, closed via the 'x' button */}
           {!slide.noToggle && state === "expanded" && (
             <div className="qantas-rise-in absolute inset-0 flex flex-col">
-              <div className="flex items-start px-12 pt-6 sm:px-14">
+              <div className="flex items-start px-[52px] pt-6 sm:px-[60px]">
                 <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
                   {slide.tabLabel}
                 </p>
               </div>
-              <div className="mt-auto max-h-[82%] overflow-y-auto px-12 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-14 sm:text-[13px]">
+              <div className="mt-auto max-h-[82%] overflow-y-auto px-[52px] pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-[60px] sm:text-[13px]">
                 {slide.intro.map((p, i) => (
                   <p key={`intro-${i}`} className="mb-2">
                     {p}
