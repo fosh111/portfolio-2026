@@ -108,11 +108,15 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               </div>
             </div>
           </div>
-          <Figure
-            imageKey={`${study.slug}-hero`}
-            label={`${study.company} — key visual`}
-            className="aspect-[558/393] w-full"
-          />
+          <div>
+            <div className="md:sticky md:top-24">
+              <Figure
+                imageKey={`${study.slug}-hero`}
+                label={`${study.company} — key visual`}
+                className="aspect-[558/393] w-full"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-12">
