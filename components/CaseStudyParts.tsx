@@ -658,7 +658,7 @@ export function QantasCarousel() {
                   loop
                   playsInline
                   aria-hidden="true"
-                  className="h-full w-full scale-105 object-cover blur-[5px]"
+                  className="h-full w-full object-contain blur-[5px]"
                 />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -729,7 +729,7 @@ export function QantasCarousel() {
                 className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-colors hover:bg-white"
               >
                 <QuestionMarkIcon />
-                <span className="font-mono text-[12px] tracking-[0.05em]">tell me more</span>
+                <span className="font-mono text-[12px] uppercase tracking-[0.05em]">tell me more</span>
               </button>
             )}
 
@@ -741,7 +741,7 @@ export function QantasCarousel() {
                     {slide.tabLabel}
                   </p>
                 </div>
-                <div className="mt-3 flex-1 overflow-y-auto px-6 pb-14 font-mono text-[13px] font-normal leading-relaxed text-white/90 sm:text-[14px]">
+                <div className="mt-auto max-h-[55%] overflow-y-auto px-6 pb-14 pt-6 text-left font-mono text-[13px] font-normal leading-relaxed text-white/90 sm:text-[14px]">
                   {slide.intro.map((p, i) => (
                     <p key={`intro-${i}`} className="mb-3">
                       {p}
