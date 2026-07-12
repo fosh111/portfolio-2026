@@ -925,14 +925,7 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
   {
     id: "mobile-design",
     tabLabel: "MOBILE DESIGNS",
-    layers: [
-      { imageKey: "carousel-cba-mobile-design-1", top: 3.466, left: 7.179, width: 12.821, height: 96.529 },
-      { imageKey: "carousel-cba-mobile-design-2", top: 3.466, left: 36.923, width: 12.222, height: 94.627 },
-      { imageKey: "carousel-cba-mobile-design-3", top: 3.466, left: 22.393, width: 12.137, height: 87.175 },
-      { imageKey: "carousel-cba-mobile-design-4", top: 3.466, left: 51.453, width: 12.222, height: 96.529 },
-      { imageKey: "carousel-cba-mobile-design-5", top: 3.466, left: 65.983, width: 12.222, height: 96.529 },
-      { imageKey: "carousel-cba-mobile-design-6", top: 3.466, left: 80.513, width: 12.222, height: 79.723 },
-    ],
+    imageKey: "carousel-cba-mobile-design",
     intro: [
       "These final screens represent a complete architectural overhaul of the application funnel. By integrating real-time government identity APIs and changing the design from a rigid document into a dynamic, conversational UI, we achieved record-breaking conversion metrics:",
     ],
@@ -1003,11 +996,7 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
   {
     id: "stakeholder",
     tabLabel: "STAKEHOLDER ALIGNMENT",
-    layers: [
-      { imageKey: "carousel-cba-stakeholder-1", top: 10.052, left: 2.906, width: 30.427, height: 73.831, rounded: true },
-      { imageKey: "carousel-cba-stakeholder-2", top: 2.946, left: 33.333, width: 59.231, height: 87.868, rounded: true },
-      { imageKey: "carousel-cba-stakeholder-3", top: 0, left: 64.957, width: 35.043, height: 93.762, rounded: true },
-    ],
+    imageKey: "carousel-cba-stakeholder",
     intro: [
       "Inside the \"Occupation Type\" selector, the legacy Credit Risk API strictly required \"Student\" to be listed as an option. The technical teams refused to modify this backend endpoint, demanding that the interface simply conform to their existing data schema.",
       "We ran usability testing on the live flow and exposed a massive disconnect between backend architecture and human behavior:",
@@ -1025,47 +1014,14 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
   {
     id: "ut-insights",
     tabLabel: "USER TESTING INSIGHTS",
-    layers: [
-      { imageKey: "carousel-cba-ut-insights-1", top: 0, left: 19.658, width: 12.821, height: 71.404 },
-      { imageKey: "carousel-cba-ut-insights-2", top: 0.173, left: 60.171, width: 39.829, height: 99.827 },
-      { imageKey: "carousel-cba-ut-insights-3", top: 0, left: 45.556, width: 12.821, height: 87.868 },
-    ],
+    imageKey: "carousel-cba-ut-insights",
     noToggle: true,
     intro: [],
-    captions: [
-      {
-        top: 46.443,
-        left: 5.214,
-        width: 13.248,
-        label: "Checkbox \u2013 data control and consent:",
-        body: "Through research collaboration and usability testing, we identified that users valued having control over how their data was being used. Even when faster approval was an option, transparency and consent were more important. Introducing a checkbox allowed users to feel empowered in the process, balancing speed with trust.",
-      },
-      {
-        top: 20.624,
-        left: 62.650,
-        width: 10.598,
-        label: "Product Downgrade \u2014 transforming rejection into choice:",
-        body: "Rather than defaulting to an outright decline, we engineered a dynamic path offering eligible users lower-tier card alternatives aligned with their financial profiles. Validated through intense user testing, this cross-functional intervention championed responsible lending, preserved customer trust, and saved conversions at the very end of the funnel.",
-        muted: true,
-      },
-      {
-        top: 28.249,
-        left: 34.701,
-        width: 9.658,
-        label: "Express approval \u2013 clarifying expectations:",
-        body: "Working closely with Legal and Compliance and drawing from user testing insights, we discovered that users were often unfamiliar with the concept of on-the-spot approvals. To address this, we introduced a tooltip and a supporting sentence that clarified the feature. This not only reduced confusion but also acted as a subtle nudge to align user expectations with the process.",
-      },
-    ],
   },
   {
     id: "delivery",
     tabLabel: "DELIVERY",
-    layers: [
-      { imageKey: "carousel-cba-delivery-1", top: 2.253, left: 2.991, width: 12.821, height: 85.269 },
-      { imageKey: "carousel-cba-delivery-2", top: 2.253, left: 48.889, width: 51.111, height: 80.590 },
-      { imageKey: "carousel-cba-delivery-3", top: 2.253, left: 17.778, width: 12.821, height: 90.121 },
-      { imageKey: "carousel-cba-delivery-4", top: 2.253, left: 32.564, width: 12.821, height: 97.747 },
-    ],
+    imageKey: "carousel-cba-delivery",
     intro: [
       "Design doesn't end when the Figma file is approved. I embedded across multiple delivery squads to protect the design strategy and bridge the gap between vision, compliance, and production code.",
     ],
