@@ -647,6 +647,7 @@ export function QantasCarousel() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
+        <div key={slide.id} className="absolute inset-0 qantas-fade-in">
         {slide.kind === "video" ? (
           slide.layout === "split" ? (
             // "new-ui": text on the left, media on the right, both vertically
@@ -662,7 +663,7 @@ export function QantasCarousel() {
                     {slide.captionSubtitle}
                   </p>
                 </div>
-                <div className="relative h-full flex-1 overflow-hidden rounded-[16px] sm:rounded-[24px]">
+                <div className="relative h-full flex-1 overflow-hidden rounded-[16px] py-[6%] sm:rounded-[24px]">
                   {slide.videoSrc ? (
                     <video
                       src={slide.videoSrc}
@@ -747,7 +748,10 @@ export function QantasCarousel() {
 
             {/* Expanded-state overlay tint, sits above the image and below the copy/controls */}
             {state === "expanded" && (
-              <div className="absolute inset-0 bg-[#2C2C2C]/90" aria-hidden="true" />
+              <div
+                className="absolute inset-0 qantas-fade-in bg-[#2C2C2C]/90"
+                aria-hidden="true"
+              />
             )}
 
             {/* Collapsed state (the default/neutral view): no overlays at all, just the
@@ -757,7 +761,7 @@ export function QantasCarousel() {
                 type="button"
                 onClick={() => setState("expanded")}
                 aria-label="Expand details"
-                className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-colors hover:bg-white"
+                className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
               >
                 <QuestionMarkIcon />
                 <span className="font-mono text-[12px] uppercase tracking-[0.05em]">tell me more</span>
@@ -766,13 +770,13 @@ export function QantasCarousel() {
 
             {/* Expanded state: scrollable full copy, closed via the 'x' button */}
             {state === "expanded" && (
-              <div className="absolute inset-0 flex flex-col">
-                <div className="flex items-start px-6 pt-6">
+              <div className="qantas-rise-in absolute inset-0 flex flex-col">
+                <div className="flex items-start px-12 pt-6 sm:px-14">
                   <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
                     {slide.tabLabel}
                   </p>
                 </div>
-                <div className="mt-auto max-h-[82%] overflow-y-auto px-6 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:text-[13px]">
+                <div className="mt-auto max-h-[82%] overflow-y-auto px-12 pb-14 pt-3 text-left font-mono text-[12px] font-normal leading-snug text-white/90 sm:px-14 sm:text-[13px]">
                   {slide.intro.map((p, i) => (
                     <p key={`intro-${i}`} className="mb-2">
                       {p}
@@ -798,7 +802,7 @@ export function QantasCarousel() {
                   type="button"
                   onClick={() => setState("collapsed")}
                   aria-label="Close"
-                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
                 >
                   <CloseIcon />
                 </button>
@@ -806,6 +810,7 @@ export function QantasCarousel() {
             )}
           </>
         )}
+        </div>
 
         {/* Prev/next controls — always present, on every slide and every state
             (including expanded), so the user can browse without closing first */}
@@ -813,7 +818,7 @@ export function QantasCarousel() {
           type="button"
           onClick={goPrev}
           aria-label="Previous slide"
-          className="absolute left-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:left-6"
+          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
         >
           <ChevronIcon direction="left" />
         </button>
@@ -821,7 +826,7 @@ export function QantasCarousel() {
           type="button"
           onClick={goNext}
           aria-label="Next slide"
-          className="absolute right-4 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-colors hover:bg-white sm:right-6"
+          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
         >
           <ChevronIcon direction="right" />
         </button>
@@ -833,18 +838,18 @@ export function QantasCarousel() {
           type="button"
           onClick={goPrev}
           aria-label="Previous slide (description nav)"
-          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-colors hover:text-ink"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-all duration-150 hover:text-ink active:scale-90"
         >
           ←
         </button>
-        <span className="font-mono text-[14px] tracking-[0.05em] text-ink">
-          {slide.kind === "video" ? slide.tabLabel : slide.tabLabel}
+        <span key={slide.id} className="qantas-fade-in font-mono text-[14px] tracking-[0.05em] text-ink">
+          {slide.tabLabel}
         </span>
         <button
           type="button"
           onClick={goNext}
           aria-label="Next slide (description nav)"
-          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-colors hover:text-ink"
+          className="font-mono text-[14px] tracking-[0.05em] text-[#afafaf] transition-all duration-150 hover:text-ink active:scale-90"
         >
           →
         </button>
