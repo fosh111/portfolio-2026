@@ -166,6 +166,26 @@ button:focus-visible {
   animation: qantas-pop-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Password-gate error shake (EnterGate component) */
+@keyframes gate-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
 /* Site-wide scroll reveal: fades + rises in on enter, reverses on exit.
    Driven by the Reveal component toggling the .reveal-in class via
    IntersectionObserver — this is a transition, not a one-shot animation,
