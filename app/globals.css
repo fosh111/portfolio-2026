@@ -8,6 +8,47 @@
   --font-instrument: "Instrument Serif", Georgia, serif;
   --font-fira: "Fira Code", ui-monospace, "SFMono-Regular", monospace;
   --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Theme tokens (space-separated RGB so Tailwind's /alpha modifier works).
+     Light values are the site's original palette. */
+  --color-ink: 10 10 10;
+  --color-paper: 255 255 255;
+  --color-muted: 128 128 128;
+  --color-muted-light: 172 172 172;
+  --color-muted-dark: 94 94 94;
+  --color-muted-body: 72 72 72;
+  --color-muted-soft: 146 146 146;
+  --color-line: 192 192 192;
+  --color-line-soft: 229 231 235;
+  --color-line-faint: rgba(0, 0, 0, 0.08);
+  --color-card: 227 227 227;
+  --color-metric: 249 249 249;
+  --color-stroke: 50 50 50;
+  --color-accent: rgba(204, 0, 0, 0.85);
+  color-scheme: light;
+}
+
+html.dark {
+  /* Inverted for dark mode. ink/paper swap roles (the design system is
+     literally named for "ink on paper", so this is a clean inversion).
+     panel is intentionally NOT overridden here -- it's paired with a
+     hardcoded text-white in CaseStudyMenu's active state and needs to
+     stay a dark block in both themes. */
+  --color-ink: 245 245 245;
+  --color-paper: 10 10 10;
+  --color-muted: 148 148 148;
+  --color-muted-light: 172 172 172;
+  --color-muted-dark: 190 190 190;
+  --color-muted-body: 180 180 180;
+  --color-muted-soft: 150 150 150;
+  --color-line: 70 70 70;
+  --color-line-soft: 45 45 45;
+  --color-line-faint: rgba(255, 255, 255, 0.1);
+  --color-card: 36 36 36;
+  --color-metric: 24 24 24;
+  --color-stroke: 199 199 199;
+  --color-accent: rgba(255, 92, 92, 0.9);
+  color-scheme: dark;
 }
 
 /* Apply the wonky Fraunces axis wherever the display face is used */
@@ -23,9 +64,10 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #0a0a0a;
+  background: rgb(var(--color-paper));
+  color: rgb(var(--color-ink));
   font-feature-settings: "liga" 1, "calt" 1;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,14 +100,14 @@ body {
 }
 
 ::selection {
-  background: #0a0a0a;
-  color: #ffffff;
+  background: rgb(var(--color-ink));
+  color: rgb(var(--color-paper));
 }
 
 /* Keyboard focus visibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #0a0a0a;
+  outline: 2px solid rgb(var(--color-ink));
   outline-offset: 3px;
   border-radius: 2px;
 }
