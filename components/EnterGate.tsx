@@ -13,7 +13,25 @@ import { useRouter } from "next/navigation";
 // way, same as any front-end check. This is a fun barrier, not real
 // security, and shouldn't be used to protect anything sensitive.
 const SITE_PASSWORD = "2026!*";
+
+// Cookie (not sessionStorage) so middleware.ts can read it too -- that's
+// what lets a direct link to an inner page (e.g. /case-studies) redirect
+// back here if the visitor hasn't unlocked. No max-age/expires is set, so
+// it behaves like a session cookie: survives reloads/navigation in this
+// tab, forgotten once the browser is closed. Keep this in sync with
+// UNLOCK_COOKIE in middleware.ts.
 const UNLOCK_KEY = "portfolio-unlocked";
+
+function readUnlockCookie(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.cookie
+    .split("; ")
+    .some((entry) => entry === `${UNLOCK_KEY}=true`);
+}
+
+function writeUnlockCookie() {
+  document.cookie = `${UNLOCK_KEY}=true; path=/; SameSite=Lax`;
+}
 
 function CloseIcon({ className = "" }: { className?: string }) {
   return (
@@ -77,17 +95,10 @@ export function EnterGate({
   const [unlocked, setUnlocked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // sessionStorage (not localStorage): stays unlocked while browsing
-  // around the site or reloading, but forgets once the tab/browser is
-  // closed, so the next visit asks again. Read before paint (mirrors the
-  // ThemeToggle pattern) so there's no flash of the prompt for someone
-  // who's already unlocked it this session.
+  // Read before paint (mirrors the ThemeToggle pattern) so there's no
+  // flash of the prompt for someone who's already unlocked this session.
   useLayoutEffect(() => {
-    try {
-      if (sessionStorage.getItem(UNLOCK_KEY) === "true") setUnlocked(true);
-    } catch {
-      // sessionStorage unavailable -- falls back to asking every visit.
-    }
+    if (readUnlockCookie()) setUnlocked(true);
   }, []);
 
   function handleTriggerClick() {
@@ -122,12 +133,7 @@ export function EnterGate({
     e.preventDefault();
     if (value === SITE_PASSWORD) {
       setStatus("success");
-      try {
-        sessionStorage.setItem(UNLOCK_KEY, "true");
-      } catch {
-        // sessionStorage unavailable -- unlock still works for the rest of
-        // this visit, it just won't be remembered next time.
-      }
+      writeUnlockCookie();
       setUnlocked(true);
       window.setTimeout(() => router.push(href), 700);
     } else {
