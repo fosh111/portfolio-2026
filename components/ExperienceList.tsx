@@ -20,6 +20,7 @@ function Row({ item }: { item: Experience }) {
           className="size-12 shrink-0"
           rounded="rounded-[3px]"
           labelClassName="text-[8px]"
+          bg="bg-transparent"
         />
         <div className="flex-1">
           <h3 className="font-serif text-[24px] leading-tight text-ink">
