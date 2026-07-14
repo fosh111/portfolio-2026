@@ -62,6 +62,7 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
             className="size-24"
             rounded="rounded-[4px]"
             labelClassName="text-[9px]"
+            bg="bg-transparent"
           />
           <h1 className="font-display text-[40px] leading-[1.05] tracking-tight2 text-ink sm:text-[48px]">
             {study.titleLead} {study.titleAccent}
@@ -120,7 +121,7 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
           </div>
         </Reveal>
 
-        <Reveal className="mt-12" once>
+        <Reveal className="mt-12">
           <TellMeMore>
             {study.cbaExpanded ? (
               <CbaExpandedContent detail={study.cbaExpanded} />
@@ -160,11 +161,11 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               {study.metrics.map((m, i) => (
                 <div
                   key={m.label}
-                  className={`min-w-0 ${
+                  className={
                     study.metrics.length % 2 !== 0 && i === 0
                       ? "sm:col-span-2"
                       : ""
-                  }`}
+                  }
                 >
                   <MetricCard metric={m} />
                 </div>

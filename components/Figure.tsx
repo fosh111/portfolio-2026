@@ -7,6 +7,7 @@ export function Figure({
   className = "",
   rounded = "rounded-none",
   labelClassName = "",
+  bg = "bg-card",
 }: {
   imageKey: string;
   hoverImageKey?: string;
@@ -14,13 +15,18 @@ export function Figure({
   className?: string;
   rounded?: string;
   labelClassName?: string;
+  /** Container background, shown through any transparent pixels in the
+   * image itself. Defaults to bg-card (right for photos/thumbnails, which
+   * are fully opaque anyway). Pass "bg-transparent" for assets that are
+   * meant to float free, like logos with real alpha transparency. */
+  bg?: string;
 }) {
   const src = img(imageKey);
   const hoverSrc = hoverImageKey ? img(hoverImageKey) : "";
 
   if (src) {
     return (
-      <div className={`relative overflow-hidden bg-card ${rounded} ${className}`}>
+      <div className={`relative overflow-hidden ${bg} ${rounded} ${className}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
@@ -44,7 +50,7 @@ export function Figure({
 
   return (
     <div
-      className={`relative flex items-center justify-center overflow-hidden bg-card ${rounded} ${className}`}
+      className={`relative flex items-center justify-center overflow-hidden ${bg} ${rounded} ${className}`}
       role="img"
       aria-label={label ?? "Image placeholder"}
     >
