@@ -8,11 +8,12 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
  * of view in either direction — driven by IntersectionObserver toggling
  * the `.reveal-in` class defined in globals.css (see `.reveal`).
  *
- * The trigger zone extends past the bottom of the viewport (positive
- * rootMargin) and fires on the first sliver of overlap (threshold 0), so
- * content is already animating in — or fully in — by the time it's
- * actually on screen. This avoids the "scroll stops, section is still
- * blank" gap you get from a stricter ratio-based threshold.
+ * The trigger boundary is the actual viewport edge (no rootMargin) with
+ * threshold 0, so the reveal fires the instant a section's top touches
+ * the bottom of the screen — no earlier (or it'd pre-reveal content on
+ * page load, before the user has scrolled at all, killing the visible
+ * effect) and no later (which left a "scrolled it into view but it's
+ * still blank" dead zone with the old ratio-based threshold).
  *
  * Once the enter transition finishes, the transform is dropped entirely
  * (`.reveal-settled`) rather than left at translateY(0). A lingering
@@ -64,7 +65,7 @@ export function Reveal({
           setSettled(false);
         }
       },
-      { threshold, rootMargin: "0px 0px 20% 0px" },
+      { threshold, rootMargin: "0px" },
     );
 
     observer.observe(node);
