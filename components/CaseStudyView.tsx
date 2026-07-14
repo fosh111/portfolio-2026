@@ -120,7 +120,7 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
           </div>
         </Reveal>
 
-        <Reveal className="mt-12">
+        <Reveal className="mt-12" once>
           <TellMeMore>
             {study.cbaExpanded ? (
               <CbaExpandedContent detail={study.cbaExpanded} />
