@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,25 +15,25 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       colors: {
-        ink: "#0a0a0a",
-        paper: "#ffffff",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        paper: "rgb(var(--color-paper) / <alpha-value>)",
         muted: {
-          DEFAULT: "#808080",
-          light: "#acacac",
-          dark: "#5e5e5e",
-          body: "#484848",
-          soft: "#929292",
+          DEFAULT: "rgb(var(--color-muted) / <alpha-value>)",
+          light: "rgb(var(--color-muted-light) / <alpha-value>)",
+          dark: "rgb(var(--color-muted-dark) / <alpha-value>)",
+          body: "rgb(var(--color-muted-body) / <alpha-value>)",
+          soft: "rgb(var(--color-muted-soft) / <alpha-value>)",
         },
         line: {
-          DEFAULT: "#c0c0c0",
-          soft: "#e5e7eb",
-          faint: "rgba(0,0,0,0.08)",
+          DEFAULT: "rgb(var(--color-line) / <alpha-value>)",
+          soft: "rgb(var(--color-line-soft) / <alpha-value>)",
+          faint: "var(--color-line-faint)",
         },
         panel: "#151515",
-        card: "#e3e3e3",
-        metric: "#f9f9f9",
-        stroke: "#323232",
-        accent: "rgba(204,0,0,0.85)",
+        card: "rgb(var(--color-card) / <alpha-value>)",
+        metric: "rgb(var(--color-metric) / <alpha-value>)",
+        stroke: "rgb(var(--color-stroke) / <alpha-value>)",
+        accent: "var(--color-accent)",
       },
       letterSpacing: {
         nav: "0.18em",
