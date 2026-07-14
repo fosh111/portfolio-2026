@@ -160,11 +160,11 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               {study.metrics.map((m, i) => (
                 <div
                   key={m.label}
-                  className={
+                  className={`min-w-0 ${
                     study.metrics.length % 2 !== 0 && i === 0
                       ? "sm:col-span-2"
                       : ""
-                  }
+                  }`}
                 >
                   <MetricCard metric={m} />
                 </div>

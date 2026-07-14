@@ -14,8 +14,8 @@ import { QANTAS_CAROUSEL, CBA_CAROUSEL } from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-2 bg-metric p-6">
-      <p className="font-display text-[32px] leading-none text-ink sm:text-[40px]">
+    <div className="flex h-full min-w-0 flex-col justify-center gap-2 bg-metric p-6">
+      <p className="min-w-0 break-words font-display text-[32px] leading-[1.05] text-ink sm:text-[40px]">
         {metric.value}
       </p>
       <div className="flex flex-col gap-1">
