@@ -281,7 +281,7 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
           "shipped phase 1 launch to unlock ancillary revenue streams, doubling revenue in record time",
       },
       {
-        value: "Omnichannel",
+        value: "Omni channel",
         label: "multiple platforms",
         detail:
           "deploying a unified, cohesive product experience across web, mobile, tablet, and physical touchpoints",
