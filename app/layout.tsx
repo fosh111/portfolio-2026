@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // Runs before hydration (blocking, in <head>) to set html.dark from the
 // stored preference (or system preference on first visit) so there's no
@@ -41,6 +42,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -57,6 +59,12 @@ export default function RootLayout({
       <body className="bg-paper font-sans text-ink antialiased">
         {children}
         <ThemeToggle />
+        {/* GA4 via Next's official helper. Reads NEXT_PUBLIC_GA_ID (set in
+            Vercel). Gated to production so localhost/preview dev doesn't
+            pollute analytics; renders nothing if the id is unset. */}
+        {gaId && process.env.NODE_ENV === "production" && (
+          <GoogleAnalytics gaId={gaId} />
+        )}
       </body>
     </html>
   );

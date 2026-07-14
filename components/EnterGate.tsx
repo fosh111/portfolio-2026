@@ -8,6 +8,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { useRouter } from "next/navigation";
+import { sendGAEvent } from "@next/third-parties/google";
 
 // Client-side-only soft gate -- the password ships in the JS bundle either
 // way, same as any front-end check. This is a fun barrier, not real
@@ -133,6 +134,11 @@ export function EnterGate({
     e.preventDefault();
     if (SITE_PASSWORDS.includes(value)) {
       setStatus("success");
+      // GA4 conversion: only fires once GA has initialised dataLayer
+      // (i.e. in production with NEXT_PUBLIC_GA_ID set). No-ops otherwise.
+      if (typeof window !== "undefined" && Array.isArray((window as any).dataLayer)) {
+        sendGAEvent("event", "unlock", { method: "password" });
+      }
       writeUnlockCookie();
       setUnlocked(true);
       window.setTimeout(() => router.push(href), 700);
