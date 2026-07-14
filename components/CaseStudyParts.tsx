@@ -14,8 +14,8 @@ import { QANTAS_CAROUSEL, CBA_CAROUSEL } from "@/lib/content";
 
 export function MetricCard({ metric }: { metric: Metric }) {
   return (
-    <div className="flex h-full min-w-0 flex-col justify-center gap-2 bg-metric p-6">
-      <p className="min-w-0 break-words font-display text-[32px] leading-[1.05] text-ink sm:text-[40px]">
+    <div className="flex h-full flex-col justify-center gap-2 bg-metric p-6">
+      <p className="font-display text-[32px] leading-none text-ink sm:text-[40px]">
         {metric.value}
       </p>
       <div className="flex flex-col gap-1">
@@ -762,7 +762,7 @@ export function QantasCarousel() {
                 type="button"
                 onClick={() => setState("expanded")}
                 aria-label="Expand details"
-                className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
+                className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[#0a0a0a] transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
               >
                 <QuestionMarkIcon />
                 <span className="font-mono text-[12px] uppercase tracking-[0.05em]">tell me more</span>
@@ -803,7 +803,7 @@ export function QantasCarousel() {
                   type="button"
                   onClick={() => setState("collapsed")}
                   aria-label="Close"
-                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
                 >
                   <CloseIcon />
                 </button>
@@ -819,7 +819,7 @@ export function QantasCarousel() {
           type="button"
           onClick={goPrev}
           aria-label="Previous slide"
-          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
+          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
         >
           <ChevronIcon direction="left" />
         </button>
@@ -827,7 +827,7 @@ export function QantasCarousel() {
           type="button"
           onClick={goNext}
           aria-label="Next slide"
-          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
+          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
         >
           <ChevronIcon direction="right" />
         </button>
@@ -1021,7 +1021,7 @@ export function CBACarousel() {
               type="button"
               onClick={() => setState("expanded")}
               aria-label="Expand details"
-              className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-ink transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
+              className="qantas-pop-in absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[#0a0a0a] transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95"
             >
               <QuestionMarkIcon />
               <span className="font-mono text-[12px] uppercase tracking-[0.05em]">tell me more</span>
@@ -1062,7 +1062,7 @@ export function CBACarousel() {
                 type="button"
                 onClick={() => setState("collapsed")}
                 aria-label="Close"
-                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
+                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
               >
                 <CloseIcon />
               </button>
@@ -1076,7 +1076,7 @@ export function CBACarousel() {
           type="button"
           onClick={goPrev}
           aria-label="Previous slide"
-          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
+          className="absolute left-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:left-6"
         >
           <ChevronIcon direction="left" />
         </button>
@@ -1084,7 +1084,7 @@ export function CBACarousel() {
           type="button"
           onClick={goNext}
           aria-label="Next slide"
-          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
+          className="absolute right-4 top-1/2 z-10 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95 sm:right-6"
         >
           <ChevronIcon direction="right" />
         </button>
