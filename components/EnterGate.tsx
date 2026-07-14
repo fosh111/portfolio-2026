@@ -77,14 +77,16 @@ export function EnterGate({
   const [unlocked, setUnlocked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Mirrors the ThemeToggle pattern: read the persisted flag before paint
-  // so a returning visitor never sees the password prompt flash before
-  // this resolves.
+  // sessionStorage (not localStorage): stays unlocked while browsing
+  // around the site or reloading, but forgets once the tab/browser is
+  // closed, so the next visit asks again. Read before paint (mirrors the
+  // ThemeToggle pattern) so there's no flash of the prompt for someone
+  // who's already unlocked it this session.
   useLayoutEffect(() => {
     try {
-      if (localStorage.getItem(UNLOCK_KEY) === "true") setUnlocked(true);
+      if (sessionStorage.getItem(UNLOCK_KEY) === "true") setUnlocked(true);
     } catch {
-      // localStorage unavailable -- falls back to asking every visit.
+      // sessionStorage unavailable -- falls back to asking every visit.
     }
   }, []);
 
@@ -121,10 +123,10 @@ export function EnterGate({
     if (value === SITE_PASSWORD) {
       setStatus("success");
       try {
-        localStorage.setItem(UNLOCK_KEY, "true");
+        sessionStorage.setItem(UNLOCK_KEY, "true");
       } catch {
-        // localStorage unavailable -- unlock still works for this visit,
-        // it just won't be remembered next time.
+        // sessionStorage unavailable -- unlock still works for the rest of
+        // this visit, it just won't be remembered next time.
       }
       setUnlocked(true);
       window.setTimeout(() => router.push(href), 700);
