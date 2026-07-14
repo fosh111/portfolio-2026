@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <Link
             href="/about"
-            className="inline-flex h-14 shrink-0 items-center justify-center rounded-full border-2 border-stroke bg-paper px-7 font-mono text-[18px] text-stroke transition-colors hover:bg-ink hover:text-paper"
+            className="inline-flex h-14 shrink-0 items-center justify-center rounded-full border border-white/60 bg-white/30 px-7 font-mono text-[18px] text-stroke shadow-[0_8px_30px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 hover:border-white/25 hover:bg-ink/55 hover:text-paper hover:shadow-[0_8px_30px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.15)]"
           >
             ENTER →
           </Link>
