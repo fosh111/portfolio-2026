@@ -1,12 +1,19 @@
 "use client";
 
-import { useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 import { useRouter } from "next/navigation";
 
 // Client-side-only soft gate -- the password ships in the JS bundle either
 // way, same as any front-end check. This is a fun barrier, not real
 // security, and shouldn't be used to protect anything sensitive.
 const SITE_PASSWORD = "2026!*";
+const UNLOCK_KEY = "portfolio-unlocked";
 
 function CloseIcon({ className = "" }: { className?: string }) {
   return (
@@ -67,7 +74,27 @@ export function EnterGate({
   const [expanded, setExpanded] = useState(false);
   const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
   const [value, setValue] = useState("");
+  const [unlocked, setUnlocked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Mirrors the ThemeToggle pattern: read the persisted flag before paint
+  // so a returning visitor never sees the password prompt flash before
+  // this resolves.
+  useLayoutEffect(() => {
+    try {
+      if (localStorage.getItem(UNLOCK_KEY) === "true") setUnlocked(true);
+    } catch {
+      // localStorage unavailable -- falls back to asking every visit.
+    }
+  }, []);
+
+  function handleTriggerClick() {
+    if (unlocked) {
+      router.push(href);
+      return;
+    }
+    expand();
+  }
 
   function expand() {
     setExpanded(true);
@@ -85,7 +112,7 @@ export function EnterGate({
     if (expanded) return;
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      expand();
+      handleTriggerClick();
     }
   }
 
@@ -93,6 +120,13 @@ export function EnterGate({
     e.preventDefault();
     if (value === SITE_PASSWORD) {
       setStatus("success");
+      try {
+        localStorage.setItem(UNLOCK_KEY, "true");
+      } catch {
+        // localStorage unavailable -- unlock still works for this visit,
+        // it just won't be remembered next time.
+      }
+      setUnlocked(true);
       window.setTimeout(() => router.push(href), 700);
     } else {
       setStatus("error");
@@ -117,7 +151,7 @@ export function EnterGate({
         role={!expanded ? "button" : undefined}
         tabIndex={!expanded ? 0 : undefined}
         aria-label={!expanded ? "Enter" : undefined}
-        onClick={!expanded ? expand : undefined}
+        onClick={!expanded ? handleTriggerClick : undefined}
         onKeyDown={handleTriggerKeyDown}
         className={`relative flex h-14 shrink-0 items-center overflow-hidden rounded-full border bg-paper/50 backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 ${
           expanded ? "w-[320px]" : "w-[152px] cursor-pointer"
@@ -168,7 +202,7 @@ export function EnterGate({
           the error/success message below takes over once expanded. */}
       <div
         className={`pointer-events-none absolute left-1/2 top-[68px] flex -translate-x-1/2 items-center gap-[7px] whitespace-nowrap transition-opacity duration-200 ${
-          expanded ? "opacity-0" : "opacity-100"
+          expanded || unlocked ? "opacity-0" : "opacity-100"
         }`}
       >
         <span className="relative flex size-[18px] shrink-0 items-center justify-center">
