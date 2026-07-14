@@ -64,7 +64,7 @@ export function PillLink({
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-      className="inline-flex h-14 items-center justify-center rounded-full border border-white/60 bg-white/30 px-7 font-mono text-[18px] text-stroke shadow-[0_8px_30px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.5)] backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 hover:border-white/25 hover:bg-ink/55 hover:text-paper hover:shadow-[0_8px_30px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.15)]"
+      className="inline-flex h-14 items-center justify-center rounded-full border border-ink/10 bg-paper/50 px-7 font-mono text-[18px] text-ink shadow-[0_8px_24px_rgba(0,0,0,0.15)] backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 dark:shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.1)] hover:bg-ink/10 hover:shadow-[0_10px_28px_rgba(0,0,0,0.2)]"
     >
       {children}
     </a>
