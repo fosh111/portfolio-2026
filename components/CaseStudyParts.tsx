@@ -19,7 +19,7 @@ export function MetricCard({ metric }: { metric: Metric }) {
         {metric.value}
       </p>
       <div className="flex flex-col gap-1">
-        <p className="text-[15px] font-semibold leading-tight text-[#1a0f0a]">
+        <p className="text-[15px] font-semibold leading-tight text-[#1a0f0a] dark:text-white">
           {metric.label}
         </p>
         <p className="text-[13px] leading-normal text-[#6d6860]">
