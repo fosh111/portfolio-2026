@@ -186,6 +186,19 @@ button:focus-visible {
   }
 }
 
+/* "password required" hint ring pulse (EnterGate component) */
+@keyframes hint-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  75%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
 /* Site-wide scroll reveal: fades + rises in on enter, reverses on exit.
    Driven by the Reveal component toggling the .reveal-in class via
    IntersectionObserver — this is a transition, not a one-shot animation,

@@ -41,6 +41,16 @@ function ArrowIcon({ className = "" }: { className?: string }) {
   );
 }
 
+function InfoIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="9.5" stroke="currentColor" strokeWidth="2.2" />
+      <circle cx="12" cy="7.7" r="1.05" fill="currentColor" />
+      <rect x="11" y="10.6" width="2" height="6" rx="1" fill="currentColor" />
+    </svg>
+  );
+}
+
 /**
  * ENTER pill that expands in place into a password field (same glass shell,
  * no modal/overlay) rather than navigating immediately. Matches the
@@ -154,9 +164,23 @@ export function EnterGate({
         </form>
       </div>
 
+      {/* "password required" nudge -- only while idle/collapsed, same slot
+          the error/success message below takes over once expanded. */}
+      <div
+        className={`pointer-events-none absolute left-1/2 top-[68px] flex -translate-x-1/2 items-center gap-[7px] whitespace-nowrap transition-opacity duration-200 ${
+          expanded ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <span className="relative flex size-[18px] shrink-0 items-center justify-center">
+          <span className="absolute inset-0 animate-[hint-ping_2.2s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full border border-muted-dark/50" />
+          <InfoIcon className="relative size-[18px] text-muted-dark" />
+        </span>
+        <span className="eyebrow text-muted-dark">password required</span>
+      </div>
+
       <p
         aria-live="polite"
-        className={`pointer-events-none absolute left-0 top-[68px] w-[320px] text-center font-mono text-[11px] tracking-[0.04em] transition-all duration-200 ${
+        className={`pointer-events-none absolute left-1/2 top-[68px] -translate-x-1/2 whitespace-nowrap text-center font-mono text-[11px] tracking-[0.04em] transition-all duration-200 ${
           status === "error"
             ? "translate-y-0 text-accent opacity-100"
             : status === "success"
