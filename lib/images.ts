@@ -5,7 +5,7 @@
 
 export const IMAGES: Record<string, string> = {
   "about-hero": "/images/about-hero.png",
-  "logo-qantas": "/images/logo-qantas.png",
+  "logo-qantas": "/images/logo-qantas.svg",
   "logo-convokelab": "/images/logo-convokelab.png",
   "logo-cba": "/images/logo-cba.png",
   "logo-academyxi": "/images/logo-academyxi.png",
