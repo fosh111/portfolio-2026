@@ -1,5 +1,6 @@
 import { Container } from "./Container";
 import { Figure } from "./Figure";
+import { Reveal } from "./Reveal";
 import { ThumbnailCard } from "./ThumbnailCard";
 import {
   MetricCard,
@@ -54,7 +55,7 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
     <>
       {/* Hero */}
       <Container width="study">
-        <div className="flex flex-col gap-2">
+        <Reveal className="flex flex-col gap-2">
           <Figure
             imageKey={`logo-${study.slug}`}
             label={study.company.split(" ")[0]}
@@ -74,11 +75,11 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               {study.period}
             </span>
           </div>
-        </div>
+        </Reveal>
 
         <Divider className="my-6" />
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[534px_minmax(0,1fr)]">
+        <Reveal className="grid grid-cols-1 gap-12 md:grid-cols-[534px_minmax(0,1fr)]">
           <div className="flex flex-col gap-4">
             <div>
               <p className="font-serif text-[20px] text-muted">Role</p>
@@ -117,9 +118,9 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="mt-12">
+        <Reveal className="mt-12">
           <TellMeMore>
             {study.cbaExpanded ? (
               <CbaExpandedContent detail={study.cbaExpanded} />
@@ -131,56 +132,64 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               <p className="mx-auto max-w-[900px] px-2">{study.processNote}</p>
             )}
           </TellMeMore>
-        </div>
+        </Reveal>
       </Container>
 
       {/* Design process */}
       <Container width="study" className="mt-20">
-        <SectionLabel>Design process</SectionLabel>
-        <Divider className="my-4" />
-        <ProcessCanvas study={study} />
+        <Reveal>
+          <SectionLabel>Design process</SectionLabel>
+          <Divider className="my-4" />
+          <ProcessCanvas study={study} />
+        </Reveal>
       </Container>
 
       {/* Key outcomes */}
       <Container width="study" className="mt-16">
-        <SectionLabel>{study.outcomesTitle}</SectionLabel>
-        <Divider className="my-4" />
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[595px_minmax(0,1fr)]">
-          <Figure
-            imageKey={`${study.slug}-outcome`}
-            label={`${study.company} — outcome`}
-            className="aspect-[595/627] w-full"
-            rounded="rounded-[2px]"
-          />
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {study.metrics.map((m, i) => (
-              <div
-                key={m.label}
-                className={
-                  study.metrics.length % 2 !== 0 && i === 0
-                    ? "sm:col-span-2"
-                    : ""
-                }
-              >
-                <MetricCard metric={m} />
-              </div>
-            ))}
+        <Reveal>
+          <SectionLabel>{study.outcomesTitle}</SectionLabel>
+          <Divider className="my-4" />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[595px_minmax(0,1fr)]">
+            <Figure
+              imageKey={`${study.slug}-outcome`}
+              label={`${study.company} — outcome`}
+              className="aspect-[595/627] w-full"
+              rounded="rounded-[2px]"
+            />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {study.metrics.map((m, i) => (
+                <div
+                  key={m.label}
+                  className={
+                    study.metrics.length % 2 !== 0 && i === 0
+                      ? "sm:col-span-2"
+                      : ""
+                  }
+                >
+                  <MetricCard metric={m} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
       </Container>
 
       {/* Further case studies */}
       <Container width="inner" className="mt-24">
         <div className="mx-auto max-w-[983px]">
-          <SectionLabel>Further case studies</SectionLabel>
-          <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {others.map((c) => (
-              <ThumbnailCard key={c.slug} study={c} />
-            ))}
-          </div>
-          <div className="mt-20 flex justify-center">
-            <PillLink href="/case-studies">MORE CASE STUDIES →</PillLink>
-          </div>
+          <Reveal>
+            <SectionLabel>Further case studies</SectionLabel>
+            <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {others.map((c, i) => (
+                <Reveal key={c.slug} delay={i * 90}>
+                  <ThumbnailCard study={c} />
+                </Reveal>
+              ))}
+            </div>
+            <div className="mt-20 flex justify-center">
+              <PillLink href="/case-studies">MORE CASE STUDIES →</PillLink>
+            </div>
+          </Reveal>
         </div>
       </Container>
     </>

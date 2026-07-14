@@ -1,4 +1,5 @@
 import { PageChrome } from "@/components/PageChrome";
+import { Reveal } from "@/components/Reveal";
 import { Container } from "@/components/Container";
 import { SITE, CONTACT_INTRO } from "@/lib/content";
 
@@ -40,23 +41,23 @@ export default function ContactPage() {
     <PageChrome active="contact">
       <Container width="inner">
         <div className="mx-auto max-w-[950px]">
-          <div className="max-w-[563px]">
+          <Reveal className="max-w-[563px]">
             <h1 className="font-display text-[56px] leading-none tracking-tight2 text-ink sm:text-[72px]">
               Contact
             </h1>
             <p className="mt-6 text-[16px] leading-6 text-muted-body">
               {CONTACT_INTRO}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <Reveal className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2">
             <ContactCard
               kind="Email"
               value={SITE.email}
               href={`mailto:${SITE.email}`}
             />
             <ContactCard kind="LinkedIn" value="/in/fozsh" href={SITE.linkedin} />
-          </div>
+          </Reveal>
         </div>
       </Container>
     </PageChrome>

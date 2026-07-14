@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/content";
+import { Reveal } from "@/components/Reveal";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="flex flex-col items-center gap-10 sm:flex-row sm:gap-20">
+        <Reveal className="flex flex-col items-center gap-10 sm:flex-row sm:gap-20">
           <div className="relative aspect-[771/459] w-full overflow-hidden rounded-[2px] bg-card sm:flex-1">
             <video
               src="/videos/intro-hero.mp4"
@@ -33,7 +34,7 @@ export default function Home() {
           >
             ENTER →
           </Link>
-        </div>
+        </Reveal>
       </div>
     </main>
   );
