@@ -13,7 +13,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 // Client-side-only soft gate -- the password ships in the JS bundle either
 // way, same as any front-end check. This is a fun barrier, not real
 // security, and shouldn't be used to protect anything sensitive.
-const SITE_PASSWORDS = ["2026!*", "Apr2026!", "Apr26!"];
+const SITE_PASSWORDS = ["2026!*", "Apr2026!", "Apr26!", "you are hired"];
 
 // Cookie (not sessionStorage) so middleware.ts can read it too -- that's
 // what lets a direct link to an inner page (e.g. /case-studies) redirect
