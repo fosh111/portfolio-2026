@@ -21,7 +21,7 @@ function ContactCard({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noreferrer" : undefined}
-      className="group flex aspect-square flex-col items-center justify-center gap-6 rounded-[2px] bg-card transition-colors hover:bg-[#dcdcdc]"
+      className="group flex aspect-square flex-col items-center justify-center gap-6 rounded-[2px] bg-card transition-colors hover:bg-ink/5"
     >
       <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-dark">
         {kind}
