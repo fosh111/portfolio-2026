@@ -339,7 +339,7 @@ export function ConvokelabExpandedContent({
           <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-[#b5541a]">
             {detail.eyebrow}
           </p>
-          <h3 className="font-display text-[36px] leading-[1.1] text-[#1a0f0a] sm:text-[56px]">
+          <h3 className="font-display text-[36px] leading-[1.1] text-[#1a0f0a] dark:text-white sm:text-[56px]">
             {detail.headline}
           </h3>
           <p className="max-w-[800px] text-[16px] leading-[1.45] text-[#6d6860] sm:text-[18px]">
@@ -349,7 +349,7 @@ export function ConvokelabExpandedContent({
         <div className="grid grid-cols-2 gap-6 sm:flex sm:items-start sm:gap-6">
           {detail.stats.map((s) => (
             <div key={s.label} className="flex flex-col gap-2 sm:flex-1">
-              <p className="font-display text-[32px] leading-none text-[#1a0f0a] sm:text-[48px]">
+              <p className="font-display text-[32px] leading-none text-[#1a0f0a] dark:text-white sm:text-[48px]">
                 {s.value}
               </p>
               <p className="font-mono text-[10px] uppercase tracking-[0.05em] text-muted">
@@ -376,7 +376,7 @@ export function ConvokelabExpandedContent({
               </p>
               <p
                 className={`text-[14px] leading-[1.45] text-[#6d6860] ${
-                  col.bold ? "font-bold text-[#1a0f0a]" : ""
+                  col.bold ? "font-bold text-[#1a0f0a] dark:text-white" : ""
                 }`}
               >
                 {col.body}
@@ -404,7 +404,7 @@ export function ConvokelabExpandedContent({
                 {String(i + 1).padStart(2, "0")}
               </p>
               <div className="flex flex-col gap-2">
-                <p className="text-[16px] font-bold text-[#1a0f0a]">
+                <p className="text-[16px] font-bold text-[#1a0f0a] dark:text-white">
                   {p.title}
                 </p>
                 <p className="text-[14px] leading-[1.45] text-[#6d6860]">
@@ -430,7 +430,7 @@ export function ConvokelabExpandedContent({
               key={item.title}
               className="flex flex-col gap-2 rounded-lg bg-metric p-6 sm:p-8"
             >
-              <p className="text-[17px] font-bold text-[#1a0f0a] sm:text-[18px]">
+              <p className="text-[17px] font-bold text-[#1a0f0a] dark:text-white sm:text-[18px]">
                 {item.title}
               </p>
               <p className="text-[15px] leading-[1.45] text-[#6d6860] sm:text-[16px]">
@@ -458,7 +458,7 @@ export function ConvokelabExpandedContent({
               <p className="w-[220px] shrink-0 font-mono text-[12px] uppercase tracking-[0.05em] text-muted sm:text-[13px]">
                 {m.label}
               </p>
-              <p className="flex-1 text-[13px] leading-[1.45] text-[#1a0f0a] sm:text-[14px]">
+              <p className="flex-1 text-[13px] leading-[1.45] text-[#1a0f0a] dark:text-white sm:text-[14px]">
                 {m.body}
               </p>
             </div>
@@ -474,7 +474,7 @@ export function ConvokelabExpandedContent({
             {detail.closingTitle}
           </p>
         </div>
-        <p className="text-[18px] leading-[1.45] text-[#1a0f0a] sm:text-[20px]">
+        <p className="text-[18px] leading-[1.45] text-[#1a0f0a] dark:text-white sm:text-[20px]">
           {detail.closingBody}
         </p>
       </div>
