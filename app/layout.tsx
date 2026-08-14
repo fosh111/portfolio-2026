@@ -21,7 +21,7 @@ const FONT_HREF =
   "https://fonts.googleapis.com/css2?" +
   "family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&" +
   "family=Instrument+Serif:ital@0;1&" +
-  "family=Fira+Code:wght@300;400;500;700&" +
+  "family=Karla:wght@300;400;500;700&" +
   "family=Inter:wght@400;500;600&" +
   "display=swap";
 

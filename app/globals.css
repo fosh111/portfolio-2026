@@ -6,7 +6,7 @@
   --wonk: "SOFT" 0, "WONK" 1;
   --font-fraunces: "Fraunces", "Times New Roman", serif;
   --font-instrument: "Instrument Serif", Georgia, serif;
-  --font-fira: "Fira Code", ui-monospace, "SFMono-Regular", monospace;
+  --font-karla: "Karla", ui-sans-serif, system-ui, sans-serif;
   --font-inter: "Inter", system-ui, -apple-system, sans-serif;
 
   /* Theme tokens (space-separated RGB so Tailwind's /alpha modifier works).
@@ -85,7 +85,7 @@ body {
 
 /* Uppercase mono nav / eyebrow label */
 .eyebrow {
-  font-family: var(--font-fira), monospace;
+  font-family: var(--font-karla), sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 11px;
@@ -94,7 +94,7 @@ body {
 
 /* Mono metadata tag */
 .tag {
-  font-family: var(--font-fira), monospace;
+  font-family: var(--font-karla), sans-serif;
   letter-spacing: 0.05em;
   font-size: 10px;
 }
