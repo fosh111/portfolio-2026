@@ -174,7 +174,7 @@ export function EnterGate({
         } ${stateClasses}`}
       >
         <span
-          className={`pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-display text-[14px] font-light text-ink transition-all duration-200 group-hover:font-normal ${
+          className={`pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-mono text-[14px] font-light text-ink transition-all duration-200 group-hover:font-normal ${
             expanded ? "opacity-0" : "opacity-100"
           }`}
         >
