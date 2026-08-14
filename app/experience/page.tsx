@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { ExperienceList } from "@/components/ExperienceList";
 import { SITE, EXPERIENCE_INTRO } from "@/lib/content";
 import { LinkOutButton } from "@/components/LinkOutButton";
+import { TertiaryLink } from "@/components/ui";
 
 export const metadata = {
   title: "Experience — Jose R. Parra",
@@ -26,8 +27,9 @@ export default function ExperiencePage() {
           <ExperienceList />
         </Reveal>
 
-        <Reveal className="mt-16 flex justify-center">
+        <Reveal className="mt-16 flex flex-col items-center gap-4">
           <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
+          <TertiaryLink href="/case-studies">View case studies</TertiaryLink>
         </Reveal>
       </Container>
     </PageChrome>
