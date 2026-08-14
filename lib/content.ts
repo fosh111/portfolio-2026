@@ -388,39 +388,31 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     titleAccent: "application",
     role: "Senior UX/UI Designer → Acting Principal Product Designer",
     challenge:
-      "Rebuild a regulated credit origination service where compliance obligations were non negotiable, the technology was legacy, and most applicants never finished. Applications took 15 minutes to complete and up to 15 days before a customer could use the card.",
+      "Rebuild a regulated credit origination service where compliance obligations were non negotiable, the technology was legacy, and most applicants never finished. The brief was to shorten the form, but the data showed drop off clustering at the verification steps and several validations being handled manually. The real problem was sequence and waiting, not length.",
     contributions: [
       {
-        heading: "Problem definition",
-        body: "The brief was to shorten the form. The data showed drop off clustering at the verification steps rather than across the form, and several validations were being handled manually. Shortening it would have meant removing checks we could not lawfully remove. So I worked through them one at a time with risk, legal and compliance to establish which were genuinely mandated and which were sequencing decisions nobody had revisited.",
+        heading: "Discovery and mapping",
+        body: "Worked through the compliance checks one at a time with risk, legal and operations to establish which were genuinely mandated and which were sequencing decisions nobody had revisited. Led workshops to untangle legacy tech debt and align teams on what was buildable against the blue sky vision.",
       },
       {
-        heading: "Discovery and mapping",
-        body: "Led workshops to untangle legacy tech debt and align cross functional teams across technology, legal, risk and operations on what was actually buildable against the blue sky vision.",
+        heading: "User led iteration",
+        body: "Ran concept and usability testing to validate instant provisioning and data consent transparency. Application completion fell from 15 minutes to 2.5, with submission rates holding above 80%.",
+      },
+      {
+        heading: "Product downgrade",
+        body: "Applicants who failed the credit assessment were declined outright and left the service. I proposed offering a lower tier card where eligibility allowed, a product variant that did not exist in the flow. It changed the decision logic rather than the interface, so it took sustained alignment with credit risk, legal and compliance, and it converted a proportion of declines into approved customers.",
       },
       {
         heading: "Team leadership",
         body: "Managed and developed a design team of 3 to 5 including contract designers, covering onboarding, craft development, performance management and exits. Presented design rationale to General Managers and executive leaders, including across regional NSW locations.",
       },
       {
-        heading: "User led iteration",
-        body: "Ran concept and usability testing to validate instant provisioning and data consent transparency, taking findings back into the flow rather than into a report.",
-      },
-      {
-        heading: "Product downgrade",
-        body: "Applicants who failed the credit assessment were declined outright and left the service. I proposed offering a lower tier card where eligibility allowed, a product variant that did not exist in the flow. It required sustained alignment with credit risk, legal and compliance because it changed the decision logic and not just the interface, and it converted a proportion of declines into approved customers.",
-      },
-      {
         heading: "End to end delivery",
-        body: "Designed digital card activation and Apple and Android Wallet provisioning, so a customer could transact the moment they were approved rather than waiting on physical mail.",
+        body: "Designed digital card activation and Apple and Android Wallet provisioning, taking speed to transact from 15 days to 60 seconds post approval. Automating the validation behind the compliance checks moved 40% of applications to instant clearance, removing manual handling from the assessment queue.",
       },
       {
         heading: "Design system and accessibility",
-        body: "Contributed to and helped grow the CBA Design System, standardising tokenised libraries and accessibility patterns used across multiple product squads.",
-      },
-      {
-        heading: "Outcomes",
-        body: "Application completion fell from 15 minutes to 2.5. Submission rates held above 80%. 40% of applications cleared automatically, removing manual handling from the assessment queue. Speed to transact went from 15 days to 60 seconds post approval. Received the CBA Customer Experience Excellence Award, 2025.",
+        body: "Contributed to and helped grow the CBA Design System, standardising tokenised libraries and accessibility patterns used across multiple product squads. The work received the CBA Customer Experience Excellence Award, 2025.",
       },
     ],
     outcomesTitle: "Key outcomes",
