@@ -161,7 +161,7 @@ export const CASE_STUDIES: CaseStudySummary[] = [
 ];
 
 export const CASE_STUDIES_INTRO =
-  "See how I diminished CBA's origination times to 60 seconds, and how I'm helping double seats ancillary revenue for Qantas. Case studies for Convoke Lab (AI-native startup) and how I helped Forage scale from thousands to millions of users are coming soon.";
+  "See how I took CBA's credit card application from 15 minutes to 2.5, and doubled ancillary seat revenue at Qantas. Convoke Lab, an AI-native startup, is up too. A case study on scaling Forage from thousands to millions of users is coming soon.";
 
 export type Metric = {
   value: string;
