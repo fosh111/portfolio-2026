@@ -79,7 +79,7 @@ export const EXPERIENCE: Experience[] = [
       "Proposed and delivered the product downgrade pathway, offering declined applicants a lower tier card where eligibility allowed. It required sustained alignment with credit risk, legal and compliance because it changed the decision logic and not just the interface.",
       "Managed and developed a design team of 3 to 5 including contract designers, covering onboarding, craft development, performance management and exits.",
       "Contributed to and helped grow the CBA Design System, standardising tokenised libraries and accessibility patterns used across multiple product squads.",
-      "Presented design rationale to General Managers and executive leaders.",
+      "Presented design rationale to General Managers and executive leaders, including across regional NSW sites.",
       "Received the CBA Customer Experience Excellence Award, 2025.",
     ],
   },
@@ -88,8 +88,12 @@ export const EXPERIENCE: Experience[] = [
     company: "Academy Xi (Contract)",
     period: "June 2022 – Dec 2022",
     location: "Australia (Remote)",
-    summary: "",
-    points: ["Mentor students on UX, CX and Service Design."],
+    summary:
+      "Mentored emerging practitioners across User Experience, Customer Experience and Service Design.",
+    points: [
+      "Coached designers at varying levels of maturity through research, synthesis and service design methods.",
+      "Reviewed portfolios and case study work, developing how practitioners articulate design decisions.",
+    ],
   },
   {
     title: "Senior Founding Product Designer (YC '19)",
@@ -97,11 +101,12 @@ export const EXPERIENCE: Experience[] = [
     period: "July 2021 – July 2022",
     location: "USA & Australia (Remote)",
     summary:
-      "I led the design efforts at Forage, significantly impacting user acquisition, onboarding, engagement and adoption.",
+      "First design hire at a dual sided global education platform, acquired in 2022.",
     points: [
-      "Designed and implemented user experiences that drove adoption from hundreds of thousands to millions.",
-      "Worked closely with product managers and engineers to prioritize features that aligned with user needs.",
-      "Enhanced engagement with Fortune 500 companies through targeted design strategies — with B2B and B2C experiences.",
+      "Built both the learner facing and enterprise facing sides of the marketplace, scaling adoption from hundreds of thousands to millions of users.",
+      "Established the original design system, layout tokens and design operations from nothing.",
+      "Worked with product managers, engineers and founders to prioritise against user need, using interviews and rapid prototype testing to redirect product direction.",
+      "Designed B2B and B2C experiences serving Fortune 500 enterprise customers.",
     ],
   },
 ];
