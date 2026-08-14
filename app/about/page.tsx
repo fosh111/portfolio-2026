@@ -4,7 +4,7 @@ import { Container } from "@/components/Container";
 import { Figure } from "@/components/Figure";
 import { CaseStudyMenu } from "@/components/CaseStudyMenu";
 import { ExperienceList } from "@/components/ExperienceList";
-import { SectionLabel } from "@/components/ui";
+import { SectionLabel, TertiaryLink } from "@/components/ui";
 import { LinkOutButton } from "@/components/LinkOutButton";
 import { ABOUT, SITE } from "@/lib/content";
 
@@ -58,8 +58,9 @@ export default function AboutPage() {
 
       {/* LinkedIn CTA */}
       <Container width="inner" className="mt-16">
-        <Reveal className="flex justify-center">
+        <Reveal className="flex flex-col items-center gap-4">
           <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
+          <TertiaryLink href="/case-studies">View case studies</TertiaryLink>
         </Reveal>
       </Container>
     </PageChrome>
