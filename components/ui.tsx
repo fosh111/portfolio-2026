@@ -71,6 +71,26 @@ export function PillLink({
   );
 }
 
+export function TertiaryLink({
+  href,
+  children,
+  external = false,
+}: {
+  href: string;
+  children: ReactNode;
+  external?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      className="font-mono text-[14px] font-light text-muted underline underline-offset-[3px] transition-all duration-200 hover:font-normal"
+    >
+      {children}
+    </a>
+  );
+}
+
 /**
  * Floating glass pill — not yet wired into any page. Standalone building
  * block for a future "sticky CTA over scrolling content" treatment, where
