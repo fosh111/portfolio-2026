@@ -259,25 +259,33 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     period: "2025-26",
     titleLead: "Multichannel seat",
     titleAccent: "selection",
-    role: "Lead UX Designer / Senior Product Designer",
+    role: "Senior Product Designer / UX Lead",
     challenge:
-      "Modernise a legacy, operational platform into a high-converting revenue engine across App, Web, Tablet and Kiosk touchpoints.",
+      "Modernise a legacy operational platform into a revenue generating experience across app, web, tablet and kiosk for seats ancillaries, inside technical constraints that ruled out a rebuild.",
     contributions: [
       {
-        heading: "Platform Modernisation",
-        body: "Re-architected fragmented legacy touchpoints into a cohesive, scalable omnichannel ecosystem.",
+        heading: "Platform modernisation",
+        body: "Re-architected fragmented legacy touchpoints into a cohesive, scalable omnichannel ecosystem, working within what the existing platform could genuinely support rather than against an ideal future state.",
       },
       {
-        heading: "Journey and Omnichannel Integration",
-        body: "Seamlessly scaled paid seat selection across Booking, Manage Booking (MYB), and last-minute Check-In.",
+        heading: "Journey and omnichannel integration",
+        body: "Scaled paid seat selection across Booking, Manage Booking and last minute Check-In, so the experience holds together wherever a passenger enters it.",
       },
       {
-        heading: "Stakeholder Alignment & UX Advocacy",
-        body: "United engineering and product streams to navigate deep technical debt while championing intuitive, user-first logic.",
+        heading: "Risk identification beyond the brief",
+        body: "Reviewing the new seat map inside the redesigned booking flow, I identified error scenarios that would have propagated downstream into a revenue funnel carrying billions annually. The affected areas sat outside my domain, so I raised it across the business, walked the relevant teams through the failure paths and the commercial exposure, and had it resolved in design rather than discovered in production.",
       },
       {
-        heading: "Commercial Impact",
-        body: "Shipped MVP Release 1, instantly doubling ancillary seat revenue, with the next-gen UI launching this November.",
+        heading: "Stakeholder alignment and UX advocacy",
+        body: "United engineering and product streams to navigate deep technical debt, holding a user experience focus and an organisational risk view at the same time.",
+      },
+      {
+        heading: "Accessibility",
+        body: "Embedded WCAG AA compliance into dynamic seat maps and selection components, built into the interaction model rather than retrofitted.",
+      },
+      {
+        heading: "Commercial impact",
+        body: "Shipped MVP 1, which doubled ancillary seat revenue and has sustained it since. MVP 2, the new end to end booking experience, launches September 2026.",
       },
     ],
     outcomesTitle: "Key outcomes (so far)",
