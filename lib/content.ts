@@ -170,69 +170,20 @@ export type Metric = {
 };
 
 export type ExpandedStat = { value: string; label: string };
-export type ExpandedConstraint = { title: string; body: string };
-export type ExpandedFramework = { label: string; title: string; body: string };
+export type CaseStudyExpandedItem = { title: string; body: string };
 
-export type ExpandedCaseStudy = {
-  eyebrow: string;
+export type CaseStudyExpanded = {
   headline: string;
   intro: string;
   stats: ExpandedStat[];
-  challengeTitle: string;
-  challengeBody: string;
-  touchpointsLabel: string;
-  touchpoints: string[];
-  constraintsTitle: string;
-  constraints: ExpandedConstraint[];
-  frameworksTitle: string;
-  frameworks: ExpandedFramework[];
+  pivotTitle: string;
+  pivotColumns: CaseStudyExpandedItem[];
+  methodologyTitle: string;
+  phases: CaseStudyExpandedItem[];
+  interventionsTitle: string;
+  interventions: CaseStudyExpandedItem[];
   takeawaysTitle: string;
   takeaways: string[];
-};
-
-export type CbaPivotColumn = { label: string; body: string; bold?: boolean };
-export type CbaPhase = { title: string; body: string };
-export type CbaIntervention = { title: string; body: string };
-export type CbaMetricRow = { label: string; legacy: string; modernised: string };
-
-export type CbaExpandedCaseStudy = {
-  eyebrow: string;
-  headline: string;
-  intro: string;
-  stats: ExpandedStat[];
-  pivotTitle: string;
-  pivotColumns: CbaPivotColumn[];
-  methodologyTitle: string;
-  phases: CbaPhase[];
-  interventionsTitle: string;
-  interventions: CbaIntervention[];
-  metricsTitle: string;
-  metricsHeader: { indicator: string; legacy: string; modernised: string };
-  metricsRows: CbaMetricRow[];
-  closingTitle: string;
-  closingBody: string;
-};
-
-export type ConvokelabPivotColumn = { label: string; body: string; bold?: boolean };
-export type ConvokelabPhase = { title: string; body: string };
-export type ConvokelabIntervention = { title: string; body: string };
-export type ConvokelabMilestone = { label: string; body: string };
-
-export type ConvokelabExpandedCaseStudy = {
-  eyebrow: string;
-  headline: string;
-  intro: string;
-  stats: ExpandedStat[];
-  pivotTitle: string;
-  pivotColumns: ConvokelabPivotColumn[];
-  methodologyTitle: string;
-  phases: ConvokelabPhase[];
-  interventionsTitle: string;
-  interventions: ConvokelabIntervention[];
-  milestonesTitle: string;
-  milestones: ConvokelabMilestone[];
-  closingTitle: string;
-  closingBody: string;
 };
 
 export type CaseStudyDetail = {
@@ -247,9 +198,7 @@ export type CaseStudyDetail = {
   outcomesTitle: string;
   metrics: Metric[];
   processNote: string;
-  expanded?: ExpandedCaseStudy;
-  cbaExpanded?: CbaExpandedCaseStudy;
-  convokelabExpanded?: ConvokelabExpandedCaseStudy;
+  expanded?: CaseStudyExpanded;
 };
 
 export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
@@ -312,76 +261,71 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     processNote:
       "Service design, research, legacy audit and new-UI exploration across the omnichannel seat-selection journey.",
     expanded: {
-      eyebrow: "Case Study — Qantas",
-      headline: "Multichannel seat selection",
+      headline: "Turning an operational platform into a revenue engine",
       intro:
-        "Seat selection on the check-in platform was operational, not commercial. Turning it into a paid product meant introducing transaction logic across booking, Manage Your Booking, check-in and kiosk, on a legacy platform, to a tight timeline.",
+        "As Senior Product Designer and UX Lead for seats ancillaries, I led the design strategy to make paid seat selection work across four touchpoints on a legacy platform that could not be rebuilt.",
       stats: [
         { value: "MVP 1", label: "Shipped" },
         { value: "Doubled", label: "Ancillary seat revenue" },
-        { value: "4 touchpoints", label: "App, web, tablet, kiosk" },
+        { value: "4 Touchpoints", label: "App, web, tablet, kiosk" },
         { value: "MVP 2", label: "In build" },
       ],
-      challengeTitle: "The Challenge",
-      challengeBody:
-        "Historically, seat selection existed to get passengers into seats. The digital stream needed it to generate revenue across the whole ecosystem, without a platform rebuild.",
-      touchpointsLabel: "Customer journey touchpoints",
-      touchpoints: [
-        "Booking / Origination",
-        "Manage Your Booking",
-        "Check-In",
-        "Kiosk",
-      ],
-      constraintsTitle: "The Constraints",
-      constraints: [
+      pivotTitle: "The Strategic Pivot",
+      pivotColumns: [
         {
-          title: "Baseline under time pressure",
-          body: "One targeted round of usability testing on the legacy UI to find where passengers actually struggled. Those findings set MVP scope rather than guesswork.",
+          title: "The problem",
+          body: "Seat selection existed to get passengers into seats, not to generate revenue. Introducing paid selection meant transaction logic across booking, Manage Your Booking, check-in and kiosk, on a legacy platform, to a tight timeline.",
         },
         {
-          title: "Real-time transaction logic",
-          body: "Cross-functional workshops with product and engineering to resolve architectural constraints around payment processing in the highest friction paths, Manage Your Booking and Check-In.",
+          title: "My reframing",
+          body: "Stop arguing for a rebuild. Establish what could genuinely move inside the constraints that existed, and design for that.",
         },
         {
-          title: "Backward compatibility",
-          body: "Structural continuity across responsive web, native apps and airport kiosks, while millions of passengers remained on legacy app versions.",
+          title: "The design brief",
+          body: "How might we turn seat selection into a revenue product on the platform we already have?",
         },
       ],
-      frameworksTitle: "What I Designed",
-      frameworks: [
+      methodologyTitle: "How I Led It",
+      phases: [
         {
-          label: "Framework A",
+          title: "Designing to the constraint",
+          body: "Worked with engineering to establish what the legacy platform could genuinely support, then designed MVP 1 to deliver a paid seat product inside those limits rather than waiting on the rebuild.",
+        },
+        {
+          title: "Evidence before scope",
+          body: "One targeted round of usability testing on the legacy UI to find where passengers actually struggled. Those findings set MVP scope instead of guesswork.",
+        },
+        {
+          title: "Working across leads",
+          body: "A working model with lead engineers, product managers and adjacent UX leads. Peer-level triage to unblock technical constraints, align roadmap dependencies and hold pattern consistency across the platform.",
+        },
+      ],
+      interventionsTitle: "What I Designed",
+      interventions: [
+        {
           title: "Omnichannel seat map",
           body: "One seat map framework across web, native apps and kiosks, with a conditional view-only state for legacy app versions to remove cross-platform delivery risk.",
         },
         {
-          label: "Framework B",
           title: "Seat feature transparency",
-          body: "Surfaced what each seat category actually includes, with live pricing and immediate confirmation. Physical constraints like non-reclining rows and in-armrest screens appear in the map itself rather than in fine print.",
+          body: "What each seat category actually includes, with live pricing and immediate confirmation. Physical constraints like non-reclining rows and in-armrest screens appear in the map rather than in fine print.",
         },
         {
-          label: "Framework C",
           title: "Spatial layout logic",
           body: "Canvas anchoring that centres the viewport on a passenger's assigned seats when the path is clear, while holding system alerts above them.",
         },
         {
-          label: "Framework D",
           title: "Seat map error handling",
-          body: "Reviewing the new seat map inside the redesigned booking flow, I found error scenarios that would have propagated downstream into a revenue funnel carrying billions. The affected areas sat outside my domain, so I raised it across the business, walked the teams through the failure paths and the commercial exposure, and had it resolved in design rather than discovered in production.",
-        },
-        {
-          label: "Framework E",
-          title: "Working across leads",
-          body: "A working model with lead engineers, product managers and adjacent Design leads. Peer-level triage to unblock technical constraints, align roadmap dependencies and hold pattern consistency across the platform.",
+          body: "Found error scenarios that would have propagated downstream into a revenue funnel carrying billions. The affected areas sat outside my domain, so I raised it across the business and had it resolved in design rather than discovered in production.",
         },
       ],
       takeawaysTitle: "Main Takeaways",
       takeaways: [
-        "MVP 1 doubled ancillary seat revenue and has sustained it.",
-        "MVP 2 is in build, launching later this year.",
-        "Defending the baseline experience matters more than adding polish. Several constraints presented as technical facts turned out to be assumptions worth testing.",
-        "The legacy view-only state came out of alignment with engineering leads, not around them.",
-        "Rules-based spatial layout means the logic scales the same way on app, web or kiosk.",
+        "Commercial proof: MVP 1 doubled ancillary seat revenue and has sustained it.",
+        "Constraint is a brief, not an obstacle: MVP 1 had to work on the platform that existed, and it doubled revenue anyway.",
+        "Defending the baseline: several constraints presented as technical facts turned out to be assumptions worth testing.",
+        "Risk sits outside your lane: the most valuable thing I did was catch something nobody had asked me to look at.",
+        "Rules-based scaling: spatial layout logic means the same rules hold on app, web and kiosk.",
       ],
     },
   },
@@ -454,59 +398,52 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     ],
     processNote:
       "A complete architectural overhaul of the application funnel — integrating real-time government identity APIs and turning a rigid document into a dynamic, conversational UI.",
-    cbaExpanded: {
-      eyebrow: "Intro — The Big Picture",
+    expanded: {
       headline:
         "Re-engineering credit card origination for a digital-first generation",
       intro:
-        "As Senior Product Designer and Acting Principal, I led the UX strategy for credit card origination and later the wider credit card journey. Applications took 15 minutes to complete, and up to 15 days before a customer could make their first purchase.",
+        "As Senior Product Designer and Acting Principal, I led the UX strategy for credit card origination and the wider credit card journey, turning a fragmented 15-day paper process into a digital service.",
       stats: [
-        { value: "~2.5 mins", label: "To complete application" },
-        { value: "~3.5 mins", label: "Application to first purchase" },
+        { value: "15 → 2.5 mins", label: "Application time" },
         { value: "80%+", label: "Submission rate" },
-        { value: "Award", label: "CBA customer experience excellence, 2025" },
+        { value: "40%", label: "Cleared automatically" },
+        { value: "Award", label: "CX excellence, 2025" },
       ],
       pivotTitle: "The Strategic Pivot",
       pivotColumns: [
         {
-          label: "The bottlenecks",
-          body: "Manual underwriting loops, a two-week wait on physical mail, and heavy mid-funnel abandonment.",
+          title: "The problem",
+          body: "Manual underwriting loops, a two-week wait on physical mail, and heavy mid-funnel abandonment. Applications took 15 minutes to complete and up to 15 days before a customer could make their first purchase.",
         },
         {
-          label: "My reframing",
-          body: "Real-time government API identity verification and instant digital wallet provisioning.",
+          title: "My reframing",
+          body: "The brief was to shorten the form. The data showed drop-off clustering at the verification steps and several validations handled manually. The problem was sequence and waiting, not length.",
         },
         {
-          label: "The design brief",
+          title: "The design brief",
           body: "How might we move customers from application to first purchase in minutes instead of weeks?",
-          bold: true,
         },
       ],
       methodologyTitle: "How I Led It",
       phases: [
         {
-          title: "Stakeholder orchestration",
-          body: "Aligned risk, compliance, legal and engineering to dismantle legacy silos, turning rigid operational habits into compliance-first flows that still converted.",
+          title: "Separating mandated from habitual",
+          body: "Worked through the compliance checks one at a time with risk, legal and operations to establish which were legally required and which were sequencing decisions nobody had revisited. That analysis changed the scope of a programme already underway.",
         },
         {
           title: "De-risking platform migration",
-          body: "Worked with engineering on a modular component strategy that ran in parallel with legacy mainframe systems, enabling incremental traffic migration without downtime or risk to core banking stability.",
+          body: "Worked with engineering on a modular component strategy running in parallel with legacy mainframe systems, enabling incremental traffic migration without downtime or risk to core banking stability.",
         },
         {
-          title: "Governance and mentorship",
-          body: "Integrated WCAG 2.1 AA standards into the design system, and mentored junior designers to lift technical fluency so high-fidelity work shipped faster and more consistently.",
-        },
-        {
-          title: "Evidence-led strategy",
-          body: "Directed end-to-end A/B testing to validate design decisions, shifting the squad from opinion-based to evidence-based so shipped code was backed by observed behaviour.",
+          title: "Team and evidence",
+          body: "Managed and developed a design team of 3 to 5 including contract designers, from onboarding through to exits. Directed A/B testing that moved the squad from opinion-based to evidence-based decisions, and presented rationale to General Managers and executives.",
         },
       ],
       interventionsTitle: "What I Designed",
       interventions: [
         {
-          title:
-            "Identity orchestration and government registry verification",
-          body: "Combined internal customer data with live government registries, licences and visas, to authenticate users in real time. The secure pre-fill loop removed manual form entry and cut verification time while tightening fraud controls.",
+          title: "Identity orchestration",
+          body: "Combined internal customer data with live government registries to authenticate users in real time. The secure pre-fill loop removed manual form entry and cut verification time while tightening fraud controls.",
         },
         {
           title: "Overturning a legacy API",
@@ -518,45 +455,17 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
         },
         {
           title: "Turning rejection into choice",
-          body: "Replaced outright declines with a dynamic underwriting pivot offering a lower-tier card where eligibility allowed. It preserved customer dignity and recovered high-intent conversions that were previously lost.",
+          body: "Replaced outright declines with a lower-tier card offer where eligibility allowed. It changed the decision logic rather than the interface, so it took sustained alignment with credit risk, legal and compliance.",
         },
       ],
-      metricsTitle: "Hard Metrics",
-      metricsHeader: {
-        indicator: "Performance indicator",
-        legacy: "Legacy",
-        modernised: "Modernised",
-      },
-      metricsRows: [
-        {
-          label: "Time to complete application",
-          legacy: "15 minutes",
-          modernised: "2.5 minutes",
-        },
-        {
-          label: "Application submission rate",
-          legacy: "Variable",
-          modernised: "Above 80%",
-        },
-        {
-          label: "Instant approval rate",
-          legacy: "~30%",
-          modernised: "~40%",
-        },
-        {
-          label: "Application to first purchase",
-          legacy: "Up to 15 days",
-          modernised: "~3.5 minutes",
-        },
-        {
-          label: "Instant digital wallet activation",
-          legacy: "~40%",
-          modernised: "Over 70%",
-        },
+      takeawaysTitle: "Main Takeaways",
+      takeaways: [
+        "Commercial and operational: completion fell from 15 minutes to 2.5, submission held above 80%, and 40% of applications cleared with no manual handling.",
+        "Speed to transact: wallet provisioning took first purchase from up to 15 days to about three and a half minutes end to end.",
+        "The reframe was the work: shortening the form would have broken obligations we could not remove. Resequencing them did not.",
+        "Research can change architecture: one usability finding forced a backend refactor, not a UI change.",
+        "Standards outlive projects: WCAG 2.1 AA went into the design system, so accessibility held on work I never touched.",
       ],
-      closingTitle: "Stitching Application to Activation",
-      closingBody:
-        "I led end-to-end instant digital card provisioning, a one-tap tokenisation flow connecting the application directly to Apple and Android Wallet. Approved customers could push active credentials to their wallet on the success screen, taking post-approval time to transact from days to about a minute and lifting early-stage NPS.",
     },
   },
   convokelab: {
@@ -619,32 +528,30 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     ],
     processNote:
       "Coming soon — a teaser of the AI-native workflows and design system is on the way.",
-    convokelabExpanded: {
-      eyebrow: "Intro — The Big Picture",
+    expanded: {
       headline:
         "Designing the operational co-pilot for frontline hospitality",
       intro:
         "As founding product designer, I led the UX strategy to strip administration out of workforce management, replacing fragmented spreadsheets and WhatsApp threads with an AI-native platform built for the pace of a venue floor.",
       stats: [
-        { value: "Pre-seed", label: "Funding secured" },
-        { value: "Live pilots", label: "Hotel deployments" },
-        { value: "AI native", label: "Platform" },
-        { value: "Design system", label: "Built from scratch" },
+        { value: "Pre-Seed", label: "Funding secured" },
+        { value: "Live Pilots", label: "Hotel deployments" },
+        { value: "AI Native", label: "Platform" },
+        { value: "Design System", label: "Built from scratch" },
       ],
       pivotTitle: "The Strategic Pivot",
       pivotColumns: [
         {
-          label: "The problem",
+          title: "The problem",
           body: "Onboarding, compliance, performance and training updates lived across spreadsheets and WhatsApp. Managers were pulled off the floor to maintain it, and none of it scaled.",
         },
         {
-          label: "My reframing",
+          title: "My reframing",
           body: "Build a lightweight co-pilot, not a heavy HR database. Something that works at the speed of a frontline venue.",
         },
         {
-          label: "The design brief",
+          title: "The design brief",
           body: "How might we move a venue manager from reactive fire-fighting to proactive, AI-guided people operations?",
-          bold: true,
         },
       ],
       methodologyTitle: "How I Led It",
@@ -660,10 +567,6 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
         {
           title: "Lean execution",
           body: "Weekly synchronous alignment to lock feature scope, with continuous documentation in Figma so engineering could build without waiting on me.",
-        },
-        {
-          title: "Validation and iteration",
-          body: "Shipped low to high-fidelity clickable prototypes to de-risk features before engineering capital was committed.",
         },
       ],
       interventionsTitle: "What I Designed",
@@ -685,24 +588,14 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
           body: "Design narratives and interaction systems used in early-stage venture conversations, including positioning for Y Combinator.",
         },
       ],
-      milestonesTitle: "What Was Delivered",
-      milestones: [
-        {
-          label: "Investor mobilisation",
-          body: "Design narratives and interaction systems for a successful pre-seed round and YC pipeline positioning.",
-        },
-        {
-          label: "Systemic foundation",
-          body: "The company's first master design system: typographic hierarchy, colour framework and layout grids that scale from MVP to multi-venue deployment.",
-        },
-        {
-          label: "Rapid validation",
-          body: "Discovery frameworks, testing with venue operators, and iterative prototypes that de-risked features before engineering commitment.",
-        },
+      takeawaysTitle: "Main Takeaways",
+      takeaways: [
+        "Investor mobilisation: design narratives and interaction systems supported a successful pre-seed round and YC pipeline positioning.",
+        "Systemic foundation: the company's first master design system, built to scale from MVP to multi-venue deployment.",
+        "Validation before capital: prototypes de-risked features before engineering committed to building them.",
+        "Trust is a feature, not polish: non-technical operators will not act on automation they cannot see reasoning behind.",
+        "Context drove every decision: thumbs, noise and no desk is a harder constraint than any screen size.",
       ],
-      closingTitle: "The Outcome",
-      closingBody:
-        "Convoke Lab went from an operational concept to an investor-backed SaaS platform running in live hotel pilots, with the design system and interaction patterns in place to scale beyond them.",
     },
   },
 };
