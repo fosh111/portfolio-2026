@@ -5,9 +5,7 @@ import { ThumbnailCard } from "./ThumbnailCard";
 import {
   MetricCard,
   TellMeMore,
-  ExpandedCaseStudyContent,
-  CbaExpandedContent,
-  ConvokelabExpandedContent,
+  CaseStudyExpandedContent,
   ConvokelabProcessCarousel,
   QantasCarousel,
   CBACarousel,
@@ -123,12 +121,8 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
 
         <Reveal className="mt-12">
           <TellMeMore>
-            {study.cbaExpanded ? (
-              <CbaExpandedContent detail={study.cbaExpanded} />
-            ) : study.convokelabExpanded ? (
-              <ConvokelabExpandedContent detail={study.convokelabExpanded} />
-            ) : study.expanded ? (
-              <ExpandedCaseStudyContent detail={study.expanded} />
+            {study.expanded ? (
+              <CaseStudyExpandedContent detail={study.expanded} />
             ) : (
               <p className="mx-auto max-w-[900px] px-2">{study.processNote}</p>
             )}
