@@ -459,104 +459,104 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       headline:
         "Re-engineering credit card origination for a digital-first generation",
       intro:
-        "As the Senior Product Designer and Acting Principal, I led the end-to-end UX strategy to re-engineer credit card origination and later the overall credit card journey transforming a fragmented, 15-day legacy paper process into a seamless, modern digital ecosystem.",
+        "As Senior Product Designer and Acting Principal, I led the UX strategy for credit card origination and later the wider credit card journey. Applications took 15 minutes to complete, and up to 15 days before a customer could make their first purchase.",
       stats: [
-        { value: "~3.5mins", label: "Speed-to-Transact" },
-        { value: "~2.5mins", label: "To complete application" },
-        { value: "~80%+", label: "Submission rate" },
-        { value: "Award", label: "Customer excellence" },
+        { value: "~2.5 mins", label: "To complete application" },
+        { value: "~3.5 mins", label: "Application to first purchase" },
+        { value: "80%+", label: "Submission rate" },
+        { value: "Award", label: "CBA customer experience excellence, 2025" },
       ],
       pivotTitle: "The Strategic Pivot",
       pivotColumns: [
         {
-          label: "The Bottlenecks",
-          body: "Manual underwriting loops, two-week physical mail wait, and massive mid-funnel abandonment.",
+          label: "The bottlenecks",
+          body: "Manual underwriting loops, a two-week wait on physical mail, and heavy mid-funnel abandonment.",
         },
         {
-          label: "My Reframing",
+          label: "My reframing",
           body: "Real-time government API identity verification and instant digital wallet provisioning.",
         },
         {
-          label: "The Design Brief",
+          label: "The design brief",
           body: "How might we move customers from application to first purchase in minutes instead of weeks?",
           bold: true,
         },
       ],
-      methodologyTitle: "Executive Leadership & Methodology",
+      methodologyTitle: "How I Led It",
       phases: [
         {
-          title: "Stakeholder Orchestration",
-          body: "Orchestrated alignment across Risk, Compliance, Legal, and Engineering to dismantle legacy siloes. Transformed rigid operational habits into streamlined, compliance-first user flows without sacrificing conversion.",
+          title: "Stakeholder orchestration",
+          body: "Aligned risk, compliance, legal and engineering to dismantle legacy silos, turning rigid operational habits into compliance-first flows that still converted.",
         },
         {
-          title: "De-Risking Platform Migration",
-          body: "Helped engineered a modular component strategy to run in parallel with legacy mainframe systems. Enabled safe, incremental traffic migration, eliminating downtime and allowing for high-stakes feature testing without compromising core banking stability.",
+          title: "De-risking platform migration",
+          body: "Worked with engineering on a modular component strategy that ran in parallel with legacy mainframe systems, enabling incremental traffic migration without downtime or risk to core banking stability.",
         },
         {
-          title: "Governance & Mentorship",
-          body: "Acted as a force multiplier for the Credit Card squad. Led the integration of WCAG 2.1 AA standards into the design system while mentoring junior designers to increase technical fluency, ensuring high-fidelity outputs were delivered faster and with greater consistency.",
+          title: "Governance and mentorship",
+          body: "Integrated WCAG 2.1 AA standards into the design system, and mentored junior designers to lift technical fluency so high-fidelity work shipped faster and more consistently.",
         },
         {
-          title: "Evidence-Led Strategy",
-          body: 'Directed end-to-end A/B testing programs to validate design decisions. Shifted the team\'s culture from "opinion-based" to "evidence-based," ensuring every line of engineering code was backed by verified user behavior and measurable conversion outcomes.',
+          title: "Evidence-led strategy",
+          body: "Directed end-to-end A/B testing to validate design decisions, shifting the squad from opinion-based to evidence-based so shipped code was backed by observed behaviour.",
         },
       ],
-      interventionsTitle: "High-Impact UX Interventions",
+      interventionsTitle: "What I Designed",
       interventions: [
         {
           title:
-            "Dynamic Identity Orchestration & Government Registry Verification",
-          body: "Integrated internal customer data (spending, liabilities, etc.) with live government registries (licenses, visas, etc.) to authenticate users in real time. This secure pre-fill loop eliminated manual form friction, radically accelerating verification velocity while aggressively mitigating fraud risk",
+            "Identity orchestration and government registry verification",
+          body: "Combined internal customer data with live government registries, licences and visas, to authenticate users in real time. The secure pre-fill loop removed manual form entry and cut verification time while tightening fraud controls.",
         },
         {
-          title: "Overturning Legacy API",
-          body: 'Usability testing proved working students bypassed the \'Student\' field to select \'Employed\' for income priority. Forced a full backend refactor to move student validation into smart conditional logic.',
+          title: "Overturning a legacy API",
+          body: "Usability testing showed working students bypassing the Student field and selecting Employed to get their income counted. That finding forced a backend refactor to move student validation into conditional logic.",
         },
         {
-          title: "Balancing Trust with Speed",
-          body: "APIs working too fast made users feel out of control and skeptical. Added an explicit data-control consent checkbox to balance operational speed with psychological trust.",
+          title: "Balancing trust with speed",
+          body: "APIs working too fast made people feel out of control. An explicit data consent checkbox restored a sense of agency without slowing the flow.",
         },
         {
-          title: "Turning Rejection into Choice",
-          body: "Replaced outright declines with a dynamic underwriting pivot — offering a lower-tier card alternative. Preserved customer dignity and saved high-intent conversions.",
+          title: "Turning rejection into choice",
+          body: "Replaced outright declines with a dynamic underwriting pivot offering a lower-tier card where eligibility allowed. It preserved customer dignity and recovered high-intent conversions that were previously lost.",
         },
       ],
-      metricsTitle: "Hard Metrics & Business Impact",
+      metricsTitle: "Hard Metrics",
       metricsHeader: {
-        indicator: "Performance Indicator",
+        indicator: "Performance indicator",
         legacy: "Legacy",
         modernised: "Modernised",
       },
       metricsRows: [
         {
-          label: "Time to Complete Application",
+          label: "Time to complete application",
           legacy: "15 minutes",
           modernised: "2.5 minutes",
         },
         {
-          label: "Application Submission Rate",
+          label: "Application submission rate",
           legacy: "Variable",
-          modernised: "Exceeded 80%",
+          modernised: "Above 80%",
         },
         {
-          label: "Instant Approval Rate",
+          label: "Instant approval rate",
           legacy: "~30%",
-          modernised: "~40% (+10% lift)",
+          modernised: "~40%",
         },
         {
-          label: "Speed to Transact (First Purchase)",
+          label: "Application to first purchase",
           legacy: "Up to 15 days",
-          modernised: "~3.5 minutes total",
+          modernised: "~3.5 minutes",
         },
         {
-          label: "Instant Digital Wallet Activation",
+          label: "Instant digital wallet activation",
           legacy: "~40%",
           modernised: "Over 70%",
         },
       ],
-      closingTitle: "Stitching Application to Instant Activation",
+      closingTitle: "Stitching Application to Activation",
       closingBody:
-        "I spearheaded end-to-end instant digital card provisioning, a secure one-tap tokenization workflow stitching the application directly to Apple/Android Wallet. Approved users could push active credentials to their wallet the exact second they hit the success screen. This unlocked a 60-second speed-to-transact window and drove a measurable lift in early-stage NPS.",
+        "I led end-to-end instant digital card provisioning, a one-tap tokenisation flow connecting the application directly to Apple and Android Wallet. Approved customers could push active credentials to their wallet on the success screen, taking post-approval time to transact from days to about a minute and lifting early-stage NPS.",
     },
   },
   convokelab: {
@@ -622,87 +622,87 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     convokelabExpanded: {
       eyebrow: "Intro — The Big Picture",
       headline:
-        "Designing the intelligent operational co-pilot for frontline hospitality",
+        "Designing the operational co-pilot for frontline hospitality",
       intro:
-        "As the founding product designer, I led end-to-end UX strategy to strip heavy administration out of workforce management, replacing fragmented spreadsheets and WhatsApp threads with an AI-native, intuitive platform purpose-built for fast-paced venue operators.",
+        "As founding product designer, I led the UX strategy to strip administration out of workforce management, replacing fragmented spreadsheets and WhatsApp threads with an AI-native platform built for the pace of a venue floor.",
       stats: [
-        { value: "Pre-Seed", label: "Funding secured" },
-        { value: "Live Pilots", label: "Hotel deployments" },
+        { value: "Pre-seed", label: "Funding secured" },
+        { value: "Live pilots", label: "Hotel deployments" },
         { value: "AI native", label: "Platform" },
-        { value: "DS", label: "Master design system" },
+        { value: "Design system", label: "Built from scratch" },
       ],
       pivotTitle: "The Strategic Pivot",
       pivotColumns: [
         {
-          label: "The Problem",
-          body: "Legacy spreadsheets and disconnected WhatsApp threads could not scale. Onboarding, compliance, performance, and training updates lived across a fragmented mess, pulling managers away from the floor and costing money.",
+          label: "The problem",
+          body: "Onboarding, compliance, performance and training updates lived across spreadsheets and WhatsApp. Managers were pulled off the floor to maintain it, and none of it scaled.",
         },
         {
-          label: "My Reframing",
-          body: "Strip administrative debt entirely. Build a lightweight, intelligent co-pilot rather than a heavy HR database, one that works at the speed of a frontline venue.",
+          label: "My reframing",
+          body: "Build a lightweight co-pilot, not a heavy HR database. Something that works at the speed of a frontline venue.",
         },
         {
-          label: "The Design Brief",
+          label: "The design brief",
           body: "How might we move a venue manager from reactive fire-fighting to proactive, AI-guided people operations?",
           bold: true,
         },
       ],
-      methodologyTitle: "Executive Leadership & Methodology",
+      methodologyTitle: "How I Led It",
       phases: [
         {
-          title: "Discovery & Framing",
-          body: "Active user research and testing with real venue operators to identify the highest-leverage pain points and validate the problem space before any design commitment.",
+          title: "Discovery and framing",
+          body: "Research and testing with real venue operators to find the highest-leverage pain points and validate the problem space before committing to a design direction.",
         },
         {
-          title: "AI-Centered UX",
-          body: "Moved away from static data-entry fields toward dynamic, assistive interfaces, predictive workflows, intelligent defaults, and automated smart formatting.",
+          title: "AI-centred UX",
+          body: "Moved away from static data-entry fields toward assistive interfaces: predictive workflows, intelligent defaults, automated formatting.",
         },
         {
-          title: "Lean Execution",
-          body: "Weekly synchronous alignments to lock feature scopes, balanced with continuous asynchronous documentation in Figma to allow engineering to build with precision.",
+          title: "Lean execution",
+          body: "Weekly synchronous alignment to lock feature scope, with continuous documentation in Figma so engineering could build without waiting on me.",
         },
         {
-          title: "Validation & Iteration",
-          body: "Iteratively shipped low- to high-fidelity clickable prototypes to rapidly de-risk features before committing engineering capital.",
+          title: "Validation and iteration",
+          body: "Shipped low to high-fidelity clickable prototypes to de-risk features before engineering capital was committed.",
         },
       ],
-      interventionsTitle: "High-Impact Design Interventions",
+      interventionsTitle: "What I Designed",
       interventions: [
         {
-          title: "Predictive Workflow Surfaces",
-          body: "Surfaced critical training gaps, performance reports, and onboarding bottlenecks before a manager actively had to query the system, transforming the tool from reactive database to proactive advisor.",
+          title: "Predictive workflow surfaces",
+          body: "Training gaps, performance reports and onboarding bottlenecks surface before a manager thinks to look for them, turning the tool from a database into an advisor.",
         },
         {
-          title: "Cognitive Load Reduction System",
-          body: "Introduced intelligent defaults and automated smart formatting that allow a user to complete complex people-management tasks in seconds while on the move. Designed for thumbs, noise, and zero desk time.",
+          title: "Cognitive load reduction",
+          body: "Intelligent defaults and automated formatting let a manager complete complex people-management tasks in seconds while moving. Designed for thumbs, noise and no desk.",
         },
         {
-          title: "Human-Centered AI Transparency",
-          body: "Designed clear system feedback states so non-technical venue operators implicitly understand and trust the automated logic running in the background, removing the black-box anxiety common in AI tools.",
+          title: "Human-centred AI transparency",
+          body: "Clear system feedback states so non-technical operators can see what the automation is doing and why, removing the black-box anxiety common in AI tools.",
         },
         {
-          title: "Investor-Grade Pitch Materials",
-          body: "Authored comprehensive design narratives and interaction systems used in pitch materials for successful early-stage venture conversations, including ongoing positioning for Y Combinator pipelines.",
+          title: "Investor-grade narrative",
+          body: "Design narratives and interaction systems used in early-stage venture conversations, including positioning for Y Combinator.",
         },
       ],
-      milestonesTitle: "Key Strategic Milestones Delivered",
+      milestonesTitle: "What Was Delivered",
       milestones: [
         {
-          label: "Investor Mobilization",
-          body: "Comprehensive design narratives and interaction systems for successful pre-seed funding round and YC pipeline positioning.",
+          label: "Investor mobilisation",
+          body: "Design narratives and interaction systems for a successful pre-seed round and YC pipeline positioning.",
         },
         {
-          label: "Systemic Foundation",
-          body: "Built the company's inaugural master design system, typographic hierarchies, colour frameworks, and layout grids that scale from MVP to multi-venue enterprise deployment.",
+          label: "Systemic foundation",
+          body: "The company's first master design system: typographic hierarchy, colour framework and layout grids that scale from MVP to multi-venue deployment.",
         },
         {
-          label: "Rapid Validation",
-          body: "Discovery frameworks, active user testing with venue operators, and iterative low- to high-fidelity prototypes to de-risk features before engineering commitment.",
+          label: "Rapid validation",
+          body: "Discovery frameworks, testing with venue operators, and iterative prototypes that de-risked features before engineering commitment.",
         },
       ],
       closingTitle: "The Outcome",
       closingBody:
-        "Convoke Lab successfully evolved from an abstract operational concept into a highly polished, investor-backed SaaS architecture currently deployed across live pilot in selected hotels, proving that intelligent, AI-native design can fundamentally modernise how people are managed in fast-paced environments.",
+        "Convoke Lab went from an operational concept to an investor-backed SaaS platform running in live hotel pilots, with the design system and interaction patterns in place to scale beyond them.",
     },
   },
 };
