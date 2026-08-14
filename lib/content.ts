@@ -16,8 +16,8 @@ export const NAV = [
 export type NavKey = (typeof NAV)[number]["key"];
 
 export const ABOUT = {
-  lead: "Product, Industrial and VR Designer with 10+ years of experience designing impactful digital and physical experiences. Passionate about solving real user problems through human-centred design, data-driven decisions, and cross-functional collaboration.",
-  sub: "Comfortable operating at both strategy and execution levels, with a track record of delivering outcomes in fast-paced startups and large-scale enterprise environments.",
+  lead: "Product designer with 13 years across digital and physical systems. Much of it on regulated, legacy heavy platforms at Commonwealth Bank and Qantas, where the interesting problem is never the interface alone but the compliance rule, the twenty year old backend, and the person who just needs to get through it. At the other end of the range: founding designer at two startups, most recently designing AI native features that turn generative output into something people can read, trust and act on.",
+  sub: "Industrial designer by training, with three Good Design Australia Awards for products that reached market. Comfortable at strategy and on tools, and used to holding a user experience focus and an organisational risk view at the same time.",
 };
 
 export const EXPERIENCE_INTRO =
@@ -34,18 +34,20 @@ export type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
-    title: "Lead UX Designer / Senior Product Designer",
+    title: "Senior Product Designer / UX Lead",
     company: "Qantas (Contract)",
-    period: "July 2025 – Present time",
+    period: "July 2025 – Present",
     location: "Sydney, NSW (Hybrid)",
     summary:
-      "Leading product design initiatives for acquisition and onboarding processes for seats ancillaries, enhancing user experience.",
+      "Leading design for seats ancillaries, a revenue generating product domain across app, web, tablet and kiosk.",
     points: [
-      "Successfully launched the first release, which doubled revenue for the company for seats ancillaries.",
-      "Use AI workflows to improve productivity.",
-      "Mapped user funnels to identify and eliminate friction points, improving overall efficiency.",
-      "Build prototypes and run evaluative tests with cross functional teams.",
-      "Help with VR initiatives within Airline for staff training.",
+      "Launched MVP 1, which doubled ancillary seat revenue and has sustained it since.",
+      "Identified error scenarios in the new seat map that would have propagated downstream into a revenue funnel carrying billions annually. Raised it across business areas outside my own domain and had it resolved in design rather than discovered in production.",
+      "Mapped user funnels to locate and remove friction across the booking journey.",
+      "Built prototypes and ran evaluative testing with cross functional teams, feeding results directly into prioritisation.",
+      "Established AI assisted workflows using Claude and Figma AI for prototyping and research synthesis.",
+      "Directed a UI designer on the domain and worked alongside other UX leads to hold direction across the wider platform.",
+      "Supported VR initiatives for airline staff training.",
     ],
   },
   {
@@ -54,30 +56,31 @@ export const EXPERIENCE: Experience[] = [
     period: "June 2024 – April 2026",
     location: "Australia (Remote)",
     summary:
-      "Lead the design efforts for an innovative AI/Gen-AI powered employee management platform, driving significant improvements in user engagement and operational efficiency.",
+      "Led design from zero to one for an AI and generative AI powered employee management platform.",
     points: [
-      "Strong use of AI thinking and tools.",
-      "Collaborated with founders to create a clear product vision and feature roadmap, ensuring alignment with market needs.",
-      "Designed and validated user flows for the MVP to help secure pre-seed funding.",
-      "Established scalable design systems and processes, positioning the company for future growth and success.",
+      "Designed interaction models for generative uncertainty, turning unstructured model output into states users could read, trust and act on.",
+      "Collaborated with founders to define product vision and feature roadmap against market need.",
+      "Designed and validated the MVP user flows that supported a successful pre-seed raise.",
+      "Built the design system and component framework from scratch, governing consistency across multi track engineering streams.",
+      "Worked directly with lead engineers to define acceptance criteria and technical trade offs.",
     ],
   },
   {
-    title: "Senior UX/UI Designer / Acting Principal",
+    title: "Senior UX/UI Designer → Acting Principal Product Designer",
     company: "Commonwealth Bank",
     period: "July 2022 – July 2025",
     location: "Sydney, NSW (Hybrid)",
     summary:
-      "I played a pivotal role in enhancing user experience at Commonwealth Bank, achieving remarkable results in credit card processes.",
+      "Led the modernisation of CBA's credit card origination service, a regulated journey spanning digital application, compliance verification and back office assessment.",
     points: [
-      "Owned the entire end-to-end customer journey experience.",
-      "Transformed a rigid, multi-week legacy pipeline into a modern digital ecosystem.",
-      "Guided and mentored junior designers across multiple cross-functional squads.",
-      "Reduced average application completion times from 10 minutes down to 2.5 minutes.",
-      "Slashed speed-to-transact from 15 days to just 60 seconds post-approval.",
-      "Achieved a massive 80% application submission rate through optimized form patterns.",
-      "Eliminated a good percentage of physical mail bottlenecks by enabling instant digital wallet provisioning.",
-      "Won an internal Customer Excellence Award for driving the bank's digital transformation.",
+      "Reduced application completion time from 15 minutes to 2.5 minutes, sustaining submission rates above 80%.",
+      "Moved 40% of applications to automated clearance, removing manual handling from the assessment queue.",
+      "Cut speed to transact from 15 days to 60 seconds post approval, removing the physical mail dependency through instant digital wallet provisioning.",
+      "Proposed and delivered the product downgrade pathway, offering declined applicants a lower tier card where eligibility allowed. It required sustained alignment with credit risk, legal and compliance because it changed the decision logic and not just the interface.",
+      "Managed and developed a design team of 3 to 5 including contract designers, covering onboarding, craft development, performance management and exits.",
+      "Contributed to and helped grow the CBA Design System, standardising tokenised libraries and accessibility patterns used across multiple product squads.",
+      "Presented design rationale to General Managers and executive leaders.",
+      "Received the CBA Customer Experience Excellence Award, 2025.",
     ],
   },
   {
