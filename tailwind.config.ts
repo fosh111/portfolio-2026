@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],
         serif: ["var(--font-instrument)", "serif"],
-        mono: ["var(--font-fira)", "monospace"],
+        mono: ["var(--font-karla)", "sans-serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       colors: {
