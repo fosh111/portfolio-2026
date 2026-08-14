@@ -562,23 +562,27 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
     titleAccent: "management",
     role: "Senior Founding AI Product Designer",
     challenge:
-      "Turn chaotic hospitality workforce management into a lightweight, AI-native SaaS platform that slashes administrative work for overstretched venue managers.",
+      "Venue managers were running workforce operations out of spreadsheets and WhatsApp threads. The job was to replace that with an AI-native platform light enough to use on the floor, not at a desk.",
     contributions: [
       {
-        heading: "0→1 Product Architecture",
-        body: "Established the initial end-to-end UX/UI foundations and a scalable master design system completely from scratch.",
+        heading: "0→1 product architecture",
+        body: "Built the end-to-end UX foundations and the master design system from nothing.",
       },
       {
-        heading: "AI-Native UX Design",
-        body: "Architected an AI-assisted interface featuring predictive workflows and intelligent defaults to eliminate user decision fatigue on the venue floor.",
+        heading: "AI-native interface",
+        body: "Predictive workflows and intelligent defaults that surface what a manager needs before they think to ask for it.",
       },
       {
-        heading: "Discovery & Rapid Validation",
-        body: "Conducted qualitative research and user testing with hotel managers to continuously de-risk features through iterative, high-fidelity prototyping.",
+        heading: "Designing for trust",
+        body: "Clear system feedback so non-technical operators can see what the automation is doing, removing the black-box anxiety common in AI tools.",
       },
       {
-        heading: "Strategic Fundraising Support",
-        body: "Authored high-impact pitch materials and product narratives that directly helped secure pre-seed funding and launch live hotel pilots.",
+        heading: "Discovery and validation",
+        body: "Qualitative research and testing with real venue operators, with low to high-fidelity prototypes de-risking features before engineering committed.",
+      },
+      {
+        heading: "Outcome",
+        body: "Design narratives and interaction systems that supported a successful pre-seed raise, now running in live hotel pilots.",
       },
     ],
     outcomesTitle: "Key outcomes",
