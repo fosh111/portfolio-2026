@@ -167,14 +167,14 @@ export function EnterGate({
         aria-label={!expanded ? "Enter" : undefined}
         onClick={!expanded ? handleTriggerClick : undefined}
         onKeyDown={handleTriggerKeyDown}
-        className={`relative flex h-14 shrink-0 items-center overflow-hidden rounded-full border bg-paper/50 backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 ${
+        className={`group relative flex h-14 shrink-0 items-center overflow-hidden rounded-full border bg-paper/50 backdrop-blur-[20px] backdrop-saturate-150 transition-all duration-300 ${
           expanded
             ? "w-[320px]"
             : "w-[152px] cursor-pointer hover:bg-ink/10 hover:shadow-[0_10px_28px_rgba(0,0,0,0.2)]"
         } ${stateClasses}`}
       >
         <span
-          className={`pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-mono text-[18px] text-ink transition-opacity duration-200 ${
+          className={`pointer-events-none absolute inset-0 flex items-center justify-center gap-2 font-display text-[14px] font-light text-ink transition-all duration-200 group-hover:font-normal ${
             expanded ? "opacity-0" : "opacity-100"
           }`}
         >
