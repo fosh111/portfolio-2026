@@ -27,7 +27,7 @@ export default function ExperiencePage() {
           <ExperienceList />
         </Reveal>
 
-        <Reveal className="mt-16 flex flex-col items-center gap-4">
+        <Reveal className="mt-16 flex flex-col items-center gap-8">
           <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
           <TertiaryLink href="/case-studies">View case studies</TertiaryLink>
         </Reveal>
