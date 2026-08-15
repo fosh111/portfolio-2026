@@ -152,9 +152,9 @@ export const CASE_STUDIES: CaseStudySummary[] = [
   {
     slug: "forage",
     company: "Forage",
-    period: "2020-21",
-    titleLead: "Ed-tech origination",
-    titleAccent: "program",
+    period: "2021-22",
+    titleLead: "Early careers",
+    titleAccent: "pre-boarding",
     tags: ["0→1", "Edtech", "Fortune500"],
     available: false,
   },
@@ -598,6 +598,142 @@ export const CASE_STUDY_DETAILS: Record<string, CaseStudyDetail> = {
       ],
     },
   },
+  forage: {
+    slug: "forage",
+    company: "Forage",
+    period: "2021-22",
+    titleLead: "Early careers",
+    titleAccent: "pre-boarding",
+    role: "Senior Founding Product Designer",
+    challenge:
+      "Fortune 500 employers were losing momentum between offer and first day, with interns scattered across the US. The platform had to serve two customers with opposing instincts: enterprises wanting structure and record-keeping, and Gen Z users who would reject anything that felt corporate.",
+    contributions: [
+      {
+        heading: "0→1 in three months",
+        body: "Led discovery through delivery and post-launch iteration on a new product, inside a fixed window.",
+      },
+      {
+        heading: "Designing for two customers",
+        body: "Resolved the tension between enterprise compliance needs and an experience Gen Z would actually use, rather than picking a side.",
+      },
+      {
+        heading: "Commercial pull",
+        body: "The product helped land Electronic Arts and JP Morgan, who mandated their intern cohorts onto the platform, several thousand users arriving as a direct result.",
+      },
+      {
+        heading: "Sign-up conversion",
+        body: "Redesigned the acquisition entry point, lifting conversion by around 8% and cutting drop-off by around 15%, while opening the platform to a more mature user base.",
+      },
+      {
+        heading: "White-label architecture",
+        body: "Built so each client could carry their own visual identity without forking the product.",
+      },
+    ],
+    outcomesTitle: "Key outcomes",
+    metrics: [
+      {
+        value: "New enterprise logos",
+        label: "clients landed",
+        detail:
+          "Electronic Arts and JP Morgan mandated their intern cohorts onto the platform, several thousand users arriving through a product I designed",
+      },
+      {
+        value: "+8% conversion",
+        label: "sign-up flow",
+        detail:
+          "redesigned the acquisition entry point, lifting conversion and cutting drop-off by around 15%",
+      },
+      {
+        value: "0→1 in 3 months",
+        label: "shipped",
+        detail:
+          "led discovery through delivery and post-launch iteration on a new product inside a fixed window",
+      },
+      {
+        value: "White-label",
+        label: "multi-client architecture",
+        detail:
+          "built so each enterprise could carry its own identity without forking the product",
+      },
+    ],
+    // Unreachable while `expanded` below is set (CaseStudyView falls back to
+    // processNote only when study.expanded is undefined) — reusing the
+    // intro paragraph verbatim just to satisfy the non-optional string type.
+    processNote:
+      "As founding product designer, I led end-to-end design for a new product connecting early-career talent to Fortune 500 employers before their first day, from discovery to delivery and post-launch iteration inside a three-month window. My wider remit included the sign-up flow, the entry point to the whole platform.",
+    expanded: {
+      headline: "Designing pre-boarding for two customers with opposing needs",
+      intro:
+        "As founding product designer, I led end-to-end design for a new product connecting early-career talent to Fortune 500 employers before their first day, from discovery to delivery and post-launch iteration inside a three-month window. My wider remit included the sign-up flow, the entry point to the whole platform.",
+      stats: [
+        { value: "+8%", label: "SIGN-UP CONVERSION" },
+        { value: "-15%", label: "DROP-OFF" },
+        { value: "EA, JP Morgan", label: "CLIENTS LANDED" },
+        { value: "Acquired", label: "FORAGE, 2022" },
+      ],
+      pivotTitle: "The Strategic Pivot",
+      pivotColumns: [
+        {
+          title: "The problem",
+          body: "Employers made standout offers to early-career talent, then lost the momentum. Interns were spread across the US with months between acceptance and day one, and nothing connecting them to the business or each other.",
+        },
+        {
+          title: "My reframing",
+          body: "Two customers, not one. Enterprises needed structure, transparency and record keeping. Interns would abandon anything that felt like corporate compliance. The design problem was finding where those two things could agree.",
+        },
+        {
+          title: "The design brief",
+          body: "How might we turn the gap between offer and first day into something both the employer and the intern want to use?",
+        },
+      ],
+      methodologyTitle: "How I Led It",
+      phases: [
+        {
+          title: "Framing with the client in the room",
+          body: "Ran blue-sky workshops with clients and stakeholders to co-create the vision, ranging widely from gamified learning to chat-based social features before narrowing. Setting direction with the client present meant scope arguments happened early rather than at handover.",
+        },
+        {
+          title: "Fidelity matched to the question",
+          body: "Started in low-fidelity to explore layout, flow and hierarchy, so stakeholder feedback landed on structure rather than visual polish. Raised fidelity only as confidence in the direction grew, which kept a three-month build moving.",
+        },
+        {
+          title: "Working across functions",
+          body: "Design decisions made alongside product, engineering, legal, copy, sales and client success, so what shipped was feasible and scalable rather than only desirable.",
+        },
+      ],
+      interventionsTitle: "What I Designed",
+      interventions: [
+        {
+          title: "Task hub",
+          body: "Onboarding tasks structured so interns learned the business by doing its work. A visual step tracker showed what was complete or outstanding, with manager contact details in reach at the point of difficulty rather than buried in help.",
+        },
+        {
+          title: "Feedback in context",
+          body: "Discussion threads embedded directly inside tasks, so feedback, replies and revisions stayed with the work. Learning continued without conversations scattering across email.",
+        },
+        {
+          title: "Chat built for the audience",
+          body: "A chat model that felt familiar rather than institutional, connecting interns with peers, leads and stakeholders. Knowledge transfer started before day one, which is what the enterprise wanted, through a pattern the intern would actually open.",
+        },
+        {
+          title: "White-label identity",
+          body: "Navigation and UI built so each enterprise could carry its own visual identity inside a shared product, giving clients a branded journey without forking the platform.",
+        },
+        {
+          title: "Sign-up flow",
+          body: "Redesigned the acquisition entry point, the first screen every new user met. Conversion improved by around 8% and drop-off fell by around 15%, and the flow opened the platform to an older, more established user base than it had been built for.",
+        },
+      ],
+      takeawaysTitle: "Main Takeaways",
+      takeaways: [
+        "Commercial pull: the product helped land Electronic Arts and JP Morgan, who mandated intern cohorts onto the platform. Alongside a sign-up redesign that lifted conversion around 8% and cut drop-off around 15%, I contributed to growth from roughly 300,000 users to close to 2 million during my time.",
+        "Two customers, one product: the enterprise need for transparency and the intern need for informality were solvable together, not by compromise.",
+        "Validation in the users' words: testing returned inviting, fresh, and nothing like other corporate stuff, which was the actual brief.",
+        "Fidelity is a scoping tool: staying low-fi longer kept a three-month build on track and kept feedback on structure.",
+        "Build for the second client: white-label architecture meant the next enterprise was a configuration, not a rebuild.",
+      ],
+    },
+  },
 };
 
 export const CONTACT_INTRO =
@@ -994,6 +1130,106 @@ export const CBA_CAROUSEL: CbaCarouselSlide[] = [
     ],
     outro: [
       "By bridging the gap between approval and fulfillment, we slashed speed-to-transact from 15 days down to just 60 seconds post-approval, driving immediate digital adoption with over 70% of users activating their cards instantly. This strategic intervention transformed a high-friction legacy operational delay into a seamless, high-converting customer win that completely bypassed physical mail dependencies and directly lifted early-stage NPS.",
+    ],
+  },
+];
+
+export type ForageCarouselBullet = { label?: string; body: string };
+
+export type ForageCarouselImageLayer = {
+  imageKey: string;
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+  rounded?: boolean;
+};
+
+export type ForageCarouselSlide = {
+  id: string;
+  tabLabel: string;
+  imageKey?: string;
+  layers?: ForageCarouselImageLayer[];
+  intro: string[];
+  bullets?: ForageCarouselBullet[];
+  outro?: string[];
+};
+
+// PLACEHOLDER DATA — stub stages only, so the carousel's nav/swipe/expand
+// mechanics can be verified before real Forage design-process copy and
+// Figma screens exist. Every stage below is a stand-in, not drafted case
+// study content — replace all of it once real material is available.
+export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
+  {
+    id: "problem",
+    tabLabel: "01. THE PROBLEM",
+    imageKey: "",
+    intro: [
+      "Turning accepted offers into relationships",
+      "Fortune 500 employers made standout offers, then lost the momentum. Interns were spread across the US with months before day one and nothing connecting them to the business.",
+    ],
+  },
+  {
+    id: "research-ideation",
+    tabLabel: "02. RESEARCH AND IDEATION",
+    imageKey: "",
+    intro: [
+      "Designing with Gen Z in mind",
+      "Blue-sky workshops with clients and stakeholders, exploring everything from gamified learning to chat-based social features. The constant was what this audience values: self-expression, connection and authenticity.",
+    ],
+  },
+  {
+    id: "wireframes",
+    tabLabel: "03. WIREFRAMES",
+    imageKey: "",
+    intro: [
+      "Structure before polish",
+      "Low-fidelity wireframes to explore layout, flow and hierarchy, so stakeholder feedback landed on structure. Fidelity rose only as confidence in the direction did.",
+    ],
+  },
+  {
+    id: "user-testing",
+    tabLabel: "04. USER TESTING",
+    imageKey: "",
+    intro: [
+      "Validating with real students",
+      "Moderated usability testing on the key flows. The words that came back were inviting, fresh, and nothing like other corporate stuff, validating the interaction patterns and the tone.",
+    ],
+  },
+  {
+    id: "product",
+    tabLabel: "05. THE PRODUCT",
+    imageKey: "",
+    intro: [
+      "A hub for interns to connect and grow",
+      "Home, task hub, community, schedule and inbox. A space to complete real work, build confidence and belong to the business before walking in.",
+    ],
+  },
+  {
+    id: "design-rationale",
+    tabLabel: "06. DESIGN RATIONALE",
+    imageKey: "",
+    intro: [
+      "Clarity, transparency and support",
+      "Task pages structured around what matters at that moment, with a step tracker and manager contacts in reach. Discussion threads inside tasks kept feedback with the work.",
+    ],
+  },
+  {
+    id: "scale",
+    tabLabel: "07. SCALE",
+    imageKey: "",
+    intro: [
+      "Landing the logos, then converting them",
+      "The product helped land Electronic Arts and JP Morgan, who mandated intern cohorts onto the platform. My sign-up redesign lifted conversion around 8% and cut drop-off around 15%, opening the platform to a more mature user base.",
+    ],
+  },
+  {
+    id: "sign-up-flow",
+    tabLabel: "08. SIGN-UP FLOW",
+    imageKey: "",
+    intro: [
+      "Designing for who else could use this",
+      "The original sign-up was built around one user, the student intern. I redesigned it to open onto new personas including career changers and experienced professionals, widening who the platform could reach without a separate product. Conversion improved around 8% and drop-off fell around 15%.",
     ],
   },
 ];
