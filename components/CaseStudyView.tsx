@@ -9,6 +9,7 @@ import {
   ConvokelabProcessCarousel,
   QantasCarousel,
   CBACarousel,
+  ForageCarousel,
 } from "./CaseStudyParts";
 import { SectionLabel, Divider, Dot, PillLink } from "./ui";
 import { CASE_STUDIES, type CaseStudyDetail } from "@/lib/content";
@@ -22,6 +23,9 @@ function ProcessCanvas({ study }: { study: CaseStudyDetail }) {
   }
   if (study.slug === "cba") {
     return <CBACarousel />;
+  }
+  if (study.slug === "forage") {
+    return <ForageCarousel />;
   }
   return (
     <div className="relative w-full overflow-hidden rounded-[2px] bg-card">
