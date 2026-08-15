@@ -14,19 +14,19 @@ export function LinkOutButton({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className={`group inline-flex items-center gap-2 font-serif text-[24px] ${className}`}
+      className={`group inline-flex items-center gap-1 font-serif text-[16px] ${className}`}
     >
-      <span className="whitespace-nowrap underline decoration-from-font underline-offset-2">
+      <span className="inline-flex items-baseline gap-1 whitespace-nowrap">
         <span className="text-ink transition-colors duration-200 group-hover:text-muted">
-          {label}{" "}
+          {label}
         </span>
         <span className="italic text-muted transition-colors duration-200 group-hover:text-ink">
           {accent}
         </span>
       </span>
       <svg
-        width="16"
-        height="16"
+        width="11"
+        height="11"
         viewBox="0 0 16 16"
         fill="none"
         aria-hidden="true"
@@ -35,7 +35,7 @@ export function LinkOutButton({
         <path
           d="M4 12L12 4M12 4H5.5M12 4V10.5"
           stroke="currentColor"
-          strokeWidth="1.4"
+          strokeWidth="1.6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
