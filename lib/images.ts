@@ -54,7 +54,7 @@ export const IMAGES: Record<string, string> = {
   "carousel-forage-wireframes": "/images/carousel-forage/wireframes.png",
   "carousel-forage-user-testing": "/images/carousel-forage/user-testing.png",
   "carousel-forage-design-rationale": "/images/carousel-forage/design-rationale.png",
-  "carousel-forage-signup-flow": "/images/carousel-forage/signup-flow.png",
+  "carousel-forage-product": "/images/carousel-forage/product.png",
 };
 
 export function img(key: string): string {

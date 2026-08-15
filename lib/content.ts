@@ -1150,6 +1150,10 @@ export type ForageCarouselSlide = {
   tabLabel: string;
   imageKey?: string;
   layers?: ForageCarouselImageLayer[];
+  /** Autoplaying, looping, muted screen-recording video. Unlike CBA's video
+   *  slides, no mask/address-bar composite is needed here — the recording
+   *  already has real browser chrome (theforage.com) baked in. */
+  videoSrc?: string;
   intro: string[];
   bullets?: ForageCarouselBullet[];
   outro?: string[];
@@ -1200,7 +1204,7 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   {
     id: "product",
     tabLabel: "THE PRODUCT",
-    imageKey: "",
+    imageKey: "carousel-forage-product",
     intro: [
       "A hub for interns to connect and grow",
       "Home, task hub, community, schedule and inbox. A space to complete real work, build confidence and belong to the business before walking in.",
@@ -1219,7 +1223,7 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   {
     id: "sign-up-flow",
     tabLabel: "SIGN UP FLOW - VIDEO",
-    imageKey: "carousel-forage-signup-flow",
+    videoSrc: "/videos/forage-signup.mp4",
     intro: [
       "Designing for who else could use this",
       "The original sign-up was built around one user, the student intern. I redesigned it to open onto new personas including career changers and experienced professionals, widening who the platform could reach without a separate product. Conversion improved around 8% and drop-off fell around 15%.",
