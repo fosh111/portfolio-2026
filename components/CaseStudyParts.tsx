@@ -804,7 +804,17 @@ export function ForageCarousel() {
               Figma layout is available, a single cover image, or (currently,
               for every placeholder stage) a plain neutral canvas fallback */}
           <div className="absolute inset-0">
-            {slide.layers ? (
+            {slide.videoSrc ? (
+              <video
+                src={slide.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+              />
+            ) : slide.layers ? (
               <div className="relative h-full w-full bg-[#e3e3e3]">
                 {slide.layers.map((layer, i) => (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -894,7 +904,7 @@ export function ForageCarousel() {
                   type="button"
                   onClick={() => setState("collapsed")}
                   aria-label="Close"
-                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
+                  className="absolute bottom-4 right-4 z-20 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
                 >
                   <CloseIcon />
                 </button>
