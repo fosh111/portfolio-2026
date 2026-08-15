@@ -836,16 +836,18 @@ export function ForageCarousel() {
             )}
           </div>
 
-          {/* Expanded-state overlay tint, sits above the image and below the copy/controls */}
-          {state === "expanded" && (
+          {/* Expanded-state overlay tint, sits above the image and below the copy/controls.
+              noToggle slides (e.g. Design Rationale) show this permanently, no click needed. */}
+          {(slide.noToggle || state === "expanded") && (
             <div
               className="absolute inset-0 qantas-fade-in bg-[#2C2C2C]/90"
               aria-hidden="true"
             />
           )}
 
-          {/* Collapsed state: clean image plus the labeled '?' button to expand */}
-          {state === "collapsed" && (
+          {/* Collapsed state: clean image plus the labeled '?' button to expand.
+              Never shown for noToggle slides — their copy is always visible. */}
+          {!slide.noToggle && state === "collapsed" && (
             <button
               type="button"
               onClick={() => setState("expanded")}
@@ -857,8 +859,8 @@ export function ForageCarousel() {
             </button>
           )}
 
-          {/* Expanded state: full copy, closed via the 'x' button */}
-          {state === "expanded" && (
+          {/* Full copy — permanently on for noToggle slides, otherwise only in expanded state */}
+          {(slide.noToggle || state === "expanded") && (
             <div className="qantas-rise-in absolute inset-0 flex flex-col">
               <div className="flex items-start px-[52px] pt-6 sm:px-[60px]">
                 <p className="max-w-[80%] font-mono text-[12px] uppercase tracking-[0.05em] text-white sm:text-[13px]">
@@ -887,14 +889,16 @@ export function ForageCarousel() {
                   </p>
                 ))}
               </div>
-              <button
-                type="button"
-                onClick={() => setState("collapsed")}
-                aria-label="Close"
-                className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
-              >
-                <CloseIcon />
-              </button>
+              {!slide.noToggle && (
+                <button
+                  type="button"
+                  onClick={() => setState("collapsed")}
+                  aria-label="Close"
+                  className="absolute bottom-4 right-4 flex size-7 items-center justify-center rounded-full bg-white/90 text-[#0a0a0a] transition-all duration-200 hover:scale-110 hover:bg-white active:scale-95"
+                >
+                  <CloseIcon />
+                </button>
+              )}
             </div>
           )}
         </div>
