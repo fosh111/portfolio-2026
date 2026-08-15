@@ -49,6 +49,12 @@ export const IMAGES: Record<string, string> = {
   "carousel-cba-ut-insights": "/images/carousel-cba/ut-insights.png",
   "carousel-cba-delivery": "/images/carousel-cba/delivery.png",
   "carousel-cba-stitching-1": "/images/carousel-cba/stitching-1.png",
+  "carousel-forage-problem": "/images/carousel-forage/problem.png",
+  "carousel-forage-research-ideation": "/images/carousel-forage/research-ideation.png",
+  "carousel-forage-wireframes": "/images/carousel-forage/wireframes.png",
+  "carousel-forage-user-testing": "/images/carousel-forage/user-testing.png",
+  "carousel-forage-design-rationale": "/images/carousel-forage/design-rationale.png",
+  "carousel-forage-signup-flow": "/images/carousel-forage/signup-flow.png",
 };
 
 export function img(key: string): string {

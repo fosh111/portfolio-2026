@@ -1153,6 +1153,7 @@ export type ForageCarouselSlide = {
   intro: string[];
   bullets?: ForageCarouselBullet[];
   outro?: string[];
+  noToggle?: boolean;
 };
 
 // PLACEHOLDER DATA — stub stages only, so the carousel's nav/swipe/expand
@@ -1162,8 +1163,8 @@ export type ForageCarouselSlide = {
 export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   {
     id: "problem",
-    tabLabel: "01. THE PROBLEM",
-    imageKey: "",
+    tabLabel: "THE PROBLEM",
+    imageKey: "carousel-forage-problem",
     intro: [
       "Turning accepted offers into relationships",
       "Fortune 500 employers made standout offers, then lost the momentum. Interns were spread across the US with months before day one and nothing connecting them to the business.",
@@ -1171,8 +1172,8 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   },
   {
     id: "research-ideation",
-    tabLabel: "02. RESEARCH AND IDEATION",
-    imageKey: "",
+    tabLabel: "RESEARCH AND IDEATION",
+    imageKey: "carousel-forage-research-ideation",
     intro: [
       "Designing with Gen Z in mind",
       "Blue-sky workshops with clients and stakeholders, exploring everything from gamified learning to chat-based social features. The constant was what this audience values: self-expression, connection and authenticity.",
@@ -1180,8 +1181,8 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   },
   {
     id: "wireframes",
-    tabLabel: "03. WIREFRAMES",
-    imageKey: "",
+    tabLabel: "WIREFRAMES",
+    imageKey: "carousel-forage-wireframes",
     intro: [
       "Structure before polish",
       "Low-fidelity wireframes to explore layout, flow and hierarchy, so stakeholder feedback landed on structure. Fidelity rose only as confidence in the direction did.",
@@ -1189,8 +1190,8 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   },
   {
     id: "user-testing",
-    tabLabel: "04. USER TESTING",
-    imageKey: "",
+    tabLabel: "USER TESTING",
+    imageKey: "carousel-forage-user-testing",
     intro: [
       "Validating with real students",
       "Moderated usability testing on the key flows. The words that came back were inviting, fresh, and nothing like other corporate stuff, validating the interaction patterns and the tone.",
@@ -1198,7 +1199,7 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   },
   {
     id: "product",
-    tabLabel: "05. THE PRODUCT",
+    tabLabel: "THE PRODUCT",
     imageKey: "",
     intro: [
       "A hub for interns to connect and grow",
@@ -1207,26 +1208,18 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   },
   {
     id: "design-rationale",
-    tabLabel: "06. DESIGN RATIONALE",
-    imageKey: "",
+    tabLabel: "DESIGN RATIONALE",
+    imageKey: "carousel-forage-design-rationale",
+    noToggle: true,
     intro: [
       "Clarity, transparency and support",
       "Task pages structured around what matters at that moment, with a step tracker and manager contacts in reach. Discussion threads inside tasks kept feedback with the work.",
     ],
   },
   {
-    id: "scale",
-    tabLabel: "07. SCALE",
-    imageKey: "",
-    intro: [
-      "Landing the logos, then converting them",
-      "The product helped land Electronic Arts and JP Morgan, who mandated intern cohorts onto the platform. My sign-up redesign lifted conversion around 8% and cut drop-off around 15%, opening the platform to a more mature user base.",
-    ],
-  },
-  {
     id: "sign-up-flow",
-    tabLabel: "08. SIGN-UP FLOW",
-    imageKey: "",
+    tabLabel: "SIGN UP FLOW - VIDEO",
+    imageKey: "carousel-forage-signup-flow",
     intro: [
       "Designing for who else could use this",
       "The original sign-up was built around one user, the student intern. I redesigned it to open onto new personas including career changers and experienced professionals, widening who the platform could reach without a separate product. Conversion improved around 8% and drop-off fell around 15%.",
