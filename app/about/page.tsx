@@ -57,7 +57,7 @@ export default function AboutPage() {
       </Container>
 
       {/* LinkedIn CTA */}
-      <Container width="inner" className="mt-16">
+      <Container width="inner" className="mt-12">
         <Reveal className="flex flex-col items-center gap-8">
           <LinkOutButton href={SITE.linkedin} label="more on" accent="linkedin" />
           <TertiaryLink href="/case-studies">View case studies</TertiaryLink>
