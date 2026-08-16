@@ -1150,10 +1150,18 @@ export type ForageCarouselSlide = {
   tabLabel: string;
   imageKey?: string;
   layers?: ForageCarouselImageLayer[];
-  /** Autoplaying, looping, muted screen-recording video. Unlike CBA's video
-   *  slides, no mask/address-bar composite is needed here — the recording
-   *  already has real browser chrome (theforage.com) baked in. */
+  /** Plain autoplaying, looping, muted screen-recording video — full-bleed,
+   *  no mask/address-bar composite. Use `video` instead when the recording
+   *  should sit inside a laptop mockup (matching CBA's pattern). */
   videoSrc?: string;
+  /** Laptop-mockup composite: mask image behind, static address-bar strip
+   *  pinned to the top of the screen cutout, looping video filling the
+   *  rest. Same shape as CBA's video slides. */
+  video?: {
+    maskImageKey: string;
+    addressBarImageKey: string;
+    videoSrc: string;
+  };
   intro: string[];
   bullets?: ForageCarouselBullet[];
   outro?: string[];
@@ -1214,7 +1222,6 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
     id: "design-rationale",
     tabLabel: "DESIGN RATIONALE",
     imageKey: "carousel-forage-design-rationale",
-    noToggle: true,
     intro: [
       "Clarity, transparency and support",
       "Task pages structured around what matters at that moment, with a step tracker and manager contacts in reach. Discussion threads inside tasks kept feedback with the work.",
@@ -1223,7 +1230,11 @@ export const FORAGE_CAROUSEL: ForageCarouselSlide[] = [
   {
     id: "sign-up-flow",
     tabLabel: "SIGN UP FLOW - VIDEO",
-    videoSrc: "/videos/forage-signup.mp4",
+    video: {
+      maskImageKey: "carousel-cba-intro-mask",
+      addressBarImageKey: "carousel-forage-signup-addressbar",
+      videoSrc: "/videos/forage-signup.mp4",
+    },
     intro: [
       "Designing for who else could use this",
       "The original sign-up was built around one user, the student intern. I redesigned it to open onto new personas including career changers and experienced professionals, widening who the platform could reach without a separate product. Conversion improved around 8% and drop-off fell around 15%.",
