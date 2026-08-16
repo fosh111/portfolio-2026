@@ -16,6 +16,8 @@ export const IMAGES: Record<string, string> = {
   "cba-outcome": "/images/cba-outcome.png",
   "convokelab-hero": "/images/convokelab-hero.png",
   "convokelab-outcome": "/images/convokelab-outcome.png",
+  "forage-hero": "/images/forage-hero.png",
+  "forage-outcome": "/images/forage-outcome.png",
   "thumb-qantas": "/images/thumb-qantas.png",
   "thumb-cba": "/images/thumb-cba.png",
   "thumb-convokelab": "/images/thumb-convokelab.png",
