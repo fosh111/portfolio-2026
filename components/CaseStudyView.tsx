@@ -155,6 +155,7 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               className="aspect-[595/627] w-full"
               rounded="rounded-[2px]"
               bg="bg-transparent"
+              imageFit={study.slug === "forage" ? "contain" : "cover"}
             />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {study.metrics.map((m, i) => (
