@@ -156,7 +156,7 @@ export const CASE_STUDIES: CaseStudySummary[] = [
     titleLead: "Early careers",
     titleAccent: "pre-boarding",
     tags: ["0→1", "Edtech", "Fortune500"],
-    available: false,
+    available: true,
   },
 ];
 
