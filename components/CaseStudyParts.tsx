@@ -804,7 +804,45 @@ export function ForageCarousel() {
               Figma layout is available, a single cover image, or (currently,
               for every placeholder stage) a plain neutral canvas fallback */}
           <div className="absolute inset-0">
-            {slide.videoSrc ? (
+            {slide.video ? (
+              <div className="relative h-full w-full bg-[#e3e3e3]">
+                {/* Laptop mockup shell — same asset and geometry as CBA's
+                    intro slide, since it's the identical mask image */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img(slide.video.maskImageKey)}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute object-cover"
+                  style={{ top: 0, left: "5.726%", width: "88.547%", height: "100%" }}
+                />
+                {/* Screen content — address-bar strip on top, looping video below it */}
+                <div
+                  className="absolute overflow-hidden rounded-[4px]"
+                  style={{ top: "7.279%", left: "18.205%", width: "63.419%", height: "75.217%" }}
+                >
+                  <div className="absolute inset-x-0 top-0 overflow-hidden" style={{ height: "8.065%" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img(slide.video.addressBarImageKey)}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute object-cover"
+                      style={{ top: "-3.17%", left: "-0.54%", width: "102.88%", height: "106.34%" }}
+                    />
+                  </div>
+                  <video
+                    src={slide.video.videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-[91.935%] w-full object-cover"
+                  />
+                </div>
+              </div>
+            ) : slide.videoSrc ? (
               <video
                 src={slide.videoSrc}
                 autoPlay
