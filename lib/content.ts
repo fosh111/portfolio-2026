@@ -9,6 +9,11 @@ export const SITE = {
 export const NAV = [
   { label: "About", href: "/about", key: "about" },
   { label: "Case Studies", href: "/case-studies", key: "case-studies" },
+  {
+    label: "Industrial Design",
+    href: "/industrial-design",
+    key: "industrial-design",
+  },
   { label: "Experience", href: "/experience", key: "experience" },
   { label: "contact", href: "/contact", key: "contact" },
 ] as const;
@@ -162,6 +167,119 @@ export const CASE_STUDIES: CaseStudySummary[] = [
 
 export const CASE_STUDIES_INTRO =
   "See how I took CBA's credit card application from 15 minutes to 2.5, and doubled ancillary seat revenue at Qantas. Convoke Lab, an AI-native startup, is up too. A case study on scaling Forage from thousands to millions of users is coming soon.";
+
+export const INDUSTRIAL_DESIGN_INTRO =
+  "Industrial design is where this practice started — thirteen years of designing for concrete, water and weight before code and screens. Selected physical product work spans safety equipment, healthcare fixtures, camera hardware and furniture, including three Good Design® Australia Gold awards.";
+
+export type IndustrialDesignProject = {
+  slug: string;
+  title: string;
+  brand: string;
+  recognition?: string;
+  description: string;
+  size: "featured" | "compact";
+  imageKey: string;
+  secondaryImageKey?: string;
+};
+
+export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
+  {
+    slug: "emergency-shower",
+    title: "Emergency safety shower & eyewash station",
+    brand: "Enware",
+    recognition: "Gold Winner — Good Design Australia",
+    description:
+      "A deployable emergency shower and eyewash unit for mining, fracking and remote sites. Pallet-sized footprint, all-terrain base, crane and forklift points for fast relocation — the whole system ships packed inside its own tank and installs without site down time.",
+    size: "featured",
+    imageKey: "id-shower-hero",
+    secondaryImageKey: "id-shower-family",
+  },
+  {
+    slug: "wellbeing-tap-range",
+    title: "Wellbeing™ aged-care tap range",
+    brand: "Enware",
+    recognition: "Good Design Selection",
+    description:
+      "Tap hardware designed around the needs of an ageing population — colour-coded, high-visibility handles and a grip shaped for reduced hand strength, developed through direct research and industry consultation. Concept sketch through to dimensioned manufacturing drawings and an installation manual.",
+    size: "featured",
+    imageKey: "id-wellbeing-hero",
+  },
+  {
+    slug: "ewater-management",
+    title: "eWater management & hand-hygiene compliance",
+    brand: "Enware",
+    recognition: "Gold Winner — Good Design Australia",
+    description:
+      "A water-quality and Legionella-risk monitoring platform for hospitals, built from persona research and patient-journey mapping through to hardware and a staff-facing compliance app. Installed in more than 50 hospitals across Australia; also carries a 2015 Sustainability Award and a 2016 World Stadium Congress finalist placement.",
+    size: "featured",
+    imageKey: "id-ewater-hero",
+    secondaryImageKey: "id-ewater-app",
+  },
+  {
+    slug: "blueline-bubbler",
+    title: "Blueline bubbler & SmartFlow™",
+    brand: "Enware",
+    recognition: "Gold Winner — Good Design Australia",
+    description:
+      "A drinking fountain and bottle-filler range for schools, parks and sporting facilities, built around gentle, tactile push-down levers. SmartFlow™ layers in usage monitoring and leak alerts, turning a fixture into infrastructure a facilities team can actually manage.",
+    size: "compact",
+    imageKey: "id-bubbler-hero",
+  },
+  {
+    slug: "arrowx-7",
+    title: "Arrowx 7 fluid head",
+    brand: "Miller",
+    description:
+      "A professional camera support head built around Miller's CB Plus counterbalance system — eight primary steps plus a fine-tuning half-step, engineered for fast, repeatable setup on set. Design work spanned precision mechanical sketching through to the final housing.",
+    size: "compact",
+    imageKey: "id-miller-hero",
+  },
+  {
+    slug: "rolacase-rolashelf",
+    title: "RolaCase / RolaShelf vehicle storage",
+    brand: "RolaCase / RolaShelf",
+    description:
+      "Modular drawer and shelving systems for trade vehicles, for an Australian vehicle-storage manufacturer running since 1984. Engineering came first — durability, weight distribution, ease of access — with the design translating that into a system a tradesperson opens ten times a day.",
+    size: "compact",
+    imageKey: "id-rolacase-hero",
+  },
+  {
+    slug: "desert-rose-taps",
+    title: "Desert Rose digital taps",
+    brand: "University of Wollongong",
+    description:
+      "Digital tap hardware for Team UOW Australia's Desert Rose \"house for life\" — a dementia and aged-care-friendly home concept. Illuminated, temperature-limited controls designed to reduce scalding risk and support independence for residents with cognitive or physical impairment.",
+    size: "compact",
+    imageKey: "id-uow-hero",
+  },
+  {
+    slug: "luxury-bathroom-concept",
+    title: "Luxury bathroom fixture concept",
+    brand: "Enware",
+    description:
+      "A concept exploration into premium bathroom hardware — mixed-metal and stone finishes, a considered unboxing experience, wall-mounted fittings — extending Enware's language into a higher price tier.",
+    size: "compact",
+    imageKey: "id-luxbath-hero",
+  },
+  {
+    slug: "hospital-tap-concept",
+    title: "Hospital tap concept",
+    brand: "Enware",
+    description:
+      "A concept tap for hospital and clinical settings, carrying the colour-coded control language explored across the Wellbeing range into a healthcare-specific form.",
+    size: "compact",
+    imageKey: "id-hosptap-hero",
+  },
+  {
+    slug: "glassisimo-furniture",
+    title: "Glass furniture",
+    brand: "Glassisimo",
+    description:
+      "Furniture design in bent and laminated glass for Glassisimo — armchairs, coffee tables and a modular side-table system pairing glass with timber and lacquer drawer fronts.",
+    size: "compact",
+    imageKey: "id-glassisimo-hero",
+  },
+];
 
 export type Metric = {
   value: string;

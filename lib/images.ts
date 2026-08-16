@@ -58,6 +58,18 @@ export const IMAGES: Record<string, string> = {
   "carousel-forage-design-rationale": "/images/carousel-forage/design-rationale.png",
   "carousel-forage-product": "/images/carousel-forage/product.png",
   "carousel-forage-signup-addressbar": "/images/carousel-forage/signup-addressbar.png",
+  "id-shower-hero": "/images/industrial-design/shower-hero.jpg",
+  "id-shower-family": "/images/industrial-design/shower-family.jpg",
+  "id-bubbler-hero": "/images/industrial-design/bubbler-hero.jpg",
+  "id-wellbeing-hero": "/images/industrial-design/wellbeing-hero.jpg",
+  "id-miller-hero": "/images/industrial-design/miller-hero.jpg",
+  "id-rolacase-hero": "/images/industrial-design/rolacase-hero.jpg",
+  "id-ewater-hero": "/images/industrial-design/ewater-hero.jpg",
+  "id-ewater-app": "/images/industrial-design/ewater-app.jpg",
+  "id-uow-hero": "/images/industrial-design/uow-hero.jpg",
+  "id-luxbath-hero": "/images/industrial-design/luxbath-hero.jpg",
+  "id-hosptap-hero": "/images/industrial-design/hosptap-hero.jpg",
+  "id-glassisimo-hero": "/images/industrial-design/glassisimo-hero.jpg",
 };
 
 export function img(key: string): string {
