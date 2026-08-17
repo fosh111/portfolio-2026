@@ -1,5 +1,6 @@
 import { Figure } from "./Figure";
 import { MetaRow } from "./ui";
+import { IndustrialDesignCarousel } from "./IndustrialDesignCarousel";
 import type { IndustrialDesignProject } from "@/lib/content";
 
 function metaItems(project: IndustrialDesignProject): string[] {
@@ -15,21 +16,27 @@ export function FeaturedProject({
 }) {
   return (
     <div>
-      <Figure
-        imageKey={project.imageKey}
-        label={project.title}
-        className="aspect-[16/10] w-full"
-        rounded="rounded-[2px]"
-        imageFit="cover"
-      />
-      {project.secondaryImageKey && (
-        <Figure
-          imageKey={project.secondaryImageKey}
-          label={`${project.title} — detail`}
-          className="mt-3 aspect-[21/9] w-full sm:w-1/2"
-          rounded="rounded-[2px]"
-          imageFit="cover"
-        />
+      {project.carousel ? (
+        <IndustrialDesignCarousel slides={project.carousel} />
+      ) : (
+        <>
+          <Figure
+            imageKey={project.imageKey}
+            label={project.title}
+            className="aspect-[16/10] w-full"
+            rounded="rounded-[2px]"
+            imageFit="cover"
+          />
+          {project.secondaryImageKey && (
+            <Figure
+              imageKey={project.secondaryImageKey}
+              label={`${project.title} — detail`}
+              className="mt-3 aspect-[21/9] w-full sm:w-1/2"
+              rounded="rounded-[2px]"
+              imageFit="cover"
+            />
+          )}
+        </>
       )}
       <div className="mt-6 max-w-[560px]">
         <MetaRow items={metaItems(project)} />
