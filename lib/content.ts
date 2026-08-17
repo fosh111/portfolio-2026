@@ -166,10 +166,10 @@ export const CASE_STUDIES: CaseStudySummary[] = [
 ];
 
 export const CASE_STUDIES_INTRO =
-  "See how I took CBA's credit card application from 15 minutes to 2.5, and doubled ancillary seat revenue at Qantas. Convoke Lab, an AI-native startup, is up too. A case study on scaling Forage from thousands to millions of users is coming soon.";
+  "See how I took CBA's credit card application from 15 minutes to 2.5, doubled ancillary seat revenue at Qantas, and helped Forage scale from thousands to millions of users. Convoke Lab, an AI-native startup, is up too.";
 
 export const INDUSTRIAL_DESIGN_INTRO =
-  "Industrial design is where this practice started — thirteen years of designing for concrete, water and weight before code and screens. Selected physical product work spans safety equipment, healthcare fixtures, camera hardware and furniture, including three Good Design® Australia Gold awards.";
+  "Industrial design is where I started, years of designing for concrete, water and weight before code and screens. Selected physical product work spans safety equipment, healthcare fixtures, camera hardware and furniture, including three Good Design® Australia Gold awards.";
 
 export type IndustrialDesignCarouselSlide =
   | {
@@ -198,6 +198,9 @@ export type IndustrialDesignProject = {
   /** When present, the featured entry renders this carousel instead of the
    * flat hero + secondary figure pair. */
   carousel?: IndustrialDesignCarouselSlide[];
+  /** CSS aspect-ratio string locking the carousel's stable height (e.g.
+   * "16 / 10"). Set to the tallest slide's ratio so nothing is cropped. */
+  carouselAspect?: string;
 };
 
 export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
@@ -211,6 +214,7 @@ export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
     size: "featured",
     imageKey: "id-shower-hero",
     secondaryImageKey: "id-shower-family",
+    carouselAspect: "8 / 5",
     carousel: [
       {
         kind: "video",
@@ -265,6 +269,7 @@ export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
     size: "featured",
     imageKey: "id-ewater-hero",
     secondaryImageKey: "id-ewater-app",
+    carouselAspect: "99 / 70",
     carousel: [
       {
         kind: "video",
