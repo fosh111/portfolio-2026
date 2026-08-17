@@ -20,8 +20,13 @@ function ChevronIcon({ direction = "left" }: { direction?: "left" | "right" }) {
 
 export function IndustrialDesignCarousel({
   slides,
+  aspectRatio = "16 / 10",
 }: {
   slides: IndustrialDesignCarouselSlide[];
+  /** Locks the media area to a stable height so paging between slides of
+   * different native ratios doesn't reflow the page. Slides are contained
+   * (never cropped); any leftover area is transparent, not filled. */
+  aspectRatio?: string;
 }) {
   const [index, setIndex] = useState(0);
   const touchStartX = useState({ x: 0 })[0];
@@ -56,10 +61,11 @@ export function IndustrialDesignCarousel({
     <div className="flex flex-col items-center gap-4">
       <div
         className="relative w-full overflow-hidden rounded-[2px]"
+        style={{ aspectRatio }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div key={slide.id} className="qantas-dissolve">
+        <div key={slide.id} className="qantas-dissolve absolute inset-0">
           {slide.kind === "video" ? (
             <video
               src={slide.videoSrc}
@@ -69,14 +75,14 @@ export function IndustrialDesignCarousel({
               loop
               playsInline
               aria-hidden="true"
-              className="block w-full"
+              className="h-full w-full object-contain"
             />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={img(slide.imageKey)}
               alt={slide.tabLabel}
-              className="block w-full"
+              className="h-full w-full object-contain"
             />
           )}
         </div>

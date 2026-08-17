@@ -17,7 +17,10 @@ export function FeaturedProject({
   return (
     <div>
       {project.carousel ? (
-        <IndustrialDesignCarousel slides={project.carousel} />
+        <IndustrialDesignCarousel
+          slides={project.carousel}
+          aspectRatio={project.carouselAspect}
+        />
       ) : (
         <>
           <Figure
