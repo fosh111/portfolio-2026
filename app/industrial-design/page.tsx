@@ -31,12 +31,16 @@ export default function IndustrialDesignPage() {
 
         <div className="mt-14 sm:mt-20">
           {featured.map((project, i) => (
-            <Reveal
-              key={project.slug}
-              className={i > 0 ? "mt-20 sm:mt-28" : ""}
-            >
-              <FeaturedProject project={project} />
-            </Reveal>
+            <div key={project.slug}>
+              {i > 0 && (
+                <div className="my-20 sm:my-28">
+                  <Divider />
+                </div>
+              )}
+              <Reveal>
+                <FeaturedProject project={project} />
+              </Reveal>
+            </div>
           ))}
         </div>
 
