@@ -227,6 +227,12 @@ export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
       },
       {
         kind: "image",
+        id: "range",
+        tabLabel: "SHOWER RANGE",
+        imageKey: "id-shower-carousel-range",
+      },
+      {
+        kind: "image",
         id: "detail",
         tabLabel: "SMART IN DESIGN & USE",
         imageKey: "id-shower-carousel-detail",

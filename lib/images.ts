@@ -72,6 +72,7 @@ export const IMAGES: Record<string, string> = {
   "id-glassisimo-hero": "/images/industrial-design/glassisimo-hero.jpg",
   "id-shower-reel-poster": "/images/industrial-design/shower-reel-poster.jpg",
   "id-shower-carousel-hero": "/images/industrial-design/shower-carousel-hero.jpg",
+  "id-shower-carousel-range": "/images/industrial-design/shower-carousel-range.jpg",
   "id-shower-carousel-detail": "/images/industrial-design/shower-carousel-detail.jpg",
   "id-shower-carousel-parts": "/images/industrial-design/shower-carousel-parts.jpg",
 };
