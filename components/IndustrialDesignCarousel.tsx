@@ -55,11 +55,11 @@ export function IndustrialDesignCarousel({
   return (
     <div className="flex flex-col items-center gap-4">
       <div
-        className="relative aspect-[1170/893] w-full overflow-hidden rounded-[2px] bg-card"
+        className="relative w-full overflow-hidden rounded-[2px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div key={slide.id} className="absolute inset-0 qantas-dissolve">
+        <div key={slide.id} className="qantas-dissolve">
           {slide.kind === "video" ? (
             <video
               src={slide.videoSrc}
@@ -69,14 +69,14 @@ export function IndustrialDesignCarousel({
               loop
               playsInline
               aria-hidden="true"
-              className="h-full w-full object-contain"
+              className="block w-full"
             />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={img(slide.imageKey)}
               alt={slide.tabLabel}
-              className="h-full w-full object-contain"
+              className="block w-full"
             />
           )}
         </div>
