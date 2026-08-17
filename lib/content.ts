@@ -171,6 +171,21 @@ export const CASE_STUDIES_INTRO =
 export const INDUSTRIAL_DESIGN_INTRO =
   "Industrial design is where this practice started — thirteen years of designing for concrete, water and weight before code and screens. Selected physical product work spans safety equipment, healthcare fixtures, camera hardware and furniture, including three Good Design® Australia Gold awards.";
 
+export type IndustrialDesignCarouselSlide =
+  | {
+      kind: "video";
+      id: string;
+      tabLabel: string;
+      videoSrc: string;
+      posterKey: string;
+    }
+  | {
+      kind: "image";
+      id: string;
+      tabLabel: string;
+      imageKey: string;
+    };
+
 export type IndustrialDesignProject = {
   slug: string;
   title: string;
@@ -180,6 +195,9 @@ export type IndustrialDesignProject = {
   size: "featured" | "compact";
   imageKey: string;
   secondaryImageKey?: string;
+  /** When present, the featured entry renders this carousel instead of the
+   * flat hero + secondary figure pair. */
+  carousel?: IndustrialDesignCarouselSlide[];
 };
 
 export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
@@ -193,6 +211,33 @@ export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
     size: "featured",
     imageKey: "id-shower-hero",
     secondaryImageKey: "id-shower-family",
+    carousel: [
+      {
+        kind: "video",
+        id: "reel",
+        tabLabel: "PRODUCT REEL",
+        videoSrc: "/videos/shower-reel.mp4",
+        posterKey: "id-shower-reel-poster",
+      },
+      {
+        kind: "image",
+        id: "hero",
+        tabLabel: "HERO RENDER",
+        imageKey: "id-shower-carousel-hero",
+      },
+      {
+        kind: "image",
+        id: "detail",
+        tabLabel: "SMART IN DESIGN & USE",
+        imageKey: "id-shower-carousel-detail",
+      },
+      {
+        kind: "image",
+        id: "parts",
+        tabLabel: "EXPLODED ASSEMBLY",
+        imageKey: "id-shower-carousel-parts",
+      },
+    ],
   },
   {
     slug: "wellbeing-tap-range",
