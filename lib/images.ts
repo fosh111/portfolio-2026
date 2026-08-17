@@ -75,6 +75,12 @@ export const IMAGES: Record<string, string> = {
   "id-shower-carousel-range": "/images/industrial-design/shower-carousel-range.jpg",
   "id-shower-carousel-detail": "/images/industrial-design/shower-carousel-detail.jpg",
   "id-shower-carousel-parts": "/images/industrial-design/shower-carousel-parts.jpg",
+  "id-ewater-reel-poster": "/images/industrial-design/smartflow-reel-poster.jpg",
+  "id-ewater-carousel-hero": "/images/industrial-design/ewater-carousel-hero.jpg",
+  "id-ewater-carousel-prototype": "/images/industrial-design/ewater-carousel-prototype.jpg",
+  "id-ewater-carousel-app": "/images/industrial-design/ewater-carousel-app.jpg",
+  "id-ewater-carousel-engineering": "/images/industrial-design/ewater-carousel-engineering.jpg",
+  "id-ewater-carousel-internals": "/images/industrial-design/ewater-carousel-internals.jpg",
 };
 
 export function img(key: string): string {

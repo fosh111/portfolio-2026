@@ -265,6 +265,45 @@ export const INDUSTRIAL_DESIGN_PROJECTS: IndustrialDesignProject[] = [
     size: "featured",
     imageKey: "id-ewater-hero",
     secondaryImageKey: "id-ewater-app",
+    carousel: [
+      {
+        kind: "video",
+        id: "reel",
+        tabLabel: "SMARTFLOW™ REEL",
+        videoSrc: "/videos/smartflow-reel.mp4",
+        posterKey: "id-ewater-reel-poster",
+      },
+      {
+        kind: "image",
+        id: "hero",
+        tabLabel: "HERO RENDER",
+        imageKey: "id-ewater-carousel-hero",
+      },
+      {
+        kind: "image",
+        id: "prototype",
+        tabLabel: "PHYSICAL PROTOTYPE",
+        imageKey: "id-ewater-carousel-prototype",
+      },
+      {
+        kind: "image",
+        id: "app",
+        tabLabel: "COMPLIANCE APP",
+        imageKey: "id-ewater-carousel-app",
+      },
+      {
+        kind: "image",
+        id: "engineering",
+        tabLabel: "ENGINEERING",
+        imageKey: "id-ewater-carousel-engineering",
+      },
+      {
+        kind: "image",
+        id: "internals",
+        tabLabel: "INTERNALS & ASSEMBLY",
+        imageKey: "id-ewater-carousel-internals",
+      },
+    ],
   },
   {
     slug: "blueline-bubbler",
