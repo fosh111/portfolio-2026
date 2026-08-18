@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { Figure } from "@/components/Figure";
 import { CaseStudyMenu } from "@/components/CaseStudyMenu";
 import { ExperienceList } from "@/components/ExperienceList";
+import { EarlierExperience } from "@/components/EarlierExperience";
 import { SectionLabel, TertiaryLink } from "@/components/ui";
 import { LinkOutButton } from "@/components/LinkOutButton";
 import { ABOUT, SITE } from "@/lib/content";
@@ -52,6 +53,7 @@ export default function AboutPage() {
           <SectionLabel>Experience</SectionLabel>
           <div className="mt-6">
             <ExperienceList />
+            <EarlierExperience />
           </div>
         </Reveal>
       </Container>
