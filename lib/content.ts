@@ -114,6 +114,76 @@ export const EXPERIENCE: Experience[] = [
       "Designed B2B and B2C experiences serving Fortune 500 enterprise customers.",
     ],
   },
+  {
+    title: "Senior User Experience Designer",
+    company: "My Childe (Contract)",
+    period: "April 2021 – September 2021",
+    location: "Central Coast, NSW (On-site)",
+    summary:
+      "Led discovery and design for a sustainable baby product startup, from qualitative research through to conversion-focused ecommerce.",
+    points: [
+      "Ran qualitative discovery, user journey mapping and concept validation to shape the product proposition before build.",
+      "Established early design guidelines and component standards, and built A/B test-ready prototypes to lift shopping cart conversion.",
+    ],
+  },
+  {
+    title: "Academic Tutor, User Centred Design",
+    company: "UNSW (Contract)",
+    period: "June 2021 – August 2021",
+    location: "Sydney, NSW (On-site)",
+    summary:
+      "Supported curriculum delivery and mentored students in human centred and user centred design.",
+    points: [
+      "Guided students through real world design process, from problem framing to validation.",
+    ],
+  },
+  {
+    title: "Principal Designer, Digital & Physical Systems",
+    company: "Rolacase & Rolashelf",
+    period: "July 2019 – April 2021",
+    location: "Central Coast, NSW",
+    summary:
+      "Owned design across a vehicle and workplace storage product range and the digital tools customers used to configure it. One brief spanning manufacturing constraint and interface design.",
+    points: [
+      "Integrated human centred design frameworks across both the physical range and the digital configuration tools, so what customers specified on screen was what the factory could build.",
+      "Led design sprints and cross functional workshops to test product direction before tooling commitment.",
+      "Produced high fidelity prototypes and wireframes for future CX product innovations.",
+    ],
+  },
+  {
+    title: "Product Designer, Hardware & Software",
+    company: "Miller Camera Support",
+    period: "September 2018 – July 2019",
+    location: "Sydney, NSW",
+    summary:
+      "Designed across both of Miller's product lines: professional camera support systems and the software that operates them, for broadcast and production clients including Foxtel.",
+    points: [
+      "Ran field research with professional camera operators to establish what was required to operate camera support systems remotely, observing specialists working under time pressure in live production.",
+      "Translated observed operator behaviour into requirements for both the hardware and its control software.",
+      "Carried concepts from research and prototyping through to production hardware and shipped software.",
+    ],
+  },
+  {
+    title: "Senior Designer, Hardware and Software, Research & Development",
+    company: "Enware Australia",
+    period: "July 2013 – September 2018",
+    location: "Greater Sydney",
+    summary:
+      "Five years in the R&D team at Australia's leading commercial tapware and water management manufacturer, designing products for healthcare, education and industrial workplaces to Australian safety and compliance standards, distributed internationally.",
+    points: [
+      "Designed the ET1400 Emergency Tank Shower, workplace safety equipment built for remote sites where access to water is limited. Safety was the design brief, not a constraint on it.",
+      "Contributed to Desert Rose, a dementia friendly house developed with the University of Wollongong and UOW Dubai. Designing for cognitive impairment taught me more about inclusive design than any accessibility standard has since.",
+      "Designed three products that went on to win Good Design Australia Awards: Clean Hands (Gold, Design Research, from clinical infection control research), Blue Line Bubblers (Gold, Product Design) and The Custodian.",
+      "Ran contextual research, persona development and journey mapping, then carried concepts through prototyping, testing, manufacturing and commercialisation.",
+      "Presented design rationale and commercial cases to executives to justify feasibility and demonstrate added value against the target demographic.",
+    ],
+  },
+];
+
+export const EARLIER_EXPERIENCE: string[] = [
+  "Industrial Designer, FSE Special Purpose Doors (contract), 2014. CAD redesign of assembly and installation documentation.",
+  "Graphic Designer, GPO Sydney, 2013. Print and digital for a South East Asian and Australian hospitality group, working directly with the marketing director.",
+  "Assistant Design Executive, Rachael Ruddick, 2012 to 2013. Accessory design, visual merchandising and ecommerce for an international fashion label.",
 ];
 
 export type CaseStudySummary = {
