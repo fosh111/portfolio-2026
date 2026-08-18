@@ -8,6 +8,11 @@ const LOGO_KEYS: Record<string, string> = {
   "Commonwealth Bank": "logo-cba",
   "Academy Xi (Contract)": "logo-academyxi",
   Forage: "logo-forage",
+  "My Childe (Contract)": "logo-mychilde",
+  "UNSW (Contract)": "logo-unsw",
+  "Rolacase & Rolashelf": "logo-rolacase",
+  "Miller Camera Support": "logo-miller",
+  "Enware Australia": "logo-enware",
 };
 
 function Row({ item }: { item: Experience }) {
