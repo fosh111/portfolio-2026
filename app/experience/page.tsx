@@ -2,6 +2,7 @@ import { PageChrome } from "@/components/PageChrome";
 import { Reveal } from "@/components/Reveal";
 import { Container } from "@/components/Container";
 import { ExperienceList } from "@/components/ExperienceList";
+import { EarlierExperience } from "@/components/EarlierExperience";
 import { SITE, EXPERIENCE_INTRO } from "@/lib/content";
 import { LinkOutButton } from "@/components/LinkOutButton";
 import { TertiaryLink } from "@/components/ui";
@@ -25,6 +26,7 @@ export default function ExperiencePage() {
 
         <Reveal className="mt-14">
           <ExperienceList />
+          <EarlierExperience />
         </Reveal>
 
         <Reveal className="mt-12 flex flex-col items-center gap-8">
