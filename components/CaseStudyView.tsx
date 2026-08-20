@@ -122,16 +122,6 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
             </div>
           </div>
         </Reveal>
-
-        <Reveal className="mt-12">
-          <TellMeMore>
-            {study.expanded ? (
-              <CaseStudyExpandedContent detail={study.expanded} />
-            ) : (
-              <p className="mx-auto max-w-[900px] px-2">{study.processNote}</p>
-            )}
-          </TellMeMore>
-        </Reveal>
       </Container>
 
       {/* Design process */}
@@ -172,6 +162,19 @@ export function CaseStudyView({ study }: { study: CaseStudyDetail }) {
               ))}
             </div>
           </div>
+        </Reveal>
+      </Container>
+
+      {/* Tell me more */}
+      <Container width="study" className="mt-16">
+        <Reveal>
+          <TellMeMore>
+            {study.expanded ? (
+              <CaseStudyExpandedContent detail={study.expanded} />
+            ) : (
+              <p className="mx-auto max-w-[900px] px-2">{study.processNote}</p>
+            )}
+          </TellMeMore>
         </Reveal>
       </Container>
 
