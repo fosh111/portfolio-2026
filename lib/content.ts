@@ -164,7 +164,7 @@ export const EXPERIENCE: Experience[] = [
     ],
   },
   {
-    title: "Senior Designer, Hardware and Software, Research & Development",
+    title: "Product Designer, Hardware and Software, Research & Development",
     company: "Enware Australia",
     period: "July 2013 – September 2018",
     location: "Greater Sydney",
