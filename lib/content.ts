@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Jose R. Parra",
-  role: "Product and Industrial Designer",
+  role: "Portfolio",
   linkedin: "https://www.linkedin.com/in/fozsh",
   email: "josephparra.design@gmail.com",
   year: 2026,
