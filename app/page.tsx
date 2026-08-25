@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/content";
+import { SITE, WORKED_WITH } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { EnterGate } from "@/components/EnterGate";
 
@@ -29,6 +29,23 @@ export default function Home() {
             />
           </div>
           <EnterGate href="/about" />
+        </Reveal>
+
+        <Reveal className="mt-4 border-t border-line-soft pt-7">
+          <p className="eyebrow text-muted">worked with</p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-10 gap-y-4">
+            {WORKED_WITH.map((name) => (
+              <span
+                key={name}
+                className="font-mono text-[18px] text-ink/60 dark:text-ink/60"
+              >
+                {name}
+              </span>
+            ))}
+            <span className="font-mono text-[18px] text-ink/35 dark:text-ink/40">
+              + others
+            </span>
+          </div>
         </Reveal>
       </div>
     </main>
