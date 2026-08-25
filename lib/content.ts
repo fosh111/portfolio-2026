@@ -6,6 +6,18 @@ export const SITE = {
   year: 2026,
 };
 
+// Landing-page "worked with" wall. Plain text names rather than logo
+// images — cleaner on the minimal layout, and avoids the trademark /
+// implied-endorsement questions that real brand marks raise. The trailing
+// "+ others" is rendered as a dimmed final item by the landing page.
+export const WORKED_WITH = [
+  "CBA",
+  "Qantas",
+  "Forage",
+  "JP Morgan",
+  "EA",
+];
+
 export const NAV = [
   { label: "About", href: "/about", key: "about" },
   { label: "Case Studies", href: "/case-studies", key: "case-studies" },
