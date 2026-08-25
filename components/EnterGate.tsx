@@ -187,7 +187,7 @@ export function EnterGate({
         : "border-ink/10 shadow-[0_8px_24px_rgba(0,0,0,0.15)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.1)]";
 
   return (
-    <div className={`relative inline-block ${className}`}>
+    <div className={`relative flex w-[320px] max-w-full flex-col items-center ${className}`}>
       <div
         role={!expanded ? "button" : undefined}
         tabIndex={!expanded ? 0 : undefined}
