@@ -36,12 +36,12 @@ export const NAV = [
 export type NavKey = (typeof NAV)[number]["key"];
 
 export const ABOUT = {
-  lead: "Product designer with 13 years across digital and physical systems. Much of it on regulated, legacy heavy platforms at Commonwealth Bank and Qantas, where the interesting problem is never the interface alone but the compliance rule, the twenty year old backend, and the person who just needs to get through it. At the other end of the range: founding designer at two startups, most recently designing AI native features that turn generative output into something people can read, trust and act on.",
+  lead: "Product designer with 13 years of experience spanning digital and physical systems. My work ranges from modernizing mission-critical, highly regulated platforms at Commonwealth Bank and Qantas, unraveling 20-year-old backends, strict compliance and tech constraints to deliver clean user experiences, to serving as a founding designer at two startups, most recently shaping AI-native features that make generative outputs clear, trustworthy, and actionable.",
   sub: "Industrial designer by training, with three Good Design® Australia Awards for products that reached market. Comfortable at strategy and on tools, and used to holding a user experience focus and an organisational risk view at the same time.",
 };
 
 export const EXPERIENCE_INTRO =
-  "Senior Product Designer bridging the gap between tier-one enterprise scale and startup velocity. I modernise legacy debt into high-converting engines for giants like Qantas and CBA, build platforms from scratch at AI startup Convoke Lab, and design for Fortune 500 companies at YC-backed Forage.";
+  "Senior Product Designer bridging the gap between tier-one enterprise scale and startup velocity. I modernise legacy debt into high-converting engines for giants like Qantas and Commonwealth Bank, build platforms from scratch at AI startup Convoke Lab, and design for Fortune 500 companies at YC-backed Forage.";
 
 export type Experience = {
   title: string;
