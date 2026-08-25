@@ -11,8 +11,11 @@ export const SITE = {
 // implied-endorsement questions that real brand marks raise. The trailing
 // "+ others" is rendered as a dimmed final item by the landing page.
 export const WORKED_WITH = [
-  "CBA",
   "Qantas",
+  "Commonwealth Bank",
+  "Enware",
+  "NSW Health",
+  "UNSW",
   "Forage",
   "JP Morgan",
   "EA",
