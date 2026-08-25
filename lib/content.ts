@@ -36,7 +36,7 @@ export const NAV = [
 export type NavKey = (typeof NAV)[number]["key"];
 
 export const ABOUT = {
-  lead: "Product designer with 13 years of experience spanning digital and physical systems. My work ranges from modernizing mission-critical, highly regulated platforms at Commonwealth Bank and Qantas, unraveling 20-year-old backends, strict compliance and tech constraints to deliver clean user experiences, to serving as a founding designer at two startups, most recently shaping AI-native features that make generative outputs clear, trustworthy, and actionable.",
+  lead: "Product designer with 13 years of experience spanning digital and physical systems. My work ranges from modernizing mission-critical, highly regulated platforms at Commonwealth Bank and Qantas by unraveling 20-year-old backends, strict compliance, and technical constraints to deliver clean user experiences, to serving as a founding designer at two startups, most recently shaping AI-native features that make generative outputs clear, trustworthy, and actionable.",
   sub: "Industrial designer by training, with three Good Design® Australia Awards for products that reached market. Comfortable at strategy and on tools, and used to holding a user experience focus and an organisational risk view at the same time.",
 };
 
