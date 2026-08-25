@@ -9,6 +9,7 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 import { sendGAEvent } from "@next/third-parties/google";
+import { SITE } from "@/lib/content";
 
 // Client-side-only soft gate -- the password ships in the JS bundle either
 // way, same as any front-end check. This is a fun barrier, not real
@@ -73,6 +74,32 @@ function InfoIcon({ className = "" }: { className?: string }) {
       <circle cx="12" cy="12" r="9.5" stroke="currentColor" strokeWidth="2.2" />
       <circle cx="12" cy="7.7" r="1.05" fill="currentColor" />
       <rect x="11" y="10.6" width="2" height="6" rx="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+function MailIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M4.98 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.65 4.76 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9z" />
     </svg>
   );
 }
@@ -241,6 +268,37 @@ export function EnterGate({
         {status === "error" && "Incorrect password — try again"}
         {status === "success" && "✓ Correct — entering..."}
       </p>
+
+      {!unlocked && (
+        <div className="mt-[52px] flex max-w-[240px] flex-col">
+          <p className="text-[12px] font-light leading-[14px] text-muted">
+            This portfolio is password protected to keep my work from being
+            impersonated and some projects I&apos;m working on can&apos;t be
+            fully shared publicly just yet.
+          </p>
+          <p className="mt-[22px] font-serif text-[15px] italic text-muted-soft">
+            want to get in touch?
+          </p>
+          <div className="mt-2.5 flex gap-2">
+            <a
+              href={`mailto:${SITE.email}`}
+              className="inline-flex h-10 items-center gap-[7px] rounded-full px-4 font-mono text-[14px] font-light text-ink transition-all duration-200 hover:bg-ink/[0.06] hover:font-normal"
+            >
+              <MailIcon className="size-4" />
+              Email
+            </a>
+            <a
+              href={SITE.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 items-center gap-[7px] rounded-full px-4 font-mono text-[14px] font-light text-ink transition-all duration-200 hover:bg-ink/[0.06] hover:font-normal"
+            >
+              <LinkedInIcon className="size-4" />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
