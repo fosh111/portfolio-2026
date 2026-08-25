@@ -33,7 +33,7 @@ export default function Home() {
 
         <Reveal className="mt-4 border-t border-line-soft pt-7">
           <p className="eyebrow text-muted">worked with</p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2.5 sm:gap-x-10 sm:gap-y-4">
             {WORKED_WITH.map((name) => (
               <span
                 key={name}
