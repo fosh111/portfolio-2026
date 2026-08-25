@@ -270,13 +270,13 @@ export function EnterGate({
       </p>
 
       {!unlocked && (
-        <div className="mt-[52px] flex max-w-[240px] flex-col">
-          <p className="text-[12px] font-light leading-[14px] text-muted">
+        <div className="mt-[52px] flex w-[240px] max-w-full flex-col items-center">
+          <p className="w-full text-left text-[12px] font-light leading-[14px] text-muted">
             This portfolio is password protected to keep my work from being
             impersonated and some projects I&apos;m working on can&apos;t be
             fully shared publicly just yet.
           </p>
-          <p className="mt-[22px] font-serif text-[15px] italic text-muted-soft">
+          <p className="mt-[22px] text-center font-serif text-[15px] italic text-muted-soft">
             want to get in touch?
           </p>
           <div className="mt-2.5 flex gap-2">
