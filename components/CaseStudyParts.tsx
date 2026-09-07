@@ -315,7 +315,7 @@ export function QantasCarousel() {
                       loop
                       playsInline
                       aria-hidden="true"
-                      className="h-full w-full object-contain blur-[5px]"
+                      className="h-full w-full object-contain"
                     />
                   ) : (
                     // eslint-disable-next-line @next/next/no-img-element
