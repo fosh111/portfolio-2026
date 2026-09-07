@@ -339,7 +339,7 @@ export function QantasCarousel() {
                 src={img(slide.posterKey)}
                 alt=""
                 aria-hidden="true"
-                className="h-full w-full scale-105 object-cover blur-[5px]"
+                className="h-full w-full object-cover"
               />
               <div
                 className="absolute flex w-[45%] flex-col items-start gap-1 text-left sm:w-[34%] md:w-[27.86%]"
