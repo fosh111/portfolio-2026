@@ -1232,8 +1232,8 @@ export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
     id: "sneak-peak",
     tabLabel: "PHASE 2 | UI SNEAK PEAK",
     posterKey: "carousel-qantas-sneak-peak",
-    captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
-    captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+    captionTitle: "Final UI to be released",
+    captionSubtitle: "In late 2026",
     layout: "overlay",
   },
 ];
