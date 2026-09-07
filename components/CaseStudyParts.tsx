@@ -181,7 +181,7 @@ export function ConvokelabProcessCarousel({
             Pilot <span className="italic text-muted">Testing</span>
           </p>
           <p className="max-w-[420px] text-[15px] leading-[1.5] text-ink sm:text-[16px]">
-            Happy to share the full designs during an interview.
+            Happy to share the designs during an interview.
           </p>
         </div>
 
