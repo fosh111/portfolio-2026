@@ -1083,8 +1083,8 @@ export const QANTAS_CAROUSEL: QantasCarouselSlide[] = [
     tabLabel: "NEW UI TEASER VIDEO",
     posterKey: "carousel-qantas-new-ui",
     videoSrc: "/videos/qantas-new-ui.mp4",
-    captionTitle: "THIS PROJECT NEW UI (PHASE 2) WILL BE RELEASED IN NOV 2026",
-    captionSubtitle: "UNFORTUNATELY I CAN'T SHARE THE LATEST UI",
+    captionTitle: "Final UI to be released",
+    captionSubtitle: "In late 2026",
     layout: "split",
   },
   {
