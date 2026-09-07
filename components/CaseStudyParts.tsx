@@ -175,10 +175,13 @@ export function ConvokelabProcessCarousel({
           )}
         </div>
 
-        {/* Coming soon overlay */}
-        <div className="absolute inset-0 flex items-center justify-center px-6">
+        {/* Pilot Testing overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
           <p className="font-display text-[44px] leading-none text-ink sm:text-[72px]">
-            Coming <span className="italic text-muted">soon</span>
+            Pilot <span className="italic text-muted">Testing</span>
+          </p>
+          <p className="max-w-[420px] text-[15px] leading-[1.5] text-ink sm:text-[16px]">
+            Happy to share the full designs during an interview.
           </p>
         </div>
 
